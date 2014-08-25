@@ -27,6 +27,7 @@
 		2CDD5BE819ABBD2F00E3B8FF /* AddPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDD5BE719ABBD2F00E3B8FF /* AddPostViewController.m */; };
 		2CDD5BEA19ABBD8800E3B8FF /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CDD5BE919ABBD8800E3B8FF /* MapKit.framework */; };
 		2CDD5BEC19ABBD8E00E3B8FF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CDD5BEB19ABBD8E00E3B8FF /* CoreLocation.framework */; };
+		2CDD5BEF19ABC2B900E3B8FF /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDD5BEE19ABC2B900E3B8FF /* TabBarController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,8 @@
 		2CDD5BE719ABBD2F00E3B8FF /* AddPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPostViewController.m; sourceTree = "<group>"; };
 		2CDD5BE919ABBD8800E3B8FF /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		2CDD5BEB19ABBD8E00E3B8FF /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		2CDD5BED19ABC2B900E3B8FF /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
+		2CDD5BEE19ABC2B900E3B8FF /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +145,8 @@
 				2CDD5BB019AB952900E3B8FF /* Images.xcassets */,
 				2CDD5BCD19AB953A00E3B8FF /* Main.storyboard */,
 				2CDD5BA519AB952900E3B8FF /* Supporting Files */,
+				2CDD5BED19ABC2B900E3B8FF /* TabBarController.h */,
+				2CDD5BEE19ABC2B900E3B8FF /* TabBarController.m */,
 			);
 			path = AdoptAFriend;
 			sourceTree = "<group>";
@@ -329,6 +334,7 @@
 				2CDD5BDE19AB9CE100E3B8FF /* TPKeyboardAvoidingScrollView.m in Sources */,
 				2CDD5BE019AB9CE100E3B8FF /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				2CDD5BDF19AB9CE100E3B8FF /* TPKeyboardAvoidingTableView.m in Sources */,
+				2CDD5BEF19ABC2B900E3B8FF /* TabBarController.m in Sources */,
 				2CDD5BDD19AB9CE100E3B8FF /* TPKeyboardAvoidingCollectionView.m in Sources */,
 				2CDD5BAB19AB952900E3B8FF /* main.m in Sources */,
 			);

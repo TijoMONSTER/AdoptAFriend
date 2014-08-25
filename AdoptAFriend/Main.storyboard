@@ -7,7 +7,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="hpn-2O-APP">
             <objects>
-                <tabBarController definesPresentationContext="YES" id="8Ts-kX-5S5" sceneMemberID="viewController">
+                <tabBarController definesPresentationContext="YES" id="8Ts-kX-5S5" customClass="TabBarController" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="LLv-BB-BDx">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
@@ -15,11 +15,11 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="5ie-2x-YL4" kind="modal" identifier="showLoginOptionScreenSegue" id="6zz-Bw-ZAs"/>
                         <segue destination="I77-Ok-g3d" kind="relationship" relationship="viewControllers" id="OuD-wf-ZhO"/>
                         <segue destination="pbv-4e-NLx" kind="relationship" relationship="viewControllers" id="s02-nd-Fct"/>
                         <segue destination="ohK-ov-FgJ" kind="relationship" relationship="viewControllers" id="tG1-PH-m2d"/>
                         <segue destination="PLR-zf-TEl" kind="relationship" relationship="viewControllers" id="eQ9-ar-Ydw"/>
+                        <segue destination="5ie-2x-YL4" kind="modal" identifier="showLoginOptionScreenSegue" id="gaP-ib-fIY"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Njl-mF-xa7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -35,7 +35,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="100" id="RMd-u0-2zd">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="100" id="RMd-u0-2zd">
                                 <rect key="frame" x="0.0" y="86" width="320" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RMd-u0-2zd" id="99S-be-FGV">
@@ -450,7 +450,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Djh-My-5tl">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="done" id="nZL-eo-hJj"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="nZL-eo-hJj"/>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qNk-dr-aC6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -621,7 +621,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="5c3-Gh-s0o"/>
         <segue reference="031-oo-hos"/>
+        <segue reference="Jif-Ng-dCe"/>
     </inferredMetricsTieBreakers>
 </document>
