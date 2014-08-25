@@ -26,23 +26,23 @@
             </objects>
             <point key="canvasLocation" x="105" y="-16"/>
         </scene>
-        <!--Table View Controller - Feed-->
+        <!--Feed View Controller - Feed-->
         <scene sceneID="obh-Bw-Dwn">
             <objects>
-                <tableViewController id="L85-Dd-1XF" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="uQr-Ux-jB4">
+                <tableViewController id="L85-Dd-1XF" customClass="FeedViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="uQr-Ux-jB4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="100" id="RMd-u0-2zd">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="100" id="RMd-u0-2zd" customClass="FeedTableViewCell">
                                 <rect key="frame" x="0.0" y="86" width="320" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RMd-u0-2zd" id="99S-be-FGV">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="99"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cHV-0d-syF">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="dog-256" translatesAutoresizingMaskIntoConstraints="NO" id="cHV-0d-syF">
                                             <rect key="frame" x="5" y="5" width="90" height="90"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </imageView>
@@ -61,7 +61,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="wux-b2-hfV" kind="push" identifier="showPostScreenSegue" id="031-oo-hos"/>
+                                    <segue destination="wux-b2-hfV" kind="push" identifier="showPostDetailsScreenSegue" id="031-oo-hos"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -487,7 +487,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Map" id="3D7-sn-oMn"/>
                     <connections>
-                        <segue destination="wux-b2-hfV" kind="push" identifier="showPostScreenSegue" id="Wv6-i1-tW7"/>
+                        <segue destination="wux-b2-hfV" kind="push" identifier="showPostDetailsScreenSegue" id="Wv6-i1-tW7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kgq-QS-nbz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -624,6 +624,9 @@
             <point key="canvasLocation" x="1139" y="1817"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="dog-256" width="128" height="128"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
