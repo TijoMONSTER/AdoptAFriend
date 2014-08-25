@@ -213,6 +213,8 @@
 		2CDD5BE319ABBCBB00E3B8FF /* Add Post */ = {
 			isa = PBXGroup;
 			children = (
+				2CDD5BE619ABBD2F00E3B8FF /* AddPostViewController.h */,
+				2CDD5BE719ABBD2F00E3B8FF /* AddPostViewController.m */,
 			);
 			name = "Add Post";
 			sourceTree = "<group>";
@@ -227,8 +229,6 @@
 		2CDD5BE519ABBCD900E3B8FF /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				2CDD5BE619ABBD2F00E3B8FF /* AddPostViewController.h */,
-				2CDD5BE719ABBD2F00E3B8FF /* AddPostViewController.m */,
 			);
 			name = Login;
 			sourceTree = "<group>";
