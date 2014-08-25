@@ -9,7 +9,7 @@
 #import "AddPostViewController.h"
 #import <MapKit/MapKit.h>
 
-@interface AddPostViewController ()
+@interface AddPostViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UIButton *firstImageButton;
