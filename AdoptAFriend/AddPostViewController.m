@@ -17,10 +17,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *thirdImageButton;
 @property (weak, nonatomic) IBOutlet UITextView *descriptionTextView;
 
-
-
-
-
 @end
 
 @implementation AddPostViewController
@@ -38,4 +34,10 @@
 {
 
 }
+
+- (IBAction)onImageButtonTapped:(UIButton *)sender
+{
+	
+}
+
 @end
