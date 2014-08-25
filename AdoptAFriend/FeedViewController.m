@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 Iván Mervich - Efrén Reyes. All rights reserved.
 //
 
-#import "MainViewController.h"
+#import "FeedViewController.h"
 
-@interface MainViewController ()
+@interface FeedViewController ()
 
 @end
 
-@implementation MainViewController
+@implementation FeedViewController
 
 - (void)viewDidLoad
 {
