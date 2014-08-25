@@ -25,6 +25,9 @@
 		2CDD5BDE19AB9CE100E3B8FF /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDD5BD819AB9CE100E3B8FF /* TPKeyboardAvoidingScrollView.m */; };
 		2CDD5BDF19AB9CE100E3B8FF /* TPKeyboardAvoidingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDD5BDA19AB9CE100E3B8FF /* TPKeyboardAvoidingTableView.m */; };
 		2CDD5BE019AB9CE100E3B8FF /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDD5BDC19AB9CE100E3B8FF /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
+		2CDD5BE819ABBD2F00E3B8FF /* AddPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDD5BE719ABBD2F00E3B8FF /* AddPostViewController.m */; };
+		2CDD5BEA19ABBD8800E3B8FF /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CDD5BE919ABBD8800E3B8FF /* MapKit.framework */; };
+		2CDD5BEC19ABBD8E00E3B8FF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CDD5BEB19ABBD8E00E3B8FF /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +68,10 @@
 		2CDD5BDA19AB9CE100E3B8FF /* TPKeyboardAvoidingTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingTableView.m; sourceTree = "<group>"; };
 		2CDD5BDB19AB9CE100E3B8FF /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
 		2CDD5BDC19AB9CE100E3B8FF /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
+		2CDD5BE619ABBD2F00E3B8FF /* AddPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPostViewController.h; sourceTree = "<group>"; };
+		2CDD5BE719ABBD2F00E3B8FF /* AddPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPostViewController.m; sourceTree = "<group>"; };
+		2CDD5BE919ABBD8800E3B8FF /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		2CDD5BEB19ABBD8E00E3B8FF /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +79,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CDD5BEC19ABBD8E00E3B8FF /* CoreLocation.framework in Frameworks */,
+				2CDD5BEA19ABBD8800E3B8FF /* MapKit.framework in Frameworks */,
 				2CDD5BA119AB952900E3B8FF /* CoreGraphics.framework in Frameworks */,
 				2CDD5BA319AB952900E3B8FF /* UIKit.framework in Frameworks */,
 				2CDD5B9F19AB952900E3B8FF /* Foundation.framework in Frameworks */,
@@ -113,6 +122,8 @@
 		2CDD5B9D19AB952900E3B8FF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2CDD5BEB19ABBD8E00E3B8FF /* CoreLocation.framework */,
+				2CDD5BE919ABBD8800E3B8FF /* MapKit.framework */,
 				2CDD5B9E19AB952900E3B8FF /* Foundation.framework */,
 				2CDD5BA019AB952900E3B8FF /* CoreGraphics.framework */,
 				2CDD5BA219AB952900E3B8FF /* UIKit.framework */,
@@ -124,6 +135,11 @@
 		2CDD5BA419AB952900E3B8FF /* AdoptAFriend */ = {
 			isa = PBXGroup;
 			children = (
+				2CDD5BE119ABBC9F00E3B8FF /* Feed */,
+				2CDD5BE219ABBCAE00E3B8FF /* Map */,
+				2CDD5BE319ABBCBB00E3B8FF /* Add Post */,
+				2CDD5BE419ABBCCE00E3B8FF /* My posts */,
+				2CDD5BE519ABBCD900E3B8FF /* Login */,
 				2CDD5BCF19AB95B800E3B8FF /* FeedViewController.h */,
 				2CDD5BD019AB95B800E3B8FF /* FeedViewController.m */,
 				2CDD5BAD19AB952900E3B8FF /* AppDelegate.h */,
@@ -178,6 +194,43 @@
 				2CDD5BDC19AB9CE100E3B8FF /* UIScrollView+TPKeyboardAvoidingAdditions.m */,
 			);
 			path = TPKeyboardAvoiding;
+			sourceTree = "<group>";
+		};
+		2CDD5BE119ABBC9F00E3B8FF /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Feed;
+			sourceTree = "<group>";
+		};
+		2CDD5BE219ABBCAE00E3B8FF /* Map */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Map;
+			sourceTree = "<group>";
+		};
+		2CDD5BE319ABBCBB00E3B8FF /* Add Post */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Add Post";
+			sourceTree = "<group>";
+		};
+		2CDD5BE419ABBCCE00E3B8FF /* My posts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "My posts";
+			sourceTree = "<group>";
+		};
+		2CDD5BE519ABBCD900E3B8FF /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				2CDD5BE619ABBD2F00E3B8FF /* AddPostViewController.h */,
+				2CDD5BE719ABBD2F00E3B8FF /* AddPostViewController.m */,
+			);
+			name = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,6 +329,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CDD5BE819ABBD2F00E3B8FF /* AddPostViewController.m in Sources */,
 				2CDD5BAF19AB952900E3B8FF /* AppDelegate.m in Sources */,
 				2CDD5BDE19AB9CE100E3B8FF /* TPKeyboardAvoidingScrollView.m in Sources */,
 				2CDD5BD119AB95B800E3B8FF /* FeedViewController.m in Sources */,
@@ -479,6 +533,7 @@
 				2CDD5BC919AB952900E3B8FF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2CDD5BCA19AB952900E3B8FF /* Build configuration list for PBXNativeTarget "AdoptAFriendTests" */ = {
 			isa = XCConfigurationList;
@@ -487,6 +542,7 @@
 				2CDD5BCC19AB952900E3B8FF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
