@@ -19,6 +19,8 @@
 		2CDD5BBA19AB952900E3B8FF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CDD5BA219AB952900E3B8FF /* UIKit.framework */; };
 		2CDD5BC219AB952900E3B8FF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2CDD5BC019AB952900E3B8FF /* InfoPlist.strings */; };
 		2CDD5BC419AB952900E3B8FF /* AdoptAFriendTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDD5BC319AB952900E3B8FF /* AdoptAFriendTests.m */; };
+		2CDD5BCE19AB953A00E3B8FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CDD5BCD19AB953A00E3B8FF /* Main.storyboard */; };
+		2CDD5BD119AB95B800E3B8FF /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDD5BD019AB95B800E3B8FF /* MainViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,9 @@
 		2CDD5BBF19AB952900E3B8FF /* AdoptAFriendTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AdoptAFriendTests-Info.plist"; sourceTree = "<group>"; };
 		2CDD5BC119AB952900E3B8FF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2CDD5BC319AB952900E3B8FF /* AdoptAFriendTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdoptAFriendTests.m; sourceTree = "<group>"; };
+		2CDD5BCD19AB953A00E3B8FF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		2CDD5BCF19AB95B800E3B8FF /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		2CDD5BD019AB95B800E3B8FF /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,9 +112,12 @@
 		2CDD5BA419AB952900E3B8FF /* AdoptAFriend */ = {
 			isa = PBXGroup;
 			children = (
+				2CDD5BCF19AB95B800E3B8FF /* MainViewController.h */,
+				2CDD5BD019AB95B800E3B8FF /* MainViewController.m */,
 				2CDD5BAD19AB952900E3B8FF /* AppDelegate.h */,
 				2CDD5BAE19AB952900E3B8FF /* AppDelegate.m */,
 				2CDD5BB019AB952900E3B8FF /* Images.xcassets */,
+				2CDD5BCD19AB953A00E3B8FF /* Main.storyboard */,
 				2CDD5BA519AB952900E3B8FF /* Supporting Files */,
 			);
 			path = AdoptAFriend;
@@ -219,6 +227,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CDD5BCE19AB953A00E3B8FF /* Main.storyboard in Resources */,
 				2CDD5BA919AB952900E3B8FF /* InfoPlist.strings in Resources */,
 				2CDD5BB119AB952900E3B8FF /* Images.xcassets in Resources */,
 			);
@@ -240,6 +249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CDD5BAF19AB952900E3B8FF /* AppDelegate.m in Sources */,
+				2CDD5BD119AB95B800E3B8FF /* MainViewController.m in Sources */,
 				2CDD5BAB19AB952900E3B8FF /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
