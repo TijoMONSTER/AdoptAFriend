@@ -14,6 +14,8 @@
 // show log in screen
 #define showLoginScreenSegue @"showLoginScreenSegue"
 
+#define reloadFeedData @"reloadFeedData"
+
 @interface LoginOptionsSelectionViewController ()
 
 @end
@@ -23,6 +25,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	NSLog(@"No user logged in");
 }
 
 #pragma mark - Navigation
@@ -42,8 +45,10 @@
 
 - (IBAction)unwindFromSignupScreen:(UIStoryboardSegue *)segue
 {
-	NSLog(@"unwind from signup screen");
-	// TODO: pop this view controller to show tab bar controller
+//	NSLog(@"unwind from signup screen");
+	NSLog(@"user signed up %@", [User currentUser]);
+	[[NSNotificationCenter defaultCenter] postNotificationName:reloadFeedData object:nil];
+	[self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)unwindFromLoginScreen:(UIStoryboardSegue *)segue

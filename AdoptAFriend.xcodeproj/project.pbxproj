@@ -52,6 +52,7 @@
 		2CDD5C2F19AD2C0D00E3B8FF /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CDD5C2E19AD2C0D00E3B8FF /* FacebookSDK.framework */; };
 		2CDD5C3519AD2C4100E3B8FF /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CDD5C3419AD2C4100E3B8FF /* Parse.framework */; };
 		2CDD5C3719AD2CC400E3B8FF /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CDD5C1919AD2A8500E3B8FF /* libz.dylib */; };
+		2CDD5C3B19AD395700E3B8FF /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDD5C3A19AD395700E3B8FF /* User.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +132,8 @@
 		2CDD5C2B19AD2B0F00E3B8FF /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		2CDD5C2E19AD2C0D00E3B8FF /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		2CDD5C3419AD2C4100E3B8FF /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		2CDD5C3919AD395700E3B8FF /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		2CDD5C3A19AD395700E3B8FF /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +223,7 @@
 		2CDD5BA419AB952900E3B8FF /* AdoptAFriend */ = {
 			isa = PBXGroup;
 			children = (
+				2CDD5C3819AD346600E3B8FF /* Model */,
 				2CDD5BE119ABBC9F00E3B8FF /* Feed */,
 				2CDD5BE219ABBCAE00E3B8FF /* Map */,
 				2CDD5BE319ABBCBB00E3B8FF /* Add Post */,
@@ -340,6 +344,15 @@
 			name = Login;
 			sourceTree = "<group>";
 		};
+		2CDD5C3819AD346600E3B8FF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2CDD5C3919AD395700E3B8FF /* User.h */,
+				2CDD5C3A19AD395700E3B8FF /* User.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -436,6 +449,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CDD5C3B19AD395700E3B8FF /* User.m in Sources */,
 				2CDD5BE819ABBD2F00E3B8FF /* AddPostViewController.m in Sources */,
 				2CDD5BAF19AB952900E3B8FF /* AppDelegate.m in Sources */,
 				2CDD5BDE19AB9CE100E3B8FF /* TPKeyboardAvoidingScrollView.m in Sources */,
