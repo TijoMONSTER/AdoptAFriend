@@ -36,6 +36,7 @@
 		2CDD5C0719ACE6B900E3B8FF /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDD5C0619ACE6B900E3B8FF /* MapViewController.m */; };
 		2CDD5C0A19ACECCA00E3B8FF /* AddPostLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDD5C0919ACECCA00E3B8FF /* AddPostLocationViewController.m */; };
 		2CDD5C0D19ACFC2A00E3B8FF /* MyPostsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDD5C0C19ACFC2A00E3B8FF /* MyPostsViewController.m */; };
+		2CDD5C1019AD017200E3B8FF /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDD5C0F19AD017200E3B8FF /* SignupViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,8 @@
 		2CDD5C0919ACECCA00E3B8FF /* AddPostLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPostLocationViewController.m; sourceTree = "<group>"; };
 		2CDD5C0B19ACFC2A00E3B8FF /* MyPostsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPostsViewController.h; sourceTree = "<group>"; };
 		2CDD5C0C19ACFC2A00E3B8FF /* MyPostsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPostsViewController.m; sourceTree = "<group>"; };
+		2CDD5C0E19AD017200E3B8FF /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
+		2CDD5C0F19AD017200E3B8FF /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -269,6 +272,8 @@
 		2CDD5BE519ABBCD900E3B8FF /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				2CDD5C0E19AD017200E3B8FF /* SignupViewController.h */,
+				2CDD5C0F19AD017200E3B8FF /* SignupViewController.m */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -372,6 +377,7 @@
 				2CDD5BE819ABBD2F00E3B8FF /* AddPostViewController.m in Sources */,
 				2CDD5BAF19AB952900E3B8FF /* AppDelegate.m in Sources */,
 				2CDD5BDE19AB9CE100E3B8FF /* TPKeyboardAvoidingScrollView.m in Sources */,
+				2CDD5C1019AD017200E3B8FF /* SignupViewController.m in Sources */,
 				2CDD5BFB19ABEACF00E3B8FF /* PostDetailsViewController.m in Sources */,
 				2CDD5BE019AB9CE100E3B8FF /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				2CDD5BDF19AB9CE100E3B8FF /* TPKeyboardAvoidingTableView.m in Sources */,
