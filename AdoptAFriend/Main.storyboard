@@ -527,10 +527,10 @@
             </objects>
             <point key="canvasLocation" x="1561" y="1213"/>
         </scene>
-        <!--View Controller - Map-->
+        <!--Map View Controller - Map-->
         <scene sceneID="KK3-yP-Kj7">
             <objects>
-                <viewController id="QN1-3S-mBI" sceneMemberID="viewController">
+                <viewController id="QN1-3S-mBI" customClass="MapViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mgC-eU-WBf"/>
                         <viewControllerLayoutGuide type="bottom" id="Xpi-xH-YGU"/>
@@ -542,12 +542,16 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="3LU-s3-Be0">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="QN1-3S-mBI" id="k5H-eM-SAB"/>
+                                </connections>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Map" id="3D7-sn-oMn"/>
                     <connections>
+                        <outlet property="mapView" destination="3LU-s3-Be0" id="XFw-TX-06y"/>
                         <segue destination="wux-b2-hfV" kind="push" identifier="showPostDetailsScreenSegue" id="Wv6-i1-tW7"/>
                     </connections>
                 </viewController>
@@ -694,7 +698,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="031-oo-hos"/>
+        <segue reference="Wv6-i1-tW7"/>
         <segue reference="Jif-Ng-dCe"/>
     </inferredMetricsTieBreakers>
 </document>

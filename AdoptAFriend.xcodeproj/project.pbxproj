@@ -33,6 +33,7 @@
 		2CDD5BFB19ABEACF00E3B8FF /* PostDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDD5BFA19ABEACF00E3B8FF /* PostDetailsViewController.m */; };
 		2CDD5C0119ACDE7C00E3B8FF /* FullscreenImagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDD5C0019ACDE7C00E3B8FF /* FullscreenImagesViewController.m */; };
 		2CDD5C0419ACE0E800E3B8FF /* FullscreenImagesCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDD5C0319ACE0E800E3B8FF /* FullscreenImagesCollectionViewCell.m */; };
+		2CDD5C0719ACE6B900E3B8FF /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDD5C0619ACE6B900E3B8FF /* MapViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,8 @@
 		2CDD5C0019ACDE7C00E3B8FF /* FullscreenImagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullscreenImagesViewController.m; sourceTree = "<group>"; };
 		2CDD5C0219ACE0E800E3B8FF /* FullscreenImagesCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullscreenImagesCollectionViewCell.h; sourceTree = "<group>"; };
 		2CDD5C0319ACE0E800E3B8FF /* FullscreenImagesCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullscreenImagesCollectionViewCell.m; sourceTree = "<group>"; };
+		2CDD5C0519ACE6B900E3B8FF /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		2CDD5C0619ACE6B900E3B8FF /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +234,8 @@
 		2CDD5BE219ABBCAE00E3B8FF /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				2CDD5C0519ACE6B900E3B8FF /* MapViewController.h */,
+				2CDD5C0619ACE6B900E3B8FF /* MapViewController.m */,
 			);
 			name = Map;
 			sourceTree = "<group>";
@@ -367,6 +372,7 @@
 				2CDD5BF519ABE12B00E3B8FF /* FeedViewController.m in Sources */,
 				2CDD5C0119ACDE7C00E3B8FF /* FullscreenImagesViewController.m in Sources */,
 				2CDD5BAB19AB952900E3B8FF /* main.m in Sources */,
+				2CDD5C0719ACE6B900E3B8FF /* MapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
