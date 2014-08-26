@@ -8,6 +8,11 @@
 
 #import "AddPostViewController.h"
 #import <MapKit/MapKit.h>
+#import "AddPostLocationViewController.h"
+
+// Segues
+// show fullscreen map
+#define showMapScreenSegue @"showMapScreenSegue"
 
 @interface AddPostViewController ()
 
@@ -25,7 +30,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
 }
 
 #pragma mark - IBActions
@@ -37,7 +41,22 @@
 
 - (IBAction)onImageButtonTapped:(UIButton *)sender
 {
-	
+
+}
+
+- (IBAction)onPreviewMapTapped:(UITapGestureRecognizer *)sender
+{
+	[self performSegueWithIdentifier:showMapScreenSegue sender:nil];
+}
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+	if ([segue.identifier isEqualToString:showMapScreenSegue]) {
+		AddPostLocationViewController *addPostLocationVC = (AddPostLocationViewController *)segue.destinationViewController;
+		addPostLocationVC.hidesBottomBarWhenPushed = YES;
+	}
 }
 
 @end
