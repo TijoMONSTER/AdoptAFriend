@@ -8,6 +8,11 @@
 
 #import "AddPostViewController.h"
 #import <MapKit/MapKit.h>
+#import "AddPostLocationViewController.h"
+
+// Segues
+// show fullscreen map
+#define showMapScreenSegue @"showMapScreenSegue"
 
 #define TakePhotoButtonIndex 0
 #define ChoosePhotoButtonIndex 1
@@ -30,7 +35,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
 }
 
 #pragma mark - UIActionSheetDelegate
@@ -102,8 +106,7 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     [self dismissViewControllerAnimated:NO completion:nil];
-    self.tappedButton.titleLabel.text = @"";
-    [self.tappedButton setBackgroundImage:[info objectForKey:UIImagePickerControllerEditedImage] forState:UIControlStateNormal];
+    [self.tappedButton setImage:[info objectForKey:UIImagePickerControllerEditedImage] forState:UIControlStateNormal];
 }
 
 #pragma mark - IBActions
@@ -123,6 +126,22 @@
 													otherButtonTitles:@"Take Photo", @"Choose Photo", nil];
 //	[actionSheet showInView:self.tabBarController.view];
     [actionSheet showInView:self.view];
+
+}
+
+- (IBAction)onPreviewMapTapped:(UITapGestureRecognizer *)sender
+{
+	[self performSegueWithIdentifier:showMapScreenSegue sender:nil];
+}
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+	if ([segue.identifier isEqualToString:showMapScreenSegue]) {
+		AddPostLocationViewController *addPostLocationVC = (AddPostLocationViewController *)segue.destinationViewController;
+		addPostLocationVC.hidesBottomBarWhenPushed = YES;
+	}
 }
 
 @end

@@ -29,7 +29,7 @@
 	[super viewDidAppear:animated];
 
 	// if not logged in, perform segue
-//	[self performSegueWithIdentifier:showLoginOptionScreenSegue sender:self];
+	[self performSegueWithIdentifier:showLoginOptionScreenSegue sender:self];
 }
 
 @end
