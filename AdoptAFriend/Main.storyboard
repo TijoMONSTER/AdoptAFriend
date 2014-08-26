@@ -367,10 +367,10 @@
             </objects>
             <point key="canvasLocation" x="613" y="2580"/>
         </scene>
-        <!--View Controller - Log in-->
+        <!--Login View Controller - Log in-->
         <scene sceneID="Efd-EH-xrC">
             <objects>
-                <viewController id="leY-GE-nLL" sceneMemberID="viewController">
+                <viewController id="leY-GE-nLL" customClass="LoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="AMo-ov-HvI"/>
                         <viewControllerLayoutGuide type="bottom" id="LrJ-3y-bhJ"/>
@@ -401,6 +401,9 @@
                                         <state key="normal" title="Submit">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="onSubmitButtonTapped:" destination="leY-GE-nLL" eventType="touchUpInside" id="mod-qL-iT1"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </scrollView>
@@ -408,8 +411,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Log in" id="RAU-A6-6CZ"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="RQT-tl-vX8" id="nk7-6A-I2y"/>
+                        <outlet property="passwordTextField" destination="4WS-sG-Cam" id="RPR-4e-KmO"/>
+                        <segue destination="rTI-9Y-xxz" kind="unwind" identifier="unwindFromLoginScreen" unwindAction="unwindFromLoginScreen:" id="jQp-Mf-LyR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kXf-Ca-WAv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="rTI-9Y-xxz" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1649" y="2903"/>
         </scene>
