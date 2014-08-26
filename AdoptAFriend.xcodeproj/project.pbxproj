@@ -37,6 +37,7 @@
 		2CDD5C0A19ACECCA00E3B8FF /* AddPostLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDD5C0919ACECCA00E3B8FF /* AddPostLocationViewController.m */; };
 		2CDD5C0D19ACFC2A00E3B8FF /* MyPostsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDD5C0C19ACFC2A00E3B8FF /* MyPostsViewController.m */; };
 		2CDD5C1019AD017200E3B8FF /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDD5C0F19AD017200E3B8FF /* SignupViewController.m */; };
+		2CDD5C1319AD1E4900E3B8FF /* LoginOptionsSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDD5C1219AD1E4900E3B8FF /* LoginOptionsSelectionViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,8 @@
 		2CDD5C0C19ACFC2A00E3B8FF /* MyPostsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPostsViewController.m; sourceTree = "<group>"; };
 		2CDD5C0E19AD017200E3B8FF /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
 		2CDD5C0F19AD017200E3B8FF /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
+		2CDD5C1119AD1E4900E3B8FF /* LoginOptionsSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginOptionsSelectionViewController.h; sourceTree = "<group>"; };
+		2CDD5C1219AD1E4900E3B8FF /* LoginOptionsSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginOptionsSelectionViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -274,6 +277,8 @@
 			children = (
 				2CDD5C0E19AD017200E3B8FF /* SignupViewController.h */,
 				2CDD5C0F19AD017200E3B8FF /* SignupViewController.m */,
+				2CDD5C1119AD1E4900E3B8FF /* LoginOptionsSelectionViewController.h */,
+				2CDD5C1219AD1E4900E3B8FF /* LoginOptionsSelectionViewController.m */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -382,6 +387,7 @@
 				2CDD5BE019AB9CE100E3B8FF /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				2CDD5BDF19AB9CE100E3B8FF /* TPKeyboardAvoidingTableView.m in Sources */,
 				2CDD5BF819ABE1D100E3B8FF /* FeedTableViewCell.m in Sources */,
+				2CDD5C1319AD1E4900E3B8FF /* LoginOptionsSelectionViewController.m in Sources */,
 				2CDD5C0419ACE0E800E3B8FF /* FullscreenImagesCollectionViewCell.m in Sources */,
 				2CDD5BEF19ABC2B900E3B8FF /* TabBarController.m in Sources */,
 				2CDD5BDD19AB9CE100E3B8FF /* TPKeyboardAvoidingCollectionView.m in Sources */,

@@ -8,6 +8,10 @@
 
 #import "SignupViewController.h"
 
+// Segues
+// unwind to loginOptionsVC
+#define unwindFromSignupScreenSegue @"unwindFromSignupScreenSegue"
+
 @interface SignupViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
@@ -32,6 +36,7 @@
 {
 	NSLog(@"Sign up");
 	// unwind to loginOptionsVC ?
+	[self performSegueWithIdentifier:unwindFromSignupScreenSegue sender:nil];
 }
 
 @end

@@ -223,10 +223,10 @@
             </objects>
             <point key="canvasLocation" x="2065" y="259"/>
         </scene>
-        <!--View Controller - Adopt a Friend-->
+        <!--Login Options Selection View Controller - Adopt a Friend-->
         <scene sceneID="j6Q-SZ-zWw">
             <objects>
-                <viewController id="hla-h0-R45" sceneMemberID="viewController">
+                <viewController id="hla-h0-R45" customClass="LoginOptionsSelectionViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Zxs-W2-uxb"/>
                         <viewControllerLayoutGuide type="bottom" id="umu-e4-Q56"/>
@@ -341,9 +341,11 @@
                         <outlet property="lastNameTextField" destination="3PE-ck-DjA" id="kLy-gc-Gka"/>
                         <outlet property="nameTextField" destination="glu-18-3na" id="x70-th-vk4"/>
                         <outlet property="passwordTextField" destination="dyE-OD-VZl" id="CWP-KJ-gmD"/>
+                        <segue destination="cFU-RO-69E" kind="unwind" identifier="unwindFromSignupScreenSegue" unwindAction="unwindFromSignupScreen:" id="Nil-AB-wQ0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gf8-O5-EWz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="cFU-RO-69E" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1649" y="2256"/>
         </scene>
@@ -711,7 +713,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="5c3-Gh-s0o"/>
         <segue reference="031-oo-hos"/>
-        <segue reference="Jif-Ng-dCe"/>
     </inferredMetricsTieBreakers>
 </document>
