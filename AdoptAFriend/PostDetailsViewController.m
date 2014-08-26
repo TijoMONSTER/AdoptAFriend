@@ -8,6 +8,7 @@
 
 #import "PostDetailsViewController.h"
 #import <MapKit/MapKit.h>
+#import "FullscreenImagesViewController.h"
 
 // Segues
 // Show fullscreen images
@@ -61,6 +62,7 @@
 {
 	if ([segue.identifier isEqualToString:showFullscreenImagesSegue]) {
 		//TODO: send images to destinationVC
+//		FullscreenImagesViewController *fullscreenImagesVC = (FullscreenImagesViewController *)segue.destinationViewController;
 	}
 }
 

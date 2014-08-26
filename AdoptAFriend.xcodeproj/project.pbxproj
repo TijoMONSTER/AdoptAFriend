@@ -31,6 +31,8 @@
 		2CDD5BF519ABE12B00E3B8FF /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDD5BF419ABE12B00E3B8FF /* FeedViewController.m */; };
 		2CDD5BF819ABE1D100E3B8FF /* FeedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDD5BF719ABE1D100E3B8FF /* FeedTableViewCell.m */; };
 		2CDD5BFB19ABEACF00E3B8FF /* PostDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDD5BFA19ABEACF00E3B8FF /* PostDetailsViewController.m */; };
+		2CDD5C0119ACDE7C00E3B8FF /* FullscreenImagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDD5C0019ACDE7C00E3B8FF /* FullscreenImagesViewController.m */; };
+		2CDD5C0419ACE0E800E3B8FF /* FullscreenImagesCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDD5C0319ACE0E800E3B8FF /* FullscreenImagesCollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +83,10 @@
 		2CDD5BF719ABE1D100E3B8FF /* FeedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedTableViewCell.m; sourceTree = "<group>"; };
 		2CDD5BF919ABEACF00E3B8FF /* PostDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostDetailsViewController.h; sourceTree = "<group>"; };
 		2CDD5BFA19ABEACF00E3B8FF /* PostDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostDetailsViewController.m; sourceTree = "<group>"; };
+		2CDD5BFF19ACDE7C00E3B8FF /* FullscreenImagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullscreenImagesViewController.h; sourceTree = "<group>"; };
+		2CDD5C0019ACDE7C00E3B8FF /* FullscreenImagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullscreenImagesViewController.m; sourceTree = "<group>"; };
+		2CDD5C0219ACE0E800E3B8FF /* FullscreenImagesCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullscreenImagesCollectionViewCell.h; sourceTree = "<group>"; };
+		2CDD5C0319ACE0E800E3B8FF /* FullscreenImagesCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullscreenImagesCollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,6 +220,10 @@
 				2CDD5BF719ABE1D100E3B8FF /* FeedTableViewCell.m */,
 				2CDD5BF919ABEACF00E3B8FF /* PostDetailsViewController.h */,
 				2CDD5BFA19ABEACF00E3B8FF /* PostDetailsViewController.m */,
+				2CDD5BFF19ACDE7C00E3B8FF /* FullscreenImagesViewController.h */,
+				2CDD5C0019ACDE7C00E3B8FF /* FullscreenImagesViewController.m */,
+				2CDD5C0219ACE0E800E3B8FF /* FullscreenImagesCollectionViewCell.h */,
+				2CDD5C0319ACE0E800E3B8FF /* FullscreenImagesCollectionViewCell.m */,
 			);
 			name = Feed;
 			sourceTree = "<group>";
@@ -351,9 +361,11 @@
 				2CDD5BE019AB9CE100E3B8FF /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				2CDD5BDF19AB9CE100E3B8FF /* TPKeyboardAvoidingTableView.m in Sources */,
 				2CDD5BF819ABE1D100E3B8FF /* FeedTableViewCell.m in Sources */,
+				2CDD5C0419ACE0E800E3B8FF /* FullscreenImagesCollectionViewCell.m in Sources */,
 				2CDD5BEF19ABC2B900E3B8FF /* TabBarController.m in Sources */,
 				2CDD5BDD19AB9CE100E3B8FF /* TPKeyboardAvoidingCollectionView.m in Sources */,
 				2CDD5BF519ABE12B00E3B8FF /* FeedViewController.m in Sources */,
+				2CDD5C0119ACDE7C00E3B8FF /* FullscreenImagesViewController.m in Sources */,
 				2CDD5BAB19AB952900E3B8FF /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
