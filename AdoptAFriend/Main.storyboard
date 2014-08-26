@@ -637,23 +637,23 @@
             </objects>
             <point key="canvasLocation" x="613" y="1817"/>
         </scene>
-        <!--Table View Controller-->
+        <!--My Posts View Controller - My posts-->
         <scene sceneID="LjG-bd-SXZ">
             <objects>
-                <tableViewController id="8SA-8z-H6t" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="uFv-sk-GPw">
+                <tableViewController id="8SA-8z-H6t" customClass="MyPostsViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="uFv-sk-GPw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="100" id="SR2-35-LZw">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="100" id="SR2-35-LZw" customClass="FeedTableViewCell">
                                 <rect key="frame" x="0.0" y="86" width="320" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SR2-35-LZw" id="Nnq-wC-FWT">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="99"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6eC-j9-X8T">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="dog-256" translatesAutoresizingMaskIntoConstraints="NO" id="6eC-j9-X8T">
                                             <rect key="frame" x="5" y="5" width="90" height="90"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </imageView>
@@ -678,7 +678,7 @@
                             <outlet property="delegate" destination="8SA-8z-H6t" id="zBm-NY-P3V"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="qcZ-OD-vBm">
+                    <navigationItem key="navigationItem" title="My posts" id="qcZ-OD-vBm">
                         <barButtonItem key="rightBarButtonItem" title="My profile" id="rzG-v1-EMb">
                             <connections>
                                 <segue destination="0HG-Jh-lfl" kind="push" identifier="showModifyUserDataScreenSegue" id="Jif-Ng-dCe"/>
@@ -700,7 +700,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Wv6-i1-tW7"/>
+        <segue reference="031-oo-hos"/>
         <segue reference="Jif-Ng-dCe"/>
     </inferredMetricsTieBreakers>
 </document>

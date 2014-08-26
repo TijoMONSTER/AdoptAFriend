@@ -35,6 +35,7 @@
 		2CDD5C0419ACE0E800E3B8FF /* FullscreenImagesCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDD5C0319ACE0E800E3B8FF /* FullscreenImagesCollectionViewCell.m */; };
 		2CDD5C0719ACE6B900E3B8FF /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDD5C0619ACE6B900E3B8FF /* MapViewController.m */; };
 		2CDD5C0A19ACECCA00E3B8FF /* AddPostLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDD5C0919ACECCA00E3B8FF /* AddPostLocationViewController.m */; };
+		2CDD5C0D19ACFC2A00E3B8FF /* MyPostsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDD5C0C19ACFC2A00E3B8FF /* MyPostsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,8 @@
 		2CDD5C0619ACE6B900E3B8FF /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		2CDD5C0819ACECCA00E3B8FF /* AddPostLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPostLocationViewController.h; sourceTree = "<group>"; };
 		2CDD5C0919ACECCA00E3B8FF /* AddPostLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPostLocationViewController.m; sourceTree = "<group>"; };
+		2CDD5C0B19ACFC2A00E3B8FF /* MyPostsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPostsViewController.h; sourceTree = "<group>"; };
+		2CDD5C0C19ACFC2A00E3B8FF /* MyPostsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPostsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -257,6 +260,8 @@
 		2CDD5BE419ABBCCE00E3B8FF /* My posts */ = {
 			isa = PBXGroup;
 			children = (
+				2CDD5C0B19ACFC2A00E3B8FF /* MyPostsViewController.h */,
+				2CDD5C0C19ACFC2A00E3B8FF /* MyPostsViewController.m */,
 			);
 			name = "My posts";
 			sourceTree = "<group>";
@@ -377,6 +382,7 @@
 				2CDD5BF519ABE12B00E3B8FF /* FeedViewController.m in Sources */,
 				2CDD5C0A19ACECCA00E3B8FF /* AddPostLocationViewController.m in Sources */,
 				2CDD5C0119ACDE7C00E3B8FF /* FullscreenImagesViewController.m in Sources */,
+				2CDD5C0D19ACFC2A00E3B8FF /* MyPostsViewController.m in Sources */,
 				2CDD5BAB19AB952900E3B8FF /* main.m in Sources */,
 				2CDD5C0719ACE6B900E3B8FF /* MapViewController.m in Sources */,
 			);
