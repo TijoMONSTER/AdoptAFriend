@@ -14,7 +14,7 @@
 // Show fullscreen images
 #define showFullscreenImagesSegue @"showFullscreenImagesSegue"
 
-@interface PostDetailsViewController ()
+@interface PostDetailsViewController () <MKMapViewDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *previewMapView;
 @property (weak, nonatomic) IBOutlet MKMapView *fullscreenMapView;
@@ -36,6 +36,14 @@
 - (void)viewWillAppear:(BOOL)animated
 {
 	[super viewWillAppear:animated];
+}
+
+#pragma mark - MKMapView delegate
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
+{
+#warning Incomplete method implementation.
+	return nil;
 }
 
 #pragma mark - IBActions

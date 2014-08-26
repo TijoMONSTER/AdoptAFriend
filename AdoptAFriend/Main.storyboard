@@ -88,10 +88,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <mapView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="aB9-MZ-icb" userLabel="Fullscreen Map View">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            </mapView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" editable="NO" text="Description" translatesAutoresizingMaskIntoConstraints="NO" id="8bV-hN-1tm">
                                 <rect key="frame" x="20" y="301" width="280" height="110"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -105,17 +101,14 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <gestureRecognizers/>
                                 <connections>
+                                    <outlet property="delegate" destination="wux-b2-hfV" id="jwN-7L-XLG"/>
                                     <outletCollection property="gestureRecognizers" destination="KEe-C9-Gsb" appends="YES" id="DAQ-8g-qFq"/>
                                 </connections>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dxT-aV-gYE" userLabel="First image Button">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dxT-aV-gYE" userLabel="First image Button">
                                 <rect key="frame" x="20" y="64" width="90" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="90" id="FM6-IC-j9O"/>
-                                    <constraint firstAttribute="height" constant="90" id="Pec-tv-AEK"/>
-                                </constraints>
                                 <state key="normal" image="dog-256">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -123,14 +116,21 @@
                                     <action selector="onImageButtonTapped:" destination="wux-b2-hfV" eventType="touchUpInside" id="Job-GU-LtN"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KtD-Nq-kz2" userLabel="Third image Button">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0aL-dn-I3S" userLabel="Second image Button">
+                                <rect key="frame" x="115" y="64" width="90" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="dog-256">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onImageButtonTapped:" destination="wux-b2-hfV" eventType="touchUpInside" id="OBs-OF-2Sm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KtD-Nq-kz2" userLabel="Third image Button">
                                 <rect key="frame" x="210" y="64" width="90" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="90" id="kPi-Ja-5ig"/>
-                                    <constraint firstAttribute="height" constant="90" id="qaH-Vu-kiG"/>
-                                </constraints>
                                 <state key="normal" image="dog-256">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -148,32 +148,15 @@
                                     <action selector="onInterestedButtonTapped:" destination="wux-b2-hfV" eventType="touchUpInside" id="0NT-ah-Wb8"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0aL-dn-I3S" userLabel="Second image Button">
-                                <rect key="frame" x="115" y="64" width="90" height="90"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="90" id="d1y-hp-T06"/>
-                                    <constraint firstAttribute="width" constant="90" id="i7v-hh-DdG"/>
-                                </constraints>
-                                <state key="normal" image="dog-256">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
+                            <mapView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="aB9-MZ-icb" userLabel="Fullscreen Map View">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <connections>
-                                    <action selector="onImageButtonTapped:" destination="wux-b2-hfV" eventType="touchUpInside" id="OBs-OF-2Sm"/>
+                                    <outlet property="delegate" destination="wux-b2-hfV" id="rOL-tW-jZn"/>
                                 </connections>
-                            </button>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="KtD-Nq-kz2" secondAttribute="trailing" constant="20" id="2De-Ds-t4s"/>
-                            <constraint firstItem="dxT-aV-gYE" firstAttribute="top" secondItem="ENC-sA-PwL" secondAttribute="top" constant="64" id="5GJ-ZX-E6w"/>
-                            <constraint firstItem="KtD-Nq-kz2" firstAttribute="top" secondItem="ENC-sA-PwL" secondAttribute="top" constant="64" id="6WP-4I-meS"/>
-                            <constraint firstItem="dxT-aV-gYE" firstAttribute="leading" secondItem="ENC-sA-PwL" secondAttribute="leading" constant="20" id="KZ2-rU-UPN"/>
-                            <constraint firstItem="0aL-dn-I3S" firstAttribute="top" secondItem="fWT-Jo-8S1" secondAttribute="bottom" id="LMg-Jb-vaY"/>
-                            <constraint firstItem="KtD-Nq-kz2" firstAttribute="leading" secondItem="0aL-dn-I3S" secondAttribute="trailing" constant="5" id="fOJ-9r-oa6"/>
-                            <constraint firstItem="0aL-dn-I3S" firstAttribute="leading" secondItem="dxT-aV-gYE" secondAttribute="trailing" constant="5" id="tVY-53-aiE"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Post" id="pZ4-0D-xC9"/>
                     <connections>
