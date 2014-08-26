@@ -30,6 +30,7 @@
 		2CDD5BEF19ABC2B900E3B8FF /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDD5BEE19ABC2B900E3B8FF /* TabBarController.m */; };
 		2CDD5BF519ABE12B00E3B8FF /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDD5BF419ABE12B00E3B8FF /* FeedViewController.m */; };
 		2CDD5BF819ABE1D100E3B8FF /* FeedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDD5BF719ABE1D100E3B8FF /* FeedTableViewCell.m */; };
+		2CDD5BFB19ABEACF00E3B8FF /* PostDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDD5BFA19ABEACF00E3B8FF /* PostDetailsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,8 @@
 		2CDD5BF419ABE12B00E3B8FF /* FeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedViewController.m; sourceTree = "<group>"; };
 		2CDD5BF619ABE1D100E3B8FF /* FeedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedTableViewCell.h; sourceTree = "<group>"; };
 		2CDD5BF719ABE1D100E3B8FF /* FeedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedTableViewCell.m; sourceTree = "<group>"; };
+		2CDD5BF919ABEACF00E3B8FF /* PostDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostDetailsViewController.h; sourceTree = "<group>"; };
+		2CDD5BFA19ABEACF00E3B8FF /* PostDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostDetailsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +212,8 @@
 				2CDD5BF419ABE12B00E3B8FF /* FeedViewController.m */,
 				2CDD5BF619ABE1D100E3B8FF /* FeedTableViewCell.h */,
 				2CDD5BF719ABE1D100E3B8FF /* FeedTableViewCell.m */,
+				2CDD5BF919ABEACF00E3B8FF /* PostDetailsViewController.h */,
+				2CDD5BFA19ABEACF00E3B8FF /* PostDetailsViewController.m */,
 			);
 			name = Feed;
 			sourceTree = "<group>";
@@ -342,6 +347,7 @@
 				2CDD5BE819ABBD2F00E3B8FF /* AddPostViewController.m in Sources */,
 				2CDD5BAF19AB952900E3B8FF /* AppDelegate.m in Sources */,
 				2CDD5BDE19AB9CE100E3B8FF /* TPKeyboardAvoidingScrollView.m in Sources */,
+				2CDD5BFB19ABEACF00E3B8FF /* PostDetailsViewController.m in Sources */,
 				2CDD5BE019AB9CE100E3B8FF /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				2CDD5BDF19AB9CE100E3B8FF /* TPKeyboardAvoidingTableView.m in Sources */,
 				2CDD5BF819ABE1D100E3B8FF /* FeedTableViewCell.m in Sources */,

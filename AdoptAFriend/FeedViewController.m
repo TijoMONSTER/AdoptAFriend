@@ -8,6 +8,7 @@
 
 #import "FeedViewController.h"
 #import "FeedTableViewCell.h"
+#import "PostDetailsViewController.h"
 
 // Cell identifier
 #define FeedCellIdentifier @"Cell"
@@ -28,6 +29,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+	[super viewWillAppear:animated];
 }
 
 #pragma mark - Table view data source
@@ -62,6 +68,8 @@
 {
 	if ([segue.identifier isEqualToString:showPostDetailsScreenSegue]) {
 		// send post data to postDetailsVC
+		PostDetailsViewController *postDetailsVC = (PostDetailsViewController *)segue.destinationViewController;
+		postDetailsVC.hidesBottomBarWhenPushed = YES;
 	}
 }
 
