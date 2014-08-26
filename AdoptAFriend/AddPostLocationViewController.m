@@ -9,7 +9,7 @@
 #import "AddPostLocationViewController.h"
 #import <MapKit/MapKit.h>
 
-@interface AddPostLocationViewController ()
+@interface AddPostLocationViewController () <MKMapViewDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
@@ -26,6 +26,14 @@
 {
 	[super viewWillAppear:animated];
 	self.navigationItem.hidesBackButton = YES;
+}
+
+#pragma mark - MKMapView delegate
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
+{
+#warning Incomplete method implementation.
+	return nil;
 }
 
 #pragma mark - IBActions
