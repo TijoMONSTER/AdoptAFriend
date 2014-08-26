@@ -1,5 +1,5 @@
 //
-//  MainViewController.h
+//  TabBarController.h
 //  AdoptAFriend
 //
 //  Created by Iván Mervich on 8/25/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FeedViewController : UIViewController
+@interface TabBarController : UITabBarController
 
 @end

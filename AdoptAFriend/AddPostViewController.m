@@ -9,7 +9,10 @@
 #import "AddPostViewController.h"
 #import <MapKit/MapKit.h>
 
-@interface AddPostViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+#define TakePhotoButtonIndex 0
+#define ChoosePhotoButtonIndex 1
+
+@interface AddPostViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UIButton *firstImageButton;
@@ -17,9 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *thirdImageButton;
 @property (weak, nonatomic) IBOutlet UITextView *descriptionTextView;
 
-
-
-
+@property UIButton *tappedButton;
 
 @end
 
@@ -32,10 +33,96 @@
 
 }
 
+#pragma mark - UIActionSheetDelegate
+
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+	if (buttonIndex == TakePhotoButtonIndex) {
+		NSLog(@"open camera");
+		if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+			[self shouldStartCameraController];
+		} else {
+			UIAlertView *alertView = [UIAlertView new];
+			alertView.delegate = self;
+			alertView.message = @"No camera available";
+			[alertView addButtonWithTitle:@"OK"];
+			[alertView show];
+		}
+	} else if (buttonIndex == ChoosePhotoButtonIndex) {
+		NSLog(@"open roll");
+		if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
+			[self shouldStartPhotoLibraryPickerController];
+		} else {
+			UIAlertView *alertView = [UIAlertView new];
+			alertView.delegate = self;
+			alertView.message = @"No photo roll";
+			[alertView addButtonWithTitle:@"OK"];
+			[alertView show];
+		}
+	} else {
+		NSLog(@"cancel");
+		self.tabBarController.selectedIndex = 0;
+	}
+}
+
+#pragma mark - photo choosing options
+
+- (BOOL)shouldStartCameraController {
+
+    UIImagePickerController *cameraUI = [[UIImagePickerController alloc] init];
+
+    cameraUI.sourceType = UIImagePickerControllerSourceTypeCamera;
+
+    cameraUI.allowsEditing = YES;
+    cameraUI.showsCameraControls = YES;
+    cameraUI.delegate = self;
+
+    [self presentViewController:cameraUI animated:YES completion:nil];
+
+    return YES;
+}
+
+
+- (BOOL)shouldStartPhotoLibraryPickerController {
+
+
+    UIImagePickerController *cameraUI = [[UIImagePickerController alloc] init];
+
+    cameraUI.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+
+    cameraUI.allowsEditing = YES;
+    cameraUI.delegate = self;
+
+    [self presentViewController:cameraUI animated:YES completion:nil];
+
+    return YES;
+}
+
+#pragma mark - UIImagePickerDelegate
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    [self dismissViewControllerAnimated:NO completion:nil];
+    self.tappedButton.titleLabel.text = @"";
+    [self.tappedButton setBackgroundImage:[info objectForKey:UIImagePickerControllerEditedImage] forState:UIControlStateNormal];
+}
+
 #pragma mark - IBActions
 
 - (IBAction)onPostButtonTapped:(UIButton *)sender
 {
-
+    NSLog(@"Post button pressed...");
 }
+
+- (IBAction)onImageButtonTapped:(UIButton *)sender
+{
+    self.tappedButton = sender;
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
+															 delegate:self
+													cancelButtonTitle:@"Cancel"
+											   destructiveButtonTitle:nil
+													otherButtonTitles:@"Take Photo", @"Choose Photo", nil];
+//	[actionSheet showInView:self.tabBarController.view];
+    [actionSheet showInView:self.view];
+}
+
 @end
