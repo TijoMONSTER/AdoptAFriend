@@ -29,7 +29,10 @@
 	[super viewDidAppear:animated];
 
 	// if not logged in, perform segue
-	[self performSegueWithIdentifier:showLoginOptionScreenSegue sender:self];
+	if (![PFUser currentUser]) {
+		NSLog(@"no user");
+		[self performSegueWithIdentifier:showLoginOptionScreenSegue sender:self];
+	}
 }
 
 @end
