@@ -9,12 +9,16 @@
 #import "LoginOptionsSelectionViewController.h"
 
 // Segues
+
 // show sign up screen
 #define showSignupScreenSegue @"showSignupScreenSegue"
 // show log in screen
 #define showLoginScreenSegue @"showLoginScreenSegue"
 
-#define reloadFeedData @"reloadFeedData"
+// Notifications
+
+// reload feed data
+#define reloadFeedDataNotification @"reloadFeedDataNotification"
 
 @interface LoginOptionsSelectionViewController ()
 
@@ -46,17 +50,23 @@
 {
 //	NSLog(@"unwind from signup screen");
 	NSLog(@"user signed up %@", [User currentUser]);
-	// reload the feed posts
-	[[NSNotificationCenter defaultCenter] postNotificationName:reloadFeedData object:nil];
-	[self dismissViewControllerAnimated:YES completion:nil];
+	[self postReloadFeedDataNotificationAndDismissViewController];
 }
 
 - (IBAction)unwindFromLoginScreen:(UIStoryboardSegue *)segue
 {
 //	NSLog(@"unwind from login screen");
 	NSLog(@"user logged in");
+	[self postReloadFeedDataNotificationAndDismissViewController];
+}
+
+#pragma mark - Helper methods
+
+- (void)postReloadFeedDataNotificationAndDismissViewController
+{
 	// reload the feed posts
-	[[NSNotificationCenter defaultCenter] postNotificationName:reloadFeedData object:nil];
+	[[NSNotificationCenter defaultCenter] postNotificationName:reloadFeedDataNotification object:nil];
+
 	[self dismissViewControllerAnimated:YES completion:nil];
 }
 

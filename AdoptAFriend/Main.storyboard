@@ -333,7 +333,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Sign up" id="Ie3-df-rTu"/>
+                    <navigationItem key="navigationItem" title="Sign up" id="Ie3-df-rTu">
+                        <barButtonItem key="rightBarButtonItem" title="Log out" id="JEq-6N-LEj">
+                            <connections>
+                                <action selector="onLogoutButtonTapped:" destination="0HG-Jh-lfl" id="GnG-JB-ulC"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="confirmPasswordTextField" destination="b1t-rU-LIO" id="CVD-IV-RxF"/>
                         <outlet property="emailTextField" destination="0PF-Ig-nIF" id="tnk-7z-Uy9"/>
@@ -722,7 +728,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="5c3-Gh-s0o"/>
+        <segue reference="Jif-Ng-dCe"/>
         <segue reference="031-oo-hos"/>
     </inferredMetricsTieBreakers>
 </document>

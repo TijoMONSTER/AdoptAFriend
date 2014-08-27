@@ -13,6 +13,11 @@
 // unwind to loginOptionsVC
 #define unwindFromSignupScreenSegue @"unwindFromSignupScreenSegue"
 
+// Notifications
+
+// user logged out
+#define userLoggedOutNotification @"userLoggedOutNotification"
+
 // Empty string
 #define emptyString @""
 
@@ -37,8 +42,16 @@
 - (void)viewWillAppear:(BOOL)animated
 {
 	[super viewWillAppear:animated];
-	// set the first textfield active
-	[self.nameTextField becomeFirstResponder];
+
+	// if user is logged in
+	if ([User currentUser]) {
+		// enable logout button
+		self.navigationItem.rightBarButtonItem.enabled = YES;
+	} else {
+		self.navigationItem.rightBarButtonItem = nil;
+		// set the first textfield active
+		[self.nameTextField becomeFirstResponder];
+	}
 }
 
 - (void)signup
@@ -111,6 +124,14 @@
 	}
 	else {
 		[self signup];
+	}
+}
+
+- (IBAction)onLogoutButtonTapped:(UIBarButtonItem *)sender
+{
+	if ([User currentUser]) {
+		[User logOut];
+		[[NSNotificationCenter defaultCenter] postNotificationName:userLoggedOutNotification object:nil];
 	}
 }
 

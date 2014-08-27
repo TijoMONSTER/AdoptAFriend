@@ -8,6 +8,7 @@
 
 #import "MyPostsViewController.h"
 #import "FeedTableViewCell.h"
+#import "SignupViewController.h"
 
 // Cell identifier
 #define cellIdentifier @"Cell"
@@ -89,9 +90,8 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
 	if ([segue.identifier isEqualToString:showModifyUserDataScreenSegue]) {
-//		TODO: Set user data
-//		hidesBottomBarWhenPushed = YES
-
+		SignupViewController *modifyUserDataVC = (SignupViewController *)segue.destinationViewController;
+		modifyUserDataVC.hidesBottomBarWhenPushed = YES;
 	}
 }
 
