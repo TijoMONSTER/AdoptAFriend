@@ -8,11 +8,12 @@
 
 #import "AddPostLocationViewController.h"
 #import <MapKit/MapKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface AddPostLocationViewController () <MKMapViewDelegate>
+@interface AddPostLocationViewController () <MKMapViewDelegate, CLLocationManagerDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
-
+@property CLLocationManager *locationManager;
 @end
 
 @implementation AddPostLocationViewController
@@ -20,20 +21,39 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
 	[super viewWillAppear:animated];
 	self.navigationItem.hidesBackButton = YES;
+    if (self.locationManager.location.coordinate.latitude != 0 && self.locationManager.location.coordinate.longitude != 0) {
+        MKCoordinateRegion mapRegion;
+        mapRegion.center = self.locationManager.location.coordinate;
+        mapRegion.span.latitudeDelta = 0.008;
+        mapRegion.span.longitudeDelta = 0.008;
+
+        [self.mapView setRegion:mapRegion animated: YES];
+    }
 }
 
 #pragma mark - MKMapView delegate
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
-#warning Incomplete method implementation.
 	return nil;
+}
+
+-(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
+{
+    MKCoordinateRegion mapRegion;
+    mapRegion.center = mapView.userLocation.coordinate;
+    mapRegion.span.latitudeDelta = 0.008;
+    mapRegion.span.longitudeDelta = 0.008;
+
+    [mapView setRegion:mapRegion animated: YES];
 }
 
 #pragma mark - IBActions
@@ -42,6 +62,11 @@
 {
 	// TODO: save the location
 	[self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark CLLocationManagerDelegate
+-(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+    NSLog(@"Error: %@", error);
 }
 
 @end

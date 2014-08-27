@@ -8,6 +8,7 @@
 
 #import "AddPostViewController.h"
 #import <MapKit/MapKit.h>
+#import <CoreLocation/CoreLocation.h>
 #import "AddPostLocationViewController.h"
 
 // Segues
@@ -17,7 +18,7 @@
 #define TakePhotoButtonIndex 0
 #define ChoosePhotoButtonIndex 1
 
-@interface AddPostViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate>
+@interface AddPostViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate, MKMapViewDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UIButton *firstImageButton;
@@ -35,6 +36,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+
 }
 
 #pragma mark - UIActionSheetDelegate
@@ -113,7 +119,11 @@
 
 - (IBAction)onPostButtonTapped:(UIButton *)sender
 {
-    NSLog(@"Post button pressed...");
+    UIImage *defaultImage = [UIImage imageNamed:@"dog-256"];
+
+    if ([self.firstImageButton imageForState:UIControlStateNormal] == defaultImage) {
+        NSLog(@"The button has no image assigned");
+    }
 }
 
 - (IBAction)onImageButtonTapped:(UIButton *)sender
@@ -142,6 +152,22 @@
 		AddPostLocationViewController *addPostLocationVC = (AddPostLocationViewController *)segue.destinationViewController;
 		addPostLocationVC.hidesBottomBarWhenPushed = YES;
 	}
+}
+
+#pragma mark - MKMapViewDelegate
+
+-(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
+    return nil;
+}
+
+-(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
+{
+    MKCoordinateRegion mapRegion;
+    mapRegion.center = mapView.userLocation.coordinate;
+    mapRegion.span.latitudeDelta = 0.008;
+    mapRegion.span.longitudeDelta = 0.008;
+
+    [mapView setRegion:mapRegion animated: YES];
 }
 
 @end
