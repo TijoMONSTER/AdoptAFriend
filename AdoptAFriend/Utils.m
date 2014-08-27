@@ -41,6 +41,7 @@ static UIActivityIndicatorView *spinner = nil;
 
 	[spinner removeFromSuperview];
 	[spinner stopAnimating];
+	spinner = nil;
 }
 
 #pragma mark - AlertView
