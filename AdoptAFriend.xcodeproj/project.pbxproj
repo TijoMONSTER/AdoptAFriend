@@ -53,6 +53,7 @@
 		2CDD5C3519AD2C4100E3B8FF /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CDD5C3419AD2C4100E3B8FF /* Parse.framework */; };
 		2CDD5C3719AD2CC400E3B8FF /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CDD5C1919AD2A8500E3B8FF /* libz.dylib */; };
 		2CDD5C3B19AD395700E3B8FF /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDD5C3A19AD395700E3B8FF /* User.m */; };
+		2CDD5C3F19AE416500E3B8FF /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDD5C3E19AE416500E3B8FF /* Utils.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,6 +135,8 @@
 		2CDD5C3419AD2C4100E3B8FF /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		2CDD5C3919AD395700E3B8FF /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		2CDD5C3A19AD395700E3B8FF /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		2CDD5C3D19AE416500E3B8FF /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		2CDD5C3E19AE416500E3B8FF /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,6 +246,7 @@
 		2CDD5BA519AB952900E3B8FF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2CDD5C3C19AE415700E3B8FF /* Utils */,
 				2CDD5BD419AB9CE100E3B8FF /* TPKeyboardAvoiding */,
 				2CDD5BA619AB952900E3B8FF /* AdoptAFriend-Info.plist */,
 				2CDD5BA719AB952900E3B8FF /* InfoPlist.strings */,
@@ -353,6 +357,15 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		2CDD5C3C19AE415700E3B8FF /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				2CDD5C3D19AE416500E3B8FF /* Utils.h */,
+				2CDD5C3E19AE416500E3B8FF /* Utils.m */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -461,6 +474,7 @@
 				2CDD5C1319AD1E4900E3B8FF /* LoginOptionsSelectionViewController.m in Sources */,
 				2CDD5C0419ACE0E800E3B8FF /* FullscreenImagesCollectionViewCell.m in Sources */,
 				2CDD5BEF19ABC2B900E3B8FF /* TabBarController.m in Sources */,
+				2CDD5C3F19AE416500E3B8FF /* Utils.m in Sources */,
 				2CDD5BDD19AB9CE100E3B8FF /* TPKeyboardAvoidingCollectionView.m in Sources */,
 				2CDD5BF519ABE12B00E3B8FF /* FeedViewController.m in Sources */,
 				2CDD5C0A19ACECCA00E3B8FF /* AddPostLocationViewController.m in Sources */,

@@ -328,11 +328,6 @@
                                             <action selector="onSubmitButtonTapped:" destination="0HG-Jh-lfl" eventType="touchUpInside" id="kb9-8G-nGV"/>
                                         </connections>
                                     </button>
-                                    <activityIndicatorView hidden="YES" opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Ai1-WA-djZ">
-                                        <rect key="frame" x="141" y="222" width="37" height="37"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="color" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                    </activityIndicatorView>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -340,7 +335,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="Sign up" id="Ie3-df-rTu"/>
                     <connections>
-                        <outlet property="activityIndicator" destination="Ai1-WA-djZ" id="ujq-PE-GY1"/>
                         <outlet property="confirmPasswordTextField" destination="b1t-rU-LIO" id="CVD-IV-RxF"/>
                         <outlet property="emailTextField" destination="0PF-Ig-nIF" id="tnk-7z-Uy9"/>
                         <outlet property="genreSegmentedControl" destination="VYe-xm-6WP" id="cCI-V4-wYJ"/>

@@ -25,7 +25,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	NSLog(@"No user logged in");
 }
 
 #pragma mark - Navigation
