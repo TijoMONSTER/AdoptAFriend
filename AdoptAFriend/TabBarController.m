@@ -45,6 +45,7 @@
 //	else {
 		// test code
 //		[User logOut];
+//		NSLog(@"user logged out for testing :)");
 //		[self performSegueWithIdentifier:showLoginOptionScreenSegue sender:self];
 //	}
 }
