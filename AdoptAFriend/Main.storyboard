@@ -488,11 +488,12 @@
                                             <action selector="onPostButtonTapped:" destination="3av-ps-d1R" eventType="touchUpInside" id="ZBC-fF-R2P"/>
                                         </connections>
                                     </button>
-                                    <mapView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" zoomEnabled="NO" scrollEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bnj-xF-m5f">
+                                    <mapView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" zoomEnabled="NO" scrollEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bnj-xF-m5f">
                                         <rect key="frame" x="20" y="99" width="280" height="132"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <gestureRecognizers/>
                                         <connections>
+                                            <outlet property="delegate" destination="3av-ps-d1R" id="aOL-nM-ySM"/>
                                             <outletCollection property="gestureRecognizers" destination="fCa-Ci-eVG" appends="YES" id="WIR-2L-cvZ"/>
                                         </connections>
                                     </mapView>
@@ -532,7 +533,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="53c-pf-5e8">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="53c-pf-5e8">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <connections>
