@@ -64,6 +64,11 @@
 	[self.navigationController popViewControllerAnimated:YES];
 }
 
+- (IBAction)handleLongPress:(UILongPressGestureRecognizer *)sender
+{
+	NSLog(@"on long press");
+}
+
 #pragma mark CLLocationManagerDelegate
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
     NSLog(@"Error: %@", error);

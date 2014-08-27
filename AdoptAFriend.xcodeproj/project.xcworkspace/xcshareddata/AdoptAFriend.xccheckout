@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>3F16C375-FE0A-46BB-935E-9C512D9DC878</string>
+	<key>IDESourceControlProjectName</key>
+	<string>AdoptAFriend</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>B4E4AB9F-6E7B-4D35-B12D-EB5086B6B6C7</key>
+		<string>https://github.com/TijoMONSTER/AdoptAFriend.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>AdoptAFriend.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>B4E4AB9F-6E7B-4D35-B12D-EB5086B6B6C7</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/TijoMONSTER/AdoptAFriend.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>B4E4AB9F-6E7B-4D35-B12D-EB5086B6B6C7</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>B4E4AB9F-6E7B-4D35-B12D-EB5086B6B6C7</string>
+			<key>IDESourceControlWCCName</key>
+			<string>AdoptAFriend</string>
+		</dict>
+	</array>
+</dict>
+</plist>

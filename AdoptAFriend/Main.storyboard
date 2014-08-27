@@ -536,8 +536,10 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="53c-pf-5e8">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <gestureRecognizers/>
                                 <connections>
                                     <outlet property="delegate" destination="d49-kU-qE3" id="I45-eP-3O3"/>
+                                    <outletCollection property="gestureRecognizers" destination="DGB-k2-LVF" appends="YES" id="kh1-hd-736"/>
                                 </connections>
                             </mapView>
                         </subviews>
@@ -555,6 +557,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qNk-dr-aC6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="DGB-k2-LVF">
+                    <connections>
+                        <action selector="handleLongPress:" destination="d49-kU-qE3" id="Wfl-Xg-LYG"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1561" y="1213"/>
         </scene>
