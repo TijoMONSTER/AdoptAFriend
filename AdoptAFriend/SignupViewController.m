@@ -34,38 +34,11 @@
     [super viewDidLoad];
 }
 
-#pragma mark - IBActions
-
-- (IBAction)onSubmitButtonTapped:(UIButton *)sender
+- (void)viewWillAppear:(BOOL)animated
 {
-	// check if textfields are empty
-	if (self.nameTextField.text.length == 0 ||
-		[self.nameTextField.text isEqualToString:emptyString]) {
-		[self showAlertViewWithMessage:@"Name is required."];
-	}
-	else if (self.lastNameTextField.text.length == 0 ||
-			 [self.lastNameTextField.text isEqualToString:emptyString]) {
-		[self showAlertViewWithMessage:@"Last Name is required."];
-	}
-	else if (self.emailTextField.text.length == 0 ||
-			 [self.emailTextField.text isEqualToString:emptyString]) {
-		[self showAlertViewWithMessage:@"Email is required."];
-	}
-	else if (self.passwordTextField.text.length == 0 ||
-			 [self.passwordTextField.text isEqualToString:emptyString]) {
-		[self showAlertViewWithMessage:@"Password is required."];
-	}
-	else if (self.confirmPasswordTextField.text.length == 0 ||
-			 [self.confirmPasswordTextField.text isEqualToString:emptyString]) {
-		[self showAlertViewWithMessage:@"Confirmed password is required."];
-	}
-	// if password and confirmed password are not equals
-	else if (![self.passwordTextField.text isEqualToString:self.confirmPasswordTextField.text]){
-		[self showAlertViewWithMessage:@"Password and confirmed password must be equals."];
-	}
-	else {
-		[self signup];
-	}
+	[super viewWillAppear:animated];
+	// set the first textfield active
+	[self.nameTextField becomeFirstResponder];
 }
 
 - (void)signup
@@ -99,6 +72,47 @@
 	}];
 }
 
+#pragma mark - IBActions
+
+- (IBAction)onSubmitButtonTapped:(UIButton *)sender
+{
+	// hide the keyboard
+	[self.nameTextField resignFirstResponder];
+	[self.lastNameTextField resignFirstResponder];
+	[self.emailTextField resignFirstResponder];
+	[self.passwordTextField resignFirstResponder];
+	[self.confirmPasswordTextField resignFirstResponder];
+
+	// check if textfields are empty
+	if (self.nameTextField.text.length == 0 ||
+		[self.nameTextField.text isEqualToString:emptyString]) {
+		[self showAlertViewWithMessage:@"Name is required."];
+	}
+	else if (self.lastNameTextField.text.length == 0 ||
+			 [self.lastNameTextField.text isEqualToString:emptyString]) {
+		[self showAlertViewWithMessage:@"Last Name is required."];
+	}
+	else if (self.emailTextField.text.length == 0 ||
+			 [self.emailTextField.text isEqualToString:emptyString]) {
+		[self showAlertViewWithMessage:@"Email is required."];
+	}
+	else if (self.passwordTextField.text.length == 0 ||
+			 [self.passwordTextField.text isEqualToString:emptyString]) {
+		[self showAlertViewWithMessage:@"Password is required."];
+	}
+	else if (self.confirmPasswordTextField.text.length == 0 ||
+			 [self.confirmPasswordTextField.text isEqualToString:emptyString]) {
+		[self showAlertViewWithMessage:@"Confirmed password is required."];
+	}
+	// if password and confirmed password are not equals
+	else if (![self.passwordTextField.text isEqualToString:self.confirmPasswordTextField.text]){
+		[self showAlertViewWithMessage:@"Password and confirmed password must be equals."];
+	}
+	else {
+		[self signup];
+	}
+}
+
 #pragma mark - Helper methods
 
 - (NSString *)genreForIndex:(NSInteger)index
@@ -119,4 +133,5 @@
 	[alertView addButtonWithTitle:buttonTitle];
 	[alertView show];
 }
+
 @end
