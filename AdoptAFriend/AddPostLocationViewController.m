@@ -76,6 +76,7 @@
         self.dogLocation = [[MKPointAnnotation alloc] init];
         self.dogLocation.coordinate = touchMapCoordinate;
         [self.mapView addAnnotation:self.dogLocation];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"UpdateDogLocation" object:self.dogLocation];
     }
 }
 
