@@ -47,6 +47,7 @@
 	if ([User currentUser]) {
 		// enable logout button
 		self.navigationItem.rightBarButtonItem.enabled = YES;
+		self.navigationItem.title = @"Edit profile";
 	} else {
 		self.navigationItem.rightBarButtonItem = nil;
 		// set the first textfield active
@@ -131,6 +132,7 @@
 {
 	if ([User currentUser]) {
 		[User logOut];
+		[self.navigationController popToRootViewControllerAnimated:NO];
 		[[NSNotificationCenter defaultCenter] postNotificationName:userLoggedOutNotification object:nil];
 	}
 }

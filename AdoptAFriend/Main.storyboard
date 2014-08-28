@@ -19,7 +19,7 @@
                         <segue destination="pbv-4e-NLx" kind="relationship" relationship="viewControllers" id="s02-nd-Fct"/>
                         <segue destination="ohK-ov-FgJ" kind="relationship" relationship="viewControllers" id="tG1-PH-m2d"/>
                         <segue destination="PLR-zf-TEl" kind="relationship" relationship="viewControllers" id="eQ9-ar-Ydw"/>
-                        <segue destination="5ie-2x-YL4" kind="modal" identifier="showLoginOptionScreenSegue" id="gaP-ib-fIY"/>
+                        <segue destination="5ie-2x-YL4" kind="modal" identifier="showLoginOptionScreenSegue" animates="NO" id="gaP-ib-fIY"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Njl-mF-xa7" userLabel="First Responder" sceneMemberID="firstResponder"/>
