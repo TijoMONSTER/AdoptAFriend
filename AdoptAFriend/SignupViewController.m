@@ -137,7 +137,7 @@
 				[self performSegueWithIdentifier:unwindFromSignupScreenSegue sender:nil];
 			} else {
 				// invalid email error
-				if (error.code == 125) {
+				if (error.code == kPFErrorInvalidEmailAddress) {
 					[Utils showAlertViewWithMessage:invalidEmailMessage];
 				} else {
 					NSString *errorString = [error userInfo][@"error"];
