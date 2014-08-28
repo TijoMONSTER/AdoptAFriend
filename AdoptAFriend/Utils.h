@@ -16,6 +16,8 @@
 
 // AlertViews
 + (void)showAlertViewWithMessage:(NSString *)message;
++ (void)showAlertViewWithMessage:(NSString *)message delegate:(id<UIAlertViewDelegate>)delegate;
 + (void)showAlertViewWithMessage:(NSString *)message title:(NSString *)title buttonTitle:(NSString *)buttonTitle;
++ (void)showAlertViewWithMessage:(NSString *)message title:(NSString *)title buttonTitle:(NSString *)buttonTitle delegate:(id<UIAlertViewDelegate>)delegate;
 
 @end
