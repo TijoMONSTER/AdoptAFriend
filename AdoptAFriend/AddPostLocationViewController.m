@@ -14,6 +14,7 @@
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property CLLocationManager *locationManager;
+@property MKPointAnnotation *dogLocation;
 @end
 
 @implementation AddPostLocationViewController
@@ -64,9 +65,18 @@
 	[self.navigationController popViewControllerAnimated:YES];
 }
 
-- (IBAction)handleLongPress:(UILongPressGestureRecognizer *)sender
+- (IBAction)handleLongPress:(UIGestureRecognizer *)sender
 {
-	NSLog(@"on long press");
+    if (sender.state != UIGestureRecognizerStateBegan) {
+        [self.mapView removeAnnotations:self.mapView.annotations];
+        CGPoint touchPoint = [sender locationInView:self.mapView];
+        CLLocationCoordinate2D touchMapCoordinate =
+        [self.mapView convertPoint:touchPoint toCoordinateFromView:self.mapView];
+
+        self.dogLocation = [[MKPointAnnotation alloc] init];
+        self.dogLocation.coordinate = touchMapCoordinate;
+        [self.mapView addAnnotation:self.dogLocation];
+    }
 }
 
 #pragma mark CLLocationManagerDelegate
