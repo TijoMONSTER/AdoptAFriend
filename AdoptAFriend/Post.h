@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Iván Mervich - Efrén Reyes. All rights reserved.
 //
 
-@interface Post : PFObject
+@interface Post : PFObject <PFSubclassing>
 
 @property (retain) PFFile *image1;
 @property (retain) PFFile *image2;
