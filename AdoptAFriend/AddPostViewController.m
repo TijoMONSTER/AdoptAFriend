@@ -10,6 +10,7 @@
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import "AddPostLocationViewController.h"
+#import "Post.h"
 
 // Segues
 // show fullscreen map
@@ -17,6 +18,7 @@
 
 #define TakePhotoButtonIndex 0
 #define ChoosePhotoButtonIndex 1
+#define DefaultImageName @"dog-256"
 
 @interface AddPostViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate, MKMapViewDelegate>
 
@@ -26,12 +28,25 @@
 @property (weak, nonatomic) IBOutlet UIButton *thirdImageButton;
 @property (weak, nonatomic) IBOutlet UITextView *descriptionTextView;
 
+@property MKPointAnnotation *dogLocation;
+
 @property UIButton *tappedButton;
 
 @end
 
 @implementation AddPostViewController
 
+
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(updateDogLocation:)
+                                                     name:@"UpdateDogLocation"
+                                                   object:nil];
+    }
+    return self;
+}
 
 - (void)viewDidLoad
 {
@@ -119,11 +134,28 @@
 
 - (IBAction)onPostButtonTapped:(UIButton *)sender
 {
-    UIImage *defaultImage = [UIImage imageNamed:@"dog-256"];
+    UIImage *defaultImage = [UIImage imageNamed:DefaultImageName];
 
-    if ([self.firstImageButton imageForState:UIControlStateNormal] == defaultImage) {
-        NSLog(@"The button has no image assigned");
+    Post *newPost = [Post new];
+
+    newPost.user = [User currentUser];
+    if ([self.firstImageButton imageForState:UIControlStateNormal] != defaultImage) {
+        newPost.image1 = [PFFile fileWithData:UIImagePNGRepresentation(self.firstImageButton.imageView.image)];
     }
+    if ([self.secondImageButton imageForState:UIControlStateNormal] != defaultImage) {
+        newPost.image2 = [PFFile fileWithData:UIImagePNGRepresentation(self.secondImageButton.imageView.image)];
+    }
+    if ([self.thirdImageButton imageForState:UIControlStateNormal] != defaultImage) {
+        newPost.image3 = [PFFile fileWithData:UIImagePNGRepresentation(self.thirdImageButton.imageView.image)];
+    }
+    newPost.description = self.descriptionTextView.text;
+    newPost.resolved = NO;
+    newPost.location = [PFGeoPoint geoPointWithLatitude:self.dogLocation.coordinate.latitude longitude:self.dogLocation.coordinate.longitude];
+    [newPost saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (!error) {
+            NSLog(@"New Post created");
+        }
+    }];
 }
 
 - (IBAction)onImageButtonTapped:(UIButton *)sender
@@ -168,6 +200,12 @@
     mapRegion.span.longitudeDelta = 0.008;
 
     [mapView setRegion:mapRegion animated: YES];
+}
+
+#pragma mark - Notifications
+-(void)updateDogLocation:(NSNotification *)notification {
+    self.dogLocation = notification.object;
+    NSLog(@"Updated dog location %@", notification.object);
 }
 
 @end
