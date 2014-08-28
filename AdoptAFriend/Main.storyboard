@@ -19,7 +19,7 @@
                         <segue destination="pbv-4e-NLx" kind="relationship" relationship="viewControllers" id="s02-nd-Fct"/>
                         <segue destination="ohK-ov-FgJ" kind="relationship" relationship="viewControllers" id="tG1-PH-m2d"/>
                         <segue destination="PLR-zf-TEl" kind="relationship" relationship="viewControllers" id="eQ9-ar-Ydw"/>
-                        <segue destination="5ie-2x-YL4" kind="modal" identifier="showLoginOptionScreenSegue" id="gaP-ib-fIY"/>
+                        <segue destination="5ie-2x-YL4" kind="modal" identifier="showLoginOptionScreenSegue" animates="NO" id="gaP-ib-fIY"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Njl-mF-xa7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -601,7 +601,7 @@
         <scene sceneID="YgB-Ro-bTI">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="I77-Ok-g3d" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Feed" id="cwz-n7-qfC"/>
+                    <tabBarItem key="tabBarItem" title="Feed" image="feed-75" id="cwz-n7-qfC"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Wv7-oV-h3y">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -620,7 +620,7 @@
         <scene sceneID="1ce-vi-sBZ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pbv-4e-NLx" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Map" id="0hJ-6D-s31"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="map-75" id="0hJ-6D-s31"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="9yT-Dt-AaQ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -639,7 +639,7 @@
         <scene sceneID="bMR-fw-2ni">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ohK-ov-FgJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Add" id="NNi-U7-bv2"/>
+                    <tabBarItem key="tabBarItem" title="Add" image="add-75" id="NNi-U7-bv2"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Q8G-hj-iaH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -658,7 +658,7 @@
         <scene sceneID="cYQ-s9-WH1">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PLR-zf-TEl" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="My posts" id="ra6-iu-p0W"/>
+                    <tabBarItem key="tabBarItem" title="My posts" image="profile-75" id="ra6-iu-p0W"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="dqR-sH-Ked">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -728,7 +728,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="add-75" width="37" height="37"/>
         <image name="dog-256" width="128" height="128"/>
+        <image name="feed-75" width="37" height="37"/>
+        <image name="map-75" width="37" height="37"/>
+        <image name="profile-75" width="37" height="37"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

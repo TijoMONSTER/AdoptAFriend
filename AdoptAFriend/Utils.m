@@ -48,14 +48,25 @@ static UIActivityIndicatorView *spinner = nil;
 
 + (void)showAlertViewWithMessage:(NSString *)message
 {
-	[self showAlertViewWithMessage:message title:nil buttonTitle:@"OK"];
+	[self showAlertViewWithMessage:message title:nil buttonTitle:@"OK" delegate:nil];
+}
+
++ (void)showAlertViewWithMessage:(NSString *)message delegate:(id<UIAlertViewDelegate>)delegate
+{
+	[self showAlertViewWithMessage:message title:nil buttonTitle:@"OK" delegate:delegate];
 }
 
 + (void)showAlertViewWithMessage:(NSString *)message title:(NSString *)title buttonTitle:(NSString *)buttonTitle
 {
+	[self showAlertViewWithMessage:message title:title buttonTitle:buttonTitle delegate:nil];
+}
+
++ (void)showAlertViewWithMessage:(NSString *)message title:(NSString *)title buttonTitle:(NSString *)buttonTitle delegate:(id<UIAlertViewDelegate>)delegate
+{
 	UIAlertView *alertView = [UIAlertView new];
 	alertView.message = message;
 	alertView.title = title;
+	alertView.delegate = delegate;
 	[alertView addButtonWithTitle:buttonTitle];
 	[alertView show];
 }
