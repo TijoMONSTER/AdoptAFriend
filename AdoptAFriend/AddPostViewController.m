@@ -11,6 +11,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import "AddPostLocationViewController.h"
 #import "Post.h"
+#import "Utils.h"
 
 // Segues
 // show fullscreen map
@@ -134,8 +135,36 @@
 
 - (IBAction)onPostButtonTapped:(UIButton *)sender
 {
+    NSString *errors = @"";
     UIImage *defaultImage = [UIImage imageNamed:DefaultImageName];
 
+    if ([self.firstImageButton imageForState:UIControlStateNormal] == defaultImage &&
+        [self.secondImageButton imageForState:UIControlStateNormal] != defaultImage &&
+        [self.thirdImageButton imageForState:UIControlStateNormal] != defaultImage) {
+        errors = @"You need to select at least 1 image\n";
+    }
+    if (self.dogLocation == nil) {
+        errors = [NSString stringWithFormat:@"%@ You need to specify the place where the dog was found", errors];
+    }
+//    if (<#condition#>) {
+//        <#statements#>
+//    }
+//
+//
+//    newPost.description = self.descriptionTextView.text;
+//    newPost.resolved = NO;
+//    newPost.location = [PFGeoPoint geoPointWithLatitude:self.dogLocation.coordinate.latitude longitude:self.dogLocation.coordinate.longitude];
+//    [newPost saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//        if (!error) {
+//            NSLog(@"New Post created");
+//        }
+//    }];
+}
+
+- (void)savePost
+{
+    [Utils showSpinnerOnView:self.view withCenter:self.view.center ignoreInteractionEvents:YES];
+    UIImage *defaultImage = [UIImage imageNamed:DefaultImageName];
     Post *newPost = [Post new];
 
     newPost.user = [User currentUser];
