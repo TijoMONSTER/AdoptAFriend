@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FeedTableViewCell : UITableViewCell
+@interface FeedTableViewCell : PFTableViewCell
+
+- (void)layoutCellViewWithPost:(Post *)post;
 
 @end

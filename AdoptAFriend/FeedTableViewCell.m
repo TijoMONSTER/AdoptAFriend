@@ -8,9 +8,12 @@
 
 #import "FeedTableViewCell.h"
 
+// Cell placeholder image
+#define FeedCellPlaceHolderImage @"dog-256"
+
 @interface FeedTableViewCell ()
 
-@property (weak, nonatomic) IBOutlet UIImageView *mainImageView;
+@property (weak, nonatomic) IBOutlet PFImageView *mainImageView;
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 
@@ -18,6 +21,16 @@
 
 @implementation FeedTableViewCell
 
+- (void)layoutCellViewWithPost:(Post *)post
+{
+	NSString *userFullName = [post.user.name stringByAppendingString:post.user.lastName];
 
+	self.usernameLabel.text = userFullName;
+	self.descriptionLabel.text = post.descriptionText;
+	// set the placeholder image
+	self.mainImageView.image = [UIImage imageNamed:FeedCellPlaceHolderImage];
+	// set the image that will be downloaded in background
+	self.mainImageView.file = post.image1;
+}
 
 @end

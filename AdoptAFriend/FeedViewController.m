@@ -9,6 +9,9 @@
 #import "FeedViewController.h"
 #import "FeedTableViewCell.h"
 #import "PostDetailsViewController.h"
+#import "Utils.h"
+
+#define kilometersRangeToSearch 10.0
 
 // Cell identifier
 #define FeedCellIdentifier @"Cell"
@@ -20,11 +23,31 @@
 // show post details screen
 #define showPostDetailsScreenSegue @"showPostDetailsScreenSegue"
 
+// Messages
+// Error messages
+#define errorRetrievingLocationMessage @"Error retrieving location: %@"
+
 @interface FeedViewController ()
+
+@property PFGeoPoint *userLocation;
 
 @end
 
 @implementation FeedViewController
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+	self = [super initWithCoder:aDecoder];
+
+	// The className to query on
+	self.parseClassName = [Post parseClassName];
+
+	self.pullToRefreshEnabled = YES;
+	self.paginationEnabled = YES;
+	self.objectsPerPage = 50;
+
+	return self;
+}
 
 - (void)viewDidLoad
 {
@@ -34,16 +57,50 @@
 - (void)viewWillAppear:(BOOL)animated
 {
 	[super viewWillAppear:animated];
+
+	// get the user location as a PFGeoPoint
+	[PFGeoPoint geoPointForCurrentLocationInBackground:^(PFGeoPoint *geoPoint, NSError *error) {
+		if (!error) {
+			self.userLocation = geoPoint;
+			NSLog(@"user location %f, %f", self.userLocation.latitude, self.userLocation.longitude);
+			[self loadObjects];
+		} else {
+			NSLog(@"Unable to retrieve user location %@ %@", error, error.localizedDescription);
+			[Utils showAlertViewWithMessage: [NSString stringWithFormat:errorRetrievingLocationMessage, error.localizedDescription]];
+		}
+	}];
+
 }
 
-#pragma mark - Table view data source
+#pragma mark - Parse
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (PFQuery *)queryForTable
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 1;
+	if (!self.userLocation) {
+		return nil;
+	}
+
+	PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
+
+	// If no objects are loaded in memory, we look to the cache first to fill the table
+    // and then subsequently do a query against the network.
+	if (self.objects.count == 0) {
+		query.cachePolicy = kPFCachePolicyCacheThenNetwork;
+	}
+
+	// get posts from current user
+	[query whereKey:@"user" equalTo:[User currentUser]];
+	// that are near this location
+	[query whereKey:@"location" nearGeoPoint:self.userLocation withinKilometers:kilometersRangeToSearch];
+	// order them by date
+	[query orderByDescending:@"createdAt"];
+	// include user in the query
+	[query includeKey:@"user"];
+
+	return query;
 }
+
+#pragma mark - UITableView data source
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -51,14 +108,16 @@
 	return FeedCellHeight;
 }
 
-- (FeedTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    FeedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:FeedCellIdentifier forIndexPath:indexPath];
-    
-    // Configure the cell...
-	// TODO: create method to set the cells main image view, username label and short description label
+#pragma mark - PFQueryTableViewController
 
-    return cell;
+- (FeedTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object
+{
+	FeedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:FeedCellIdentifier];
+
+	Post *post = (Post *)object;
+	[cell layoutCellViewWithPost:post];
+
+	return cell;
 }
 
 #pragma mark - Navigation

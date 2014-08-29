@@ -177,7 +177,7 @@
     if ([self.thirdImageButton imageForState:UIControlStateNormal] != defaultImage) {
         newPost.image3 = [PFFile fileWithData:UIImagePNGRepresentation(self.thirdImageButton.imageView.image)];
     }
-    newPost.description = self.descriptionTextView.text;
+    newPost.descriptionText = self.descriptionTextView.text;
     newPost.resolved = NO;
     newPost.location = [PFGeoPoint geoPointWithLatitude:self.dogLocation.coordinate.latitude longitude:self.dogLocation.coordinate.longitude];
     [newPost saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
