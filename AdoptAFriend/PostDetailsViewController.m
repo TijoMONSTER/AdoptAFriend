@@ -159,9 +159,11 @@
 
 - (IBAction)onPreviewMapTapped:(UITapGestureRecognizer *)sender
 {
+	// remove back button and title
 	self.navigationItem.hidesBackButton = YES;
 	self.navigationItem.title = nil;
 
+	// flip transition
 	[UIView transitionWithView:self.fullscreenMapView
 					  duration:flipAnimationDuration
 					   options:UIViewAnimationOptionTransitionFlipFromLeft
