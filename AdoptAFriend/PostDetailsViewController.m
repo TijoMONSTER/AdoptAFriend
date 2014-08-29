@@ -23,6 +23,10 @@
 // Pin
 #define pinImageSize 25
 
+// Animations
+// Flip animation duration
+#define flipAnimationDuration 0.7
+
 @interface PostDetailsViewController () <MKMapViewDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *previewMapView;
@@ -70,9 +74,12 @@
 		pointAnnotation.coordinate = CLLocationCoordinate2DMake(self.post.location.latitude, self.post.location.longitude);
 		pointAnnotation.title = [NSString stringWithFormat:@"%@ %@", self.post.user.name, self.post.user.lastName];
 		pointAnnotation.subtitle = self.post.descriptionText;
+		// show it on the preview map
 		[self.previewMapView addAnnotation:pointAnnotation];
+		// show it on the fullscreen map
+		[self.fullscreenMapView addAnnotation:pointAnnotation];
 
-		// zoom map
+		// zoom preview map
 		MKCoordinateRegion mapRegion;
 		mapRegion.center = pointAnnotation.coordinate;
 		mapRegion.span.latitudeDelta = 0.008;
@@ -88,9 +95,32 @@
 	self.descriptionTextView.text = self.post.descriptionText;
 }
 
-- (void)viewWillAppear:(BOOL)animated
+//- (void)viewWillAppear:(BOOL)animated
+//{
+//	[super viewWillAppear:animated];
+//}
+
+#pragma mark - Actions
+
+- (void)onMapViewDoneButtonTapped:(UIBarButtonItem *)sender
 {
-	[super viewWillAppear:animated];
+	self.navigationItem.hidesBackButton = NO;
+	self.navigationItem.title = @"Post";
+
+	// add done button
+	self.navigationItem.rightBarButtonItem = nil;
+
+	[UIView transitionWithView:self.fullscreenMapView
+					  duration:flipAnimationDuration
+					   options:UIViewAnimationOptionTransitionFlipFromRight
+					animations:^{
+						self.fullscreenMapView.hidden = YES;
+
+
+					}
+					completion:^(BOOL finished) {
+					}];
+
 }
 
 #pragma mark - MKMapView delegate
@@ -98,12 +128,17 @@
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
 	MKAnnotationView *pin;
+
+
 	if ([annotation isKindOfClass:[PostMapAnnotation class]]) {
 		pin = [MKAnnotationView new];
-//		pin.canShowCallout = YES;
-//		pin.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
 		// make a copy of the first image and resize it to pinImageSize
 		pin.image = [Utils imageWithImage:self.firstImageView.image scaledToSize:CGSizeMake(pinImageSize, pinImageSize)];
+
+		// show callout only on fullscreen mapView
+		if ([mapView isEqual:self.fullscreenMapView]) {
+			pin.canShowCallout = YES;
+		}
 	}
 	return pin;
 }
@@ -117,12 +152,34 @@
 
 - (IBAction)onImageViewTapped:(UITapGestureRecognizer *)tapGestureRecognizer
 {
-//	[self performSegueWithIdentifier:showFullscreenImagesSegue sender:tapGestureRecognizer.view];
+	//	[self performSegueWithIdentifier:showFullscreenImagesSegue sender:tapGestureRecognizer.view];
 }
 
 - (IBAction)onPreviewMapTapped:(UITapGestureRecognizer *)sender
 {
-	NSLog(@"preview map tapped, set and unhide the fullscreenMapView and flip the current view to show it");
+	self.navigationItem.hidesBackButton = YES;
+	self.navigationItem.title = nil;
+
+	[UIView transitionWithView:self.fullscreenMapView
+					  duration:flipAnimationDuration
+					   options:UIViewAnimationOptionTransitionFlipFromLeft
+					animations:^{
+						self.fullscreenMapView.hidden = NO;
+					}
+					completion:^(BOOL finished) {
+						// add done button
+						self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done"
+																								  style:UIBarButtonItemStyleDone
+																								 target:self
+																								 action:@selector(onMapViewDoneButtonTapped:)];
+
+						// zoom preview map
+						MKCoordinateRegion mapRegion;
+						mapRegion.center = CLLocationCoordinate2DMake(self.post.location.latitude, self.post.location.longitude);
+						mapRegion.span.latitudeDelta = 0.008;
+						mapRegion.span.longitudeDelta = 0.008;
+						[self.fullscreenMapView setRegion:mapRegion animated:YES];
+					}];
 }
 
 #pragma mark - Navigation
@@ -132,7 +189,7 @@
 {
 	if ([segue.identifier isEqualToString:showFullscreenImagesSegue]) {
 		//TODO: send images to destinationVC
-//		FullscreenImagesViewController *fullscreenImagesVC = (FullscreenImagesViewController *)segue.destinationViewController;
+		//		FullscreenImagesViewController *fullscreenImagesVC = (FullscreenImagesViewController *)segue.destinationViewController;
 	}
 }
 
