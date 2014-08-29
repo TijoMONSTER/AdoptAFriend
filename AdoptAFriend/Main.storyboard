@@ -91,6 +91,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ox5-9Z-tDu" userLabel="First Image View" customClass="PFImageView">
+                                <rect key="frame" x="20" y="75" width="90" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="DgI-gd-1bh" appends="YES" id="9Z3-XS-UuX"/>
+                                </connections>
+                            </imageView>
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pJ5-Ca-8wC" userLabel="Second Image View" customClass="PFImageView">
+                                <rect key="frame" x="115" y="75" width="90" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="DgI-gd-1bh" appends="YES" id="cFV-b2-B7W"/>
+                                </connections>
+                            </imageView>
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xnw-Eu-beK" userLabel="Third Image View" customClass="PFImageView">
+                                <rect key="frame" x="210" y="75" width="90" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="DgI-gd-1bh" appends="YES" id="HeV-Xj-qjE"/>
+                                </connections>
+                            </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" editable="NO" text="Description" translatesAutoresizingMaskIntoConstraints="NO" id="8bV-hN-1tm">
                                 <rect key="frame" x="20" y="312" width="280" height="110"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -99,7 +123,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
                             </textView>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" zoomEnabled="NO" scrollEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iyp-Eb-cp2" userLabel="Preview Map View">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" zoomEnabled="NO" scrollEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Iyp-Eb-cp2" userLabel="Preview Map View">
                                 <rect key="frame" x="20" y="172" width="280" height="132"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <gestureRecognizers/>
@@ -108,39 +132,6 @@
                                     <outletCollection property="gestureRecognizers" destination="KEe-C9-Gsb" appends="YES" id="DAQ-8g-qFq"/>
                                 </connections>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dxT-aV-gYE" userLabel="First image Button">
-                                <rect key="frame" x="20" y="75" width="90" height="90"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" image="dog-256">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="onImageButtonTapped:" destination="wux-b2-hfV" eventType="touchUpInside" id="Job-GU-LtN"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0aL-dn-I3S" userLabel="Second image Button">
-                                <rect key="frame" x="115" y="75" width="90" height="90"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" image="dog-256">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="onImageButtonTapped:" destination="wux-b2-hfV" eventType="touchUpInside" id="OBs-OF-2Sm"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KtD-Nq-kz2" userLabel="Third image Button">
-                                <rect key="frame" x="210" y="75" width="90" height="90"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" image="dog-256">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="onImageButtonTapped:" destination="wux-b2-hfV" eventType="touchUpInside" id="YKl-7n-Zd7"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="88r-Vw-p9q">
                                 <rect key="frame" x="20" y="430" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -151,7 +142,7 @@
                                     <action selector="onInterestedButtonTapped:" destination="wux-b2-hfV" eventType="touchUpInside" id="0NT-ah-Wb8"/>
                                 </connections>
                             </button>
-                            <mapView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="aB9-MZ-icb" userLabel="Fullscreen Map View">
+                            <mapView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aB9-MZ-icb" userLabel="Fullscreen Map View">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <connections>
@@ -164,18 +155,23 @@
                     <navigationItem key="navigationItem" title="Post" id="pZ4-0D-xC9"/>
                     <connections>
                         <outlet property="descriptionTextView" destination="8bV-hN-1tm" id="3kF-e8-m6T"/>
-                        <outlet property="firstImageButton" destination="dxT-aV-gYE" id="EHu-jp-91L"/>
+                        <outlet property="firstImageView" destination="Ox5-9Z-tDu" id="Y2i-VL-T4y"/>
                         <outlet property="fullscreenMapView" destination="aB9-MZ-icb" id="1No-sO-7NF"/>
                         <outlet property="previewMapView" destination="Iyp-Eb-cp2" id="JXb-SX-FNv"/>
-                        <outlet property="secondImageButton" destination="0aL-dn-I3S" id="Fmw-az-drY"/>
-                        <outlet property="thirdImageButton" destination="KtD-Nq-kz2" id="vzZ-yb-b6P"/>
+                        <outlet property="secondImageView" destination="pJ5-Ca-8wC" id="9tU-bc-ITx"/>
+                        <outlet property="thirdImageView" destination="Xnw-Eu-beK" id="AMR-nJ-wVf"/>
                         <segue destination="KBe-I4-11B" kind="push" identifier="showFullscreenImagesSegue" id="vXo-oY-F76"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MoY-w1-wRd" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="KEe-C9-Gsb">
+                <tapGestureRecognizer id="KEe-C9-Gsb" userLabel="Preview Map Tap Gesture Recognizer">
                     <connections>
                         <action selector="onPreviewMapTapped:" destination="wux-b2-hfV" id="aX7-JN-App"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="DgI-gd-1bh" userLabel="Images Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="onImageViewTapped:" destination="wux-b2-hfV" id="CWz-Gi-wqL"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

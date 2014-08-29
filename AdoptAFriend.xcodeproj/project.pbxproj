@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C1BB6A319B0E786007A0828 /* PostMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1BB6A219B0E786007A0828 /* PostMapAnnotation.m */; };
 		2CDD5B9F19AB952900E3B8FF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CDD5B9E19AB952900E3B8FF /* Foundation.framework */; };
 		2CDD5BA119AB952900E3B8FF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CDD5BA019AB952900E3B8FF /* CoreGraphics.framework */; };
 		2CDD5BA319AB952900E3B8FF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CDD5BA219AB952900E3B8FF /* UIKit.framework */; };
@@ -68,6 +69,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C1BB6A119B0E786007A0828 /* PostMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostMapAnnotation.h; sourceTree = "<group>"; };
+		2C1BB6A219B0E786007A0828 /* PostMapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostMapAnnotation.m; sourceTree = "<group>"; };
 		2CDD5B9B19AB952900E3B8FF /* AdoptAFriend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdoptAFriend.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CDD5B9E19AB952900E3B8FF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2CDD5BA019AB952900E3B8FF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -314,6 +317,8 @@
 			children = (
 				2CDD5C0519ACE6B900E3B8FF /* MapViewController.h */,
 				2CDD5C0619ACE6B900E3B8FF /* MapViewController.m */,
+				2C1BB6A119B0E786007A0828 /* PostMapAnnotation.h */,
+				2C1BB6A219B0E786007A0828 /* PostMapAnnotation.m */,
 			);
 			name = Map;
 			sourceTree = "<group>";
@@ -477,6 +482,7 @@
 				2CDD5BDF19AB9CE100E3B8FF /* TPKeyboardAvoidingTableView.m in Sources */,
 				2CDD5BF819ABE1D100E3B8FF /* FeedTableViewCell.m in Sources */,
 				2CDD5C1319AD1E4900E3B8FF /* LoginOptionsSelectionViewController.m in Sources */,
+				2C1BB6A319B0E786007A0828 /* PostMapAnnotation.m in Sources */,
 				2CDD5C0419ACE0E800E3B8FF /* FullscreenImagesCollectionViewCell.m in Sources */,
 				2CDD5BEF19ABC2B900E3B8FF /* TabBarController.m in Sources */,
 				2CDD5C3F19AE416500E3B8FF /* Utils.m in Sources */,

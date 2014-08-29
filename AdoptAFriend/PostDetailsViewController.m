@@ -9,20 +9,34 @@
 #import "PostDetailsViewController.h"
 #import <MapKit/MapKit.h>
 #import "FullscreenImagesViewController.h"
+#import "PostMapAnnotation.h"
+#import "Utils.h"
 
 // Segues
 // Show fullscreen images
 #define showFullscreenImagesSegue @"showFullscreenImagesSegue"
 
+// Messages
+// Error messages
+#define errorDownloadingImageMessage @"Error downloading post image: %@"
+
+// Pin
+#define pinImageSize 25
+
+// Animations
+// Flip animation duration
+#define flipAnimationDuration 0.7
+
 @interface PostDetailsViewController () <MKMapViewDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *previewMapView;
 @property (weak, nonatomic) IBOutlet MKMapView *fullscreenMapView;
-@property (weak, nonatomic) IBOutlet UIButton *firstImageButton;
-@property (weak, nonatomic) IBOutlet UIButton *secondImageButton;
-@property (weak, nonatomic) IBOutlet UIButton *thirdImageButton;
+
+@property (weak, nonatomic) IBOutlet PFImageView *firstImageView;
+@property (weak, nonatomic) IBOutlet PFImageView *secondImageView;
+@property (weak, nonatomic) IBOutlet PFImageView *thirdImageView;
+
 @property (weak, nonatomic) IBOutlet UITextView *descriptionTextView;
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end
 
@@ -31,19 +45,102 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+	[Utils showSpinnerOnView:self.view withCenter:self.view.center ignoreInteractionEvents:YES];
+	// Images
+	UIImage *placeHolderImage = [UIImage imageNamed:FeedCellPlaceHolderImage];
+
+	// set the placeholder image
+	self.firstImageView.image = placeHolderImage;
+	self.secondImageView.image = placeHolderImage;
+	self.thirdImageView.image = placeHolderImage;
+
+	// set the image that will be downloaded in background
+	self.firstImageView.file = self.post.image1;
+	self.secondImageView.file = self.post.image2;
+	self.thirdImageView.file = self.post.image3;
+
+	// load the first image
+	[self.firstImageView loadInBackground:^(UIImage *image, NSError *error) {
+		[Utils hideSpinner];
+
+		if (error) {
+			NSLog(@"Unable to download post image %@ %@", error, error.localizedDescription);
+			[Utils showAlertViewWithMessage: [NSString stringWithFormat:errorDownloadingImageMessage, error.localizedDescription]];
+		}
+
+		// Add location annotation until the first image is loaded
+		PostMapAnnotation *pointAnnotation = [PostMapAnnotation new];
+		pointAnnotation.coordinate = CLLocationCoordinate2DMake(self.post.location.latitude, self.post.location.longitude);
+		pointAnnotation.title = [NSString stringWithFormat:@"%@ %@", self.post.user.name, self.post.user.lastName];
+		pointAnnotation.subtitle = self.post.descriptionText;
+		// show it on the preview map
+		[self.previewMapView addAnnotation:pointAnnotation];
+		// show it on the fullscreen map
+		[self.fullscreenMapView addAnnotation:pointAnnotation];
+
+		// zoom preview map
+		MKCoordinateRegion mapRegion;
+		mapRegion.center = pointAnnotation.coordinate;
+		mapRegion.span.latitudeDelta = 0.008;
+		mapRegion.span.longitudeDelta = 0.008;
+		[self.previewMapView setRegion:mapRegion animated:YES];
+	}];
+	//load second image
+	[self.secondImageView loadInBackground];
+	// load third image
+	[self.thirdImageView loadInBackground];
+
+	// description
+	self.descriptionTextView.text = self.post.descriptionText;
 }
 
-- (void)viewWillAppear:(BOOL)animated
+//- (void)viewWillAppear:(BOOL)animated
+//{
+//	[super viewWillAppear:animated];
+//}
+
+#pragma mark - Actions
+
+- (void)onMapViewDoneButtonTapped:(UIBarButtonItem *)sender
 {
-	[super viewWillAppear:animated];
+	self.navigationItem.hidesBackButton = NO;
+	self.navigationItem.title = @"Post";
+
+	// add done button
+	self.navigationItem.rightBarButtonItem = nil;
+
+	[UIView transitionWithView:self.fullscreenMapView
+					  duration:flipAnimationDuration
+					   options:UIViewAnimationOptionTransitionFlipFromRight
+					animations:^{
+						self.fullscreenMapView.hidden = YES;
+
+
+					}
+					completion:^(BOOL finished) {
+					}];
+
 }
 
 #pragma mark - MKMapView delegate
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
-#warning Incomplete method implementation.
-	return nil;
+	MKAnnotationView *pin;
+
+
+	if ([annotation isKindOfClass:[PostMapAnnotation class]]) {
+		pin = [MKAnnotationView new];
+		// make a copy of the first image and resize it to pinImageSize
+		pin.image = [Utils imageWithImage:self.firstImageView.image scaledToSize:CGSizeMake(pinImageSize, pinImageSize)];
+
+		// show callout only on fullscreen mapView
+		if ([mapView isEqual:self.fullscreenMapView]) {
+			pin.canShowCallout = YES;
+		}
+	}
+	return pin;
 }
 
 #pragma mark - IBActions
@@ -53,14 +150,36 @@
 	NSLog(@"I'm interested! send to or show me the OP's mail");
 }
 
-- (IBAction)onImageButtonTapped:(UIButton *)sender
+- (IBAction)onImageViewTapped:(UITapGestureRecognizer *)tapGestureRecognizer
 {
-	[self performSegueWithIdentifier:showFullscreenImagesSegue sender:sender.imageView];
+	//	[self performSegueWithIdentifier:showFullscreenImagesSegue sender:tapGestureRecognizer.view];
 }
 
 - (IBAction)onPreviewMapTapped:(UITapGestureRecognizer *)sender
 {
-	NSLog(@"preview map tapped, set and unhide the fullscreenMapView and flip the current view to show it");
+	self.navigationItem.hidesBackButton = YES;
+	self.navigationItem.title = nil;
+
+	[UIView transitionWithView:self.fullscreenMapView
+					  duration:flipAnimationDuration
+					   options:UIViewAnimationOptionTransitionFlipFromLeft
+					animations:^{
+						self.fullscreenMapView.hidden = NO;
+					}
+					completion:^(BOOL finished) {
+						// add done button
+						self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done"
+																								  style:UIBarButtonItemStyleDone
+																								 target:self
+																								 action:@selector(onMapViewDoneButtonTapped:)];
+
+						// zoom preview map
+						MKCoordinateRegion mapRegion;
+						mapRegion.center = CLLocationCoordinate2DMake(self.post.location.latitude, self.post.location.longitude);
+						mapRegion.span.latitudeDelta = 0.008;
+						mapRegion.span.longitudeDelta = 0.008;
+						[self.fullscreenMapView setRegion:mapRegion animated:YES];
+					}];
 }
 
 #pragma mark - Navigation
@@ -70,7 +189,7 @@
 {
 	if ([segue.identifier isEqualToString:showFullscreenImagesSegue]) {
 		//TODO: send images to destinationVC
-//		FullscreenImagesViewController *fullscreenImagesVC = (FullscreenImagesViewController *)segue.destinationViewController;
+		//		FullscreenImagesViewController *fullscreenImagesVC = (FullscreenImagesViewController *)segue.destinationViewController;
 	}
 }
 
