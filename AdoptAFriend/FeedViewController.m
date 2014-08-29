@@ -61,9 +61,11 @@
 	// get the user location as a PFGeoPoint
 	[PFGeoPoint geoPointForCurrentLocationInBackground:^(PFGeoPoint *geoPoint, NSError *error) {
 		if (!error) {
-			self.userLocation = geoPoint;
-			NSLog(@"user location %f, %f", self.userLocation.latitude, self.userLocation.longitude);
-			[self loadObjects];
+			if (self.userLocation.latitude != geoPoint.latitude && self.userLocation.longitude != geoPoint.longitude){
+				self.userLocation = geoPoint;
+				NSLog(@"user location updated %f, %f", self.userLocation.latitude, self.userLocation.longitude);
+				[self loadObjects];
+			}
 		} else {
 			NSLog(@"Unable to retrieve user location %@ %@", error, error.localizedDescription);
 			[Utils showAlertViewWithMessage: [NSString stringWithFormat:errorRetrievingLocationMessage, error.localizedDescription]];
@@ -129,6 +131,10 @@
 		// send post data to postDetailsVC
 		PostDetailsViewController *postDetailsVC = (PostDetailsViewController *)segue.destinationViewController;
 		postDetailsVC.hidesBottomBarWhenPushed = YES;
+
+		NSIndexPath *indexPathForSelectedRow = self.tableView.indexPathForSelectedRow;
+		Post *post = self.objects[indexPathForSelectedRow.row];
+		postDetailsVC.post = post;
 	}
 }
 
