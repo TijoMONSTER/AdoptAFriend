@@ -21,6 +21,9 @@
 #define ChoosePhotoButtonIndex 1
 #define DefaultImageName @"dog-256"
 
+#define errorSavingPostMessage @"Error saving your post, please try again"
+#define successSavingPostMessage @"Your post was created successfully!"
+
 @interface AddPostViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate, MKMapViewDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
@@ -32,6 +35,7 @@
 @property MKPointAnnotation *dogLocation;
 
 @property UIButton *tappedButton;
+@property UIImage *defaultImage;
 
 @end
 
@@ -52,6 +56,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.defaultImage = [UIImage imageNamed:DefaultImageName];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -139,50 +144,54 @@
     UIImage *defaultImage = [UIImage imageNamed:DefaultImageName];
 
     if ([self.firstImageButton imageForState:UIControlStateNormal] == defaultImage &&
-        [self.secondImageButton imageForState:UIControlStateNormal] != defaultImage &&
-        [self.thirdImageButton imageForState:UIControlStateNormal] != defaultImage) {
-        errors = @"You need to select at least 1 image\n";
+        [self.secondImageButton imageForState:UIControlStateNormal] == defaultImage &&
+        [self.thirdImageButton imageForState:UIControlStateNormal] == defaultImage) {
+        errors = @"You need to select at least 1 image";
     }
     if (self.dogLocation == nil) {
-        errors = [NSString stringWithFormat:@"%@ You need to specify the place where the dog was found", errors];
+        errors = [NSString stringWithFormat:@"%@ \n\nYou need to specify the place where the dog was found", errors];
     }
-//    if (<#condition#>) {
-//        <#statements#>
-//    }
-//
-//
-//    newPost.description = self.descriptionTextView.text;
-//    newPost.resolved = NO;
-//    newPost.location = [PFGeoPoint geoPointWithLatitude:self.dogLocation.coordinate.latitude longitude:self.dogLocation.coordinate.longitude];
-//    [newPost saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//        if (!error) {
-//            NSLog(@"New Post created");
-//        }
-//    }];
+    if ([self.descriptionTextView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length == 0) {
+        errors = [NSString stringWithFormat:@"%@ \n\nYou need to provide a description", errors];
+    }
+
+    if (errors.length == 0) {
+        [self savePost];
+    } else {
+        [Utils showAlertViewWithMessage:errors];
+    }
 }
 
 - (void)savePost
 {
     [Utils showSpinnerOnView:self.view withCenter:self.view.center ignoreInteractionEvents:YES];
-    UIImage *defaultImage = [UIImage imageNamed:DefaultImageName];
+
     Post *newPost = [Post new];
 
     newPost.user = [User currentUser];
-    if ([self.firstImageButton imageForState:UIControlStateNormal] != defaultImage) {
+    if ([self.firstImageButton imageForState:UIControlStateNormal] != self.defaultImage) {
         newPost.image1 = [PFFile fileWithData:UIImagePNGRepresentation(self.firstImageButton.imageView.image)];
     }
-    if ([self.secondImageButton imageForState:UIControlStateNormal] != defaultImage) {
+    if ([self.secondImageButton imageForState:UIControlStateNormal] != self.defaultImage) {
         newPost.image2 = [PFFile fileWithData:UIImagePNGRepresentation(self.secondImageButton.imageView.image)];
     }
-    if ([self.thirdImageButton imageForState:UIControlStateNormal] != defaultImage) {
+    if ([self.thirdImageButton imageForState:UIControlStateNormal] != self.defaultImage) {
         newPost.image3 = [PFFile fileWithData:UIImagePNGRepresentation(self.thirdImageButton.imageView.image)];
     }
     newPost.descriptionText = self.descriptionTextView.text;
     newPost.resolved = NO;
     newPost.location = [PFGeoPoint geoPointWithLatitude:self.dogLocation.coordinate.latitude longitude:self.dogLocation.coordinate.longitude];
     [newPost saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        [Utils hideSpinner];
         if (!error) {
-            NSLog(@"New Post created");
+            [Utils showAlertViewWithMessage:successSavingPostMessage];
+            self.firstImageButton.imageView.image = self.defaultImage;
+            self.secondImageButton.imageView.image = self.defaultImage;
+            self.thirdImageButton.imageView.image = self.defaultImage;
+            self.descriptionTextView.text = @"";
+            self.dogLocation = nil;
+        } else {
+            [Utils showAlertViewWithMessage:errorSavingPostMessage];
         }
     }];
 }
