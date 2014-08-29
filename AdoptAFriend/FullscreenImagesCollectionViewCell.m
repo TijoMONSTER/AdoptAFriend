@@ -16,4 +16,9 @@
 
 @implementation FullscreenImagesCollectionViewCell
 
+- (void)layoutCellViewWithImage:(UIImage *)image
+{
+	self.imageView.image = image;
+}
+
 @end

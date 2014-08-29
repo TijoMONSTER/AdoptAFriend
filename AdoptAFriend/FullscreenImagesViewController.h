@@ -10,4 +10,7 @@
 
 @interface FullscreenImagesViewController : UICollectionViewController
 
+@property NSArray *images;
+@property int selectedImageIndex;
+
 @end
