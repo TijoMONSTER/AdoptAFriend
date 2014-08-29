@@ -16,4 +16,7 @@
 	#import <Parse/Parse.h>
 	#import "User.h"
 	#import "Post.h"
+
+	// Cell placeholder image
+	#define FeedCellPlaceHolderImage @"dog-256"
 #endif
