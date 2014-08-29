@@ -10,4 +10,6 @@
 
 @interface PostDetailsViewController : UIViewController
 
+@property Post *post;
+
 @end
