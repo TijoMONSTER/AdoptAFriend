@@ -8,9 +8,6 @@
 
 #import "FeedTableViewCell.h"
 
-// Cell placeholder image
-#define FeedCellPlaceHolderImage @"dog-256"
-
 @interface FeedTableViewCell ()
 
 @property (weak, nonatomic) IBOutlet PFImageView *mainImageView;
@@ -31,6 +28,9 @@
 	self.mainImageView.image = [UIImage imageNamed:FeedCellPlaceHolderImage];
 	// set the image that will be downloaded in background
 	self.mainImageView.file = post.image1;
+	// download the image
+	[self.mainImageView loadInBackground];
+
 }
 
 @end
