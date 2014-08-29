@@ -12,7 +12,7 @@
 @property (retain) PFFile *image2;
 @property (retain) PFFile *image3;
 @property (retain) PFGeoPoint *location;
-@property (retain) NSString *description;
+@property (retain) NSString *descriptionText;
 @property (retain) User *user;
 @property (retain) User *adopter;
 @property BOOL resolved;

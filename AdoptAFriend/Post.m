@@ -15,7 +15,7 @@
 @dynamic image2;
 @dynamic image3;
 @dynamic location;
-@dynamic description;
+@dynamic descriptionText;
 @dynamic user;
 @dynamic adopter;
 @dynamic resolved;
