@@ -10,4 +10,6 @@
 
 @interface FullscreenImagesCollectionViewCell : UICollectionViewCell
 
+- (void)layoutCellViewWithImage:(UIImage *)image;
+
 @end

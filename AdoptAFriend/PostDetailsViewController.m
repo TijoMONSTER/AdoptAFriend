@@ -152,7 +152,9 @@
 
 - (IBAction)onImageViewTapped:(UITapGestureRecognizer *)tapGestureRecognizer
 {
-	//	[self performSegueWithIdentifier:showFullscreenImagesSegue sender:tapGestureRecognizer.view];
+	PFImageView *tappedImageView = (PFImageView *)tapGestureRecognizer.view;
+
+	[self performSegueWithIdentifier:showFullscreenImagesSegue sender:tappedImageView];
 }
 
 - (IBAction)onPreviewMapTapped:(UITapGestureRecognizer *)sender
@@ -188,8 +190,35 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
 	if ([segue.identifier isEqualToString:showFullscreenImagesSegue]) {
-		//TODO: send images to destinationVC
-		//		FullscreenImagesViewController *fullscreenImagesVC = (FullscreenImagesViewController *)segue.destinationViewController;
+
+		NSMutableArray *images = [NSMutableArray new];
+		UIImage *defaultImage = [UIImage imageNamed:FeedCellPlaceHolderImage];
+
+		// if images are not the placeholder image, add them to the array
+		if (self.firstImageView.image != defaultImage) {
+			[images addObject:self.firstImageView.image];
+		}
+		if (self.secondImageView.image != defaultImage) {
+			[images addObject:self.secondImageView.image];
+		}
+		if (self.thirdImageView.image != defaultImage) {
+			[images addObject:self.thirdImageView.image];
+		}
+
+		// by default the collection view will go to index 0 (the first image)
+		int tappedImageIndex = 0;
+		if ([sender isEqual:self.secondImageView]) {
+			tappedImageIndex = 1;
+		} else if ([sender isEqual:self.thirdImageView]) {
+			tappedImageIndex = 2;
+		}
+
+		// send images to destinationVC
+		FullscreenImagesViewController *fullscreenImagesVC = (FullscreenImagesViewController *)segue.destinationViewController;
+		fullscreenImagesVC.images = images;
+		// set the image that will be displayed first
+		fullscreenImagesVC.selectedImageIndex = tappedImageIndex;
+
 	}
 }
 
