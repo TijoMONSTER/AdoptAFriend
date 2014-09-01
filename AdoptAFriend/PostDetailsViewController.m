@@ -115,12 +115,8 @@
 					   options:UIViewAnimationOptionTransitionFlipFromRight
 					animations:^{
 						self.fullscreenMapView.hidden = YES;
-
-
 					}
-					completion:^(BOOL finished) {
-					}];
-
+					completion:nil];
 }
 
 #pragma mark - MKMapView delegate
@@ -128,7 +124,6 @@
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
 	MKAnnotationView *pin;
-
 
 	if ([annotation isKindOfClass:[PostMapAnnotation class]]) {
 		pin = [MKAnnotationView new];
@@ -177,7 +172,7 @@
 																								 target:self
 																								 action:@selector(onMapViewDoneButtonTapped:)];
 
-						// zoom preview map
+						// zoom map
 						MKCoordinateRegion mapRegion;
 						mapRegion.center = CLLocationCoordinate2DMake(self.post.location.latitude, self.post.location.longitude);
 						mapRegion.span.latitudeDelta = 0.008;
