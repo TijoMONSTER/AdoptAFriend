@@ -95,12 +95,11 @@
 
 	// description
 	self.descriptionTextView.text = self.post.descriptionText;
-}
 
-//- (void)viewWillAppear:(BOOL)animated
-//{
-//	[super viewWillAppear:animated];
-//}
+    if ([self.post.user.username isEqual:[User currentUser].username]) {
+        self.interestedButton.hidden = YES;
+    }
+}
 
 #pragma mark - Actions
 
