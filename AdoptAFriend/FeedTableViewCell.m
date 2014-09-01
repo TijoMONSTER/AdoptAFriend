@@ -32,4 +32,12 @@
 	[self.mainImageView loadInBackground];
 }
 
+- (void)layoutCellViewWithDescriptionTextOnly:(NSString *)descriptionText
+{
+	self.usernameLabel.text = nil;
+	self.mainImageView.image = nil;
+	self.descriptionLabel.text = descriptionText;
+	self.accessoryType = UITableViewCellAccessoryNone;
+}
+
 @end

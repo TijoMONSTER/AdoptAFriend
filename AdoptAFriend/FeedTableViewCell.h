@@ -11,5 +11,6 @@
 @interface FeedTableViewCell : PFTableViewCell
 
 - (void)layoutCellViewWithPost:(Post *)post;
+- (void)layoutCellViewWithDescriptionTextOnly:(NSString *)descriptionText;
 
 @end
