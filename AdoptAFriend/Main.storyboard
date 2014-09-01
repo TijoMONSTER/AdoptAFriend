@@ -115,7 +115,7 @@
                                     <outletCollection property="gestureRecognizers" destination="6NL-B0-75p" appends="YES" id="mvi-65-Obm"/>
                                 </connections>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" editable="NO" text="Description" translatesAutoresizingMaskIntoConstraints="NO" id="8bV-hN-1tm">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8bV-hN-1tm">
                                 <rect key="frame" x="20" y="312" width="280" height="110"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -157,6 +157,7 @@
                         <outlet property="descriptionTextView" destination="8bV-hN-1tm" id="3kF-e8-m6T"/>
                         <outlet property="firstImageView" destination="Ox5-9Z-tDu" id="Y2i-VL-T4y"/>
                         <outlet property="fullscreenMapView" destination="aB9-MZ-icb" id="1No-sO-7NF"/>
+                        <outlet property="interestedButton" destination="88r-Vw-p9q" id="BbX-qi-91X"/>
                         <outlet property="previewMapView" destination="Iyp-Eb-cp2" id="JXb-SX-FNv"/>
                         <outlet property="secondImageView" destination="pJ5-Ca-8wC" id="9tU-bc-ITx"/>
                         <outlet property="thirdImageView" destination="Xnw-Eu-beK" id="AMR-nJ-wVf"/>
@@ -480,7 +481,7 @@
                                             <action selector="onImageButtonTapped:" destination="3av-ps-d1R" eventType="touchUpInside" id="1ML-3d-cr9"/>
                                         </connections>
                                     </button>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" keyboardDismissMode="interactive" text="Description" translatesAutoresizingMaskIntoConstraints="NO" id="sBz-VT-c0r">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="sBz-VT-c0r">
                                         <rect key="frame" x="20" y="239" width="280" height="114"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -697,24 +698,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="100" id="SR2-35-LZw" customClass="FeedTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="100" id="hqG-39-4O3" customClass="FeedTableViewCell">
                                 <rect key="frame" x="0.0" y="86" width="320" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SR2-35-LZw" id="Nnq-wC-FWT">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hqG-39-4O3" id="ebV-Zk-kUX">
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="99"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="dog-256" translatesAutoresizingMaskIntoConstraints="NO" id="6eC-j9-X8T">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="dog-256" translatesAutoresizingMaskIntoConstraints="NO" id="WjB-Yw-iFL" customClass="PFImageView">
                                             <rect key="frame" x="5" y="5" width="90" height="90"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </imageView>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jrg-Rj-GMk">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GbN-9K-vFs">
                                             <rect key="frame" x="103" y="5" width="184" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Short description" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="184" translatesAutoresizingMaskIntoConstraints="NO" id="Q4H-Ww-u4M">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Short description" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="184" translatesAutoresizingMaskIntoConstraints="NO" id="GQn-rV-VQb">
                                             <rect key="frame" x="103" y="34" width="184" height="61"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
@@ -722,6 +723,11 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="descriptionLabel" destination="GQn-rV-VQb" id="osL-M4-lYE"/>
+                                    <outlet property="mainImageView" destination="WjB-Yw-iFL" id="1Vr-Nf-bF9"/>
+                                    <outlet property="usernameLabel" destination="GbN-9K-vFs" id="mJN-IW-c5v"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -755,7 +761,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Wv6-i1-tW7"/>
         <segue reference="Jif-Ng-dCe"/>
+        <segue reference="031-oo-hos"/>
     </inferredMetricsTieBreakers>
 </document>
