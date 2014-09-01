@@ -246,8 +246,6 @@
     self.dogLocation = notification.object;
 
     [self.mapView removeAnnotations:self.mapView.annotations];
-
-    self.dogLocation = [[MKPointAnnotation alloc] init];
     [self.mapView addAnnotation:notification.object];
 
     NSLog(@"Updated dog location %@", notification.object);
