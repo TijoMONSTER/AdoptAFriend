@@ -60,15 +60,13 @@
 	[super viewWillAppear:animated];
 
 	// if user is logged in, do the query
-	if ([User currentUser]) {
+	if ([User currentUser] && self.objects.count == 0) {
 		// get the user location as a PFGeoPoint
 		[PFGeoPoint geoPointForCurrentLocationInBackground:^(PFGeoPoint *geoPoint, NSError *error) {
 			if (!error) {
-				if (self.userLocation.latitude != geoPoint.latitude && self.userLocation.longitude != geoPoint.longitude){
 					self.userLocation = geoPoint;
 					NSLog(@"user location updated %f, %f", self.userLocation.latitude, self.userLocation.longitude);
 					[self loadObjects];
-				}
 			} else {
 				NSLog(@"Unable to retrieve user location %@ %@", error, error.localizedDescription);
 				[Utils showAlertViewWithMessage: [NSString stringWithFormat:errorRetrievingLocationMessage, error.localizedDescription]];
