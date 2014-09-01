@@ -38,6 +38,8 @@
 
 @property (weak, nonatomic) IBOutlet UITextView *descriptionTextView;
 
+@property (weak, nonatomic) IBOutlet UIButton *interestedButton;
+
 @end
 
 @implementation PostDetailsViewController
