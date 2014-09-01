@@ -16,8 +16,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="5ie-2x-YL4" kind="modal" identifier="showLoginOptionScreenSegue" animates="NO" id="gaP-ib-fIY"/>
-                        <segue destination="pbv-4e-NLx" kind="relationship" relationship="viewControllers" id="s02-nd-Fct"/>
                         <segue destination="I77-Ok-g3d" kind="relationship" relationship="viewControllers" id="OuD-wf-ZhO"/>
+                        <segue destination="pbv-4e-NLx" kind="relationship" relationship="viewControllers" id="s02-nd-Fct"/>
                         <segue destination="ohK-ov-FgJ" kind="relationship" relationship="viewControllers" id="tG1-PH-m2d"/>
                         <segue destination="PLR-zf-TEl" kind="relationship" relationship="viewControllers" id="eQ9-ar-Ydw"/>
                     </connections>
