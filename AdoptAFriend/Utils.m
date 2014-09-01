@@ -30,14 +30,20 @@ static UIActivityIndicatorView *spinner = nil;
 
 	// ignore interaction events
 	if (ignoreInteractionEvents) {
-		[[UIApplication sharedApplication] beginIgnoringInteractionEvents];
+		UIApplication *sharedApplication = [UIApplication sharedApplication];
+		if (![sharedApplication isIgnoringInteractionEvents]) {
+			[sharedApplication beginIgnoringInteractionEvents];
+		}
 	}
 }
 
 + (void)hideSpinner
 {
 	// end ignoring interaction events
-	[[UIApplication sharedApplication] endIgnoringInteractionEvents];
+	UIApplication *sharedApplication = [UIApplication sharedApplication];
+	if ([sharedApplication isIgnoringInteractionEvents]) {
+		[sharedApplication endIgnoringInteractionEvents];
+	}
 
 	[spinner removeFromSuperview];
 	[spinner stopAnimating];
