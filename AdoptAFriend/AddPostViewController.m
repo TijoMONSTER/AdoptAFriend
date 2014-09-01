@@ -140,6 +140,7 @@
 
 - (IBAction)onPostButtonTapped:(UIButton *)sender
 {
+    [self.descriptionTextView resignFirstResponder];
     NSString *errors = @"";
     UIImage *defaultImage = [UIImage imageNamed:DefaultImageName];
 
@@ -165,7 +166,7 @@
 - (void)savePost
 {
     [Utils showSpinnerOnView:self.view withCenter:self.view.center ignoreInteractionEvents:YES];
-
+    
     Post *newPost = [Post new];
 
     newPost.user = [User currentUser];
@@ -243,6 +244,12 @@
 #pragma mark - Notifications
 -(void)updateDogLocation:(NSNotification *)notification {
     self.dogLocation = notification.object;
+
+    [self.mapView removeAnnotations:self.mapView.annotations];
+
+    self.dogLocation = [[MKPointAnnotation alloc] init];
+    [self.mapView addAnnotation:notification.object];
+
     NSLog(@"Updated dog location %@", notification.object);
 }
 
