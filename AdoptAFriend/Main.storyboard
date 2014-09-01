@@ -15,11 +15,11 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="I77-Ok-g3d" kind="relationship" relationship="viewControllers" id="OuD-wf-ZhO"/>
+                        <segue destination="5ie-2x-YL4" kind="modal" identifier="showLoginOptionScreenSegue" animates="NO" id="gaP-ib-fIY"/>
                         <segue destination="pbv-4e-NLx" kind="relationship" relationship="viewControllers" id="s02-nd-Fct"/>
+                        <segue destination="I77-Ok-g3d" kind="relationship" relationship="viewControllers" id="OuD-wf-ZhO"/>
                         <segue destination="ohK-ov-FgJ" kind="relationship" relationship="viewControllers" id="tG1-PH-m2d"/>
                         <segue destination="PLR-zf-TEl" kind="relationship" relationship="viewControllers" id="eQ9-ar-Ydw"/>
-                        <segue destination="5ie-2x-YL4" kind="modal" identifier="showLoginOptionScreenSegue" animates="NO" id="gaP-ib-fIY"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Njl-mF-xa7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -586,7 +586,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="3LU-s3-Be0">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3LU-s3-Be0">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <connections>
@@ -596,7 +596,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Map" id="3D7-sn-oMn"/>
+                    <navigationItem key="navigationItem" title="Map" id="3D7-sn-oMn">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="NSp-NX-8dp">
+                            <connections>
+                                <action selector="onReloadButtonTapped:" destination="QN1-3S-mBI" id="ToT-IV-QqW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="3LU-s3-Be0" id="XFw-TX-06y"/>
                         <segue destination="wux-b2-hfV" kind="push" identifier="showPostDetailsScreenSegue" id="Wv6-i1-tW7"/>
@@ -749,7 +755,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="Wv6-i1-tW7"/>
         <segue reference="Jif-Ng-dCe"/>
-        <segue reference="031-oo-hos"/>
     </inferredMetricsTieBreakers>
 </document>

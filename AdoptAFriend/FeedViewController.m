@@ -11,6 +11,7 @@
 #import "PostDetailsViewController.h"
 #import "Utils.h"
 
+// Range in kilometers to search for posts
 #define kilometersRangeToSearch 10.0
 
 // Cell identifier
