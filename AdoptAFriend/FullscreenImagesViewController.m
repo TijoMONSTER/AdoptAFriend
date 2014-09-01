@@ -23,17 +23,26 @@
     [super viewDidLoad];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+	[super viewWillAppear:animated];
+	// scroll to the selected image
+	NSIndexPath *selectedImageIndexPath = [NSIndexPath indexPathForRow:self.selectedImageIndex inSection:0];
+	[self.collectionView scrollToItemAtIndexPath:selectedImageIndexPath atScrollPosition:UICollectionViewScrollPositionNone animated:YES];
+}
+
 #pragma mark - UICollectionView data source
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-	return 3;
+	return self.images.count;
 }
 
 - (FullscreenImagesCollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
 	FullscreenImagesCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
+	UIImage *image = self.images[indexPath.row];
+	[cell layoutCellViewWithImage:image];
 
 	return cell;
 }

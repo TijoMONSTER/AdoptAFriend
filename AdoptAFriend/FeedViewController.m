@@ -11,6 +11,7 @@
 #import "PostDetailsViewController.h"
 #import "Utils.h"
 
+// Range in kilometers to search for posts
 #define kilometersRangeToSearch 10.0
 
 // Cell identifier
@@ -58,20 +59,22 @@
 {
 	[super viewWillAppear:animated];
 
-	// get the user location as a PFGeoPoint
-	[PFGeoPoint geoPointForCurrentLocationInBackground:^(PFGeoPoint *geoPoint, NSError *error) {
-		if (!error) {
-			if (self.userLocation.latitude != geoPoint.latitude && self.userLocation.longitude != geoPoint.longitude){
-				self.userLocation = geoPoint;
-				NSLog(@"user location updated %f, %f", self.userLocation.latitude, self.userLocation.longitude);
-				[self loadObjects];
+	// if user is logged in, do the query
+	if ([User currentUser]) {
+		// get the user location as a PFGeoPoint
+		[PFGeoPoint geoPointForCurrentLocationInBackground:^(PFGeoPoint *geoPoint, NSError *error) {
+			if (!error) {
+				if (self.userLocation.latitude != geoPoint.latitude && self.userLocation.longitude != geoPoint.longitude){
+					self.userLocation = geoPoint;
+					NSLog(@"user location updated %f, %f", self.userLocation.latitude, self.userLocation.longitude);
+					[self loadObjects];
+				}
+			} else {
+				NSLog(@"Unable to retrieve user location %@ %@", error, error.localizedDescription);
+				[Utils showAlertViewWithMessage: [NSString stringWithFormat:errorRetrievingLocationMessage, error.localizedDescription]];
 			}
-		} else {
-			NSLog(@"Unable to retrieve user location %@ %@", error, error.localizedDescription);
-			[Utils showAlertViewWithMessage: [NSString stringWithFormat:errorRetrievingLocationMessage, error.localizedDescription]];
-		}
-	}];
-
+		}];
+	}
 }
 
 #pragma mark - Parse
