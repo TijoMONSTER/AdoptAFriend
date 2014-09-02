@@ -157,8 +157,12 @@
 - (IBAction)onImageViewTapped:(UITapGestureRecognizer *)tapGestureRecognizer
 {
 	PFImageView *tappedImageView = (PFImageView *)tapGestureRecognizer.view;
+	UIImage *placeHolderImage = [UIImage imageNamed:FeedCellPlaceHolderImage];
 
-	[self performSegueWithIdentifier:showFullscreenImagesSegue sender:tappedImageView];
+	//prevent from tapping placeholder images
+	if (![tappedImageView.image isEqual:placeHolderImage]) {
+		[self performSegueWithIdentifier:showFullscreenImagesSegue sender:tappedImageView];
+	}
 }
 
 - (IBAction)onPreviewMapTapped:(UITapGestureRecognizer *)sender

@@ -138,7 +138,7 @@
 
 #pragma mark - IBActions
 
-- (IBAction)onPostButtonTapped:(UIButton *)sender
+- (IBAction)onPostButtonTapped:(UIBarButtonItem *)sender
 {
     [self.descriptionTextView resignFirstResponder];
     NSString *errors = @"";
@@ -147,13 +147,13 @@
     if ([self.firstImageButton imageForState:UIControlStateNormal] == defaultImage &&
         [self.secondImageButton imageForState:UIControlStateNormal] == defaultImage &&
         [self.thirdImageButton imageForState:UIControlStateNormal] == defaultImage) {
-        errors = @"You need to select at least 1 image";
+        errors = @"You need to select at least 1 image.";
     }
     if (self.dogLocation == nil) {
-        errors = [NSString stringWithFormat:@"%@ \n\nYou need to specify the place where the dog was found", errors];
+        errors = [NSString stringWithFormat:@"%@ \n\nYou need to specify the place where the dog was found.", errors];
     }
     if ([self.descriptionTextView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length == 0) {
-        errors = [NSString stringWithFormat:@"%@ \n\nYou need to provide a description", errors];
+        errors = [NSString stringWithFormat:@"%@ \n\nYou need to provide a description.", errors];
     }
 
     if (errors.length == 0) {

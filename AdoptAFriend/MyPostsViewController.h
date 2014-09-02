@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MyPostsViewController : UITableViewController
+@interface MyPostsViewController : PFQueryTableViewController
 
 @end
