@@ -144,12 +144,12 @@
 - (IBAction)onInterestedButtonTapped:(UIButton *)sender
 {
 	NSLog(@"I'm interested! send to or show me the OP's mail");
-    Post *post = [Post new];
-    PFRelation *relation = [post relationForKey:@"intrested"];
+    PFRelation *relation = [self.post relationForKey:@"intrested"];
     [relation addObject:[User currentUser]];
-    [post saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+    [self.post saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {
             NSLog(@"Saved successfully");
+
         }
     }];
 }
