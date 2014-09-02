@@ -82,8 +82,6 @@
 	}
 
 	self.query = [PFQuery queryWithClassName:[Post parseClassName]];
-	// get posts from current user
-	[self.query whereKey:@"user" equalTo:[User currentUser]];
 	// that are near this location
 	[self.query whereKey:@"location" nearGeoPoint:self.userLocation withinKilometers:kilometersRangeToSearch];
 	// order them by date

@@ -91,8 +91,6 @@
 		query.cachePolicy = kPFCachePolicyCacheThenNetwork;
 	}
 
-	// get posts from current user
-	[query whereKey:@"user" equalTo:[User currentUser]];
 	// that are near this location
 	[query whereKey:@"location" nearGeoPoint:self.userLocation withinKilometers:kilometersRangeToSearch];
 	// order them by date
