@@ -144,6 +144,14 @@
 - (IBAction)onInterestedButtonTapped:(UIButton *)sender
 {
 	NSLog(@"I'm interested! send to or show me the OP's mail");
+    Post *post = [Post new];
+    PFRelation *relation = [post relationForKey:@"intrested"];
+    [relation addObject:[User currentUser]];
+    [post saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (!error) {
+            NSLog(@"Saved successfully");
+        }
+    }];
 }
 
 - (IBAction)onImageViewTapped:(UITapGestureRecognizer *)tapGestureRecognizer
