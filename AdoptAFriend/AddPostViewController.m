@@ -217,13 +217,12 @@
 
 #pragma mark - Navigation
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-	if ([segue.identifier isEqualToString:showMapScreenSegue]) {
-		AddPostLocationViewController *addPostLocationVC = (AddPostLocationViewController *)segue.destinationViewController;
-		addPostLocationVC.hidesBottomBarWhenPushed = YES;
-	}
-}
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+//{
+//	if ([segue.identifier isEqualToString:showMapScreenSegue]) {
+//		AddPostLocationViewController *addPostLocationVC = (AddPostLocationViewController *)segue.destinationViewController;
+//	}
+//}
 
 #pragma mark - MKMapViewDelegate
 

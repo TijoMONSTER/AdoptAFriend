@@ -175,7 +175,6 @@
 {
 	if ([segue.identifier isEqualToString:showPostDetailsScreenSegue]) {
 		PostDetailsViewController *postDetailsVC = (PostDetailsViewController *)segue.destinationViewController;
-		postDetailsVC.hidesBottomBarWhenPushed = YES;
 		// the sender is the post
 		postDetailsVC.post = sender;
 	}

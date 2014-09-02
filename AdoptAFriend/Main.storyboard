@@ -82,7 +82,7 @@
         <!--Post Details View Controller - Post-->
         <scene sceneID="Pxa-d5-Guh">
             <objects>
-                <viewController id="wux-b2-hfV" customClass="PostDetailsViewController" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="wux-b2-hfV" customClass="PostDetailsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fWT-Jo-8S1"/>
                         <viewControllerLayoutGuide type="bottom" id="qzx-aq-L4t"/>
@@ -236,7 +236,7 @@
         <!--Login Options Selection View Controller - Adopt a Friend-->
         <scene sceneID="j6Q-SZ-zWw">
             <objects>
-                <viewController id="hla-h0-R45" customClass="LoginOptionsSelectionViewController" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="hla-h0-R45" customClass="LoginOptionsSelectionViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Zxs-W2-uxb"/>
                         <viewControllerLayoutGuide type="bottom" id="umu-e4-Q56"/>
@@ -277,7 +277,7 @@
         <!--Signup View Controller - Sign up-->
         <scene sceneID="mKi-jG-mpa">
             <objects>
-                <viewController id="0HG-Jh-lfl" customClass="SignupViewController" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="0HG-Jh-lfl" customClass="SignupViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cr9-Ku-5sE"/>
                         <viewControllerLayoutGuide type="bottom" id="w9a-d4-kbK"/>
@@ -386,7 +386,7 @@
         <!--Login View Controller - Log in-->
         <scene sceneID="Efd-EH-xrC">
             <objects>
-                <viewController id="leY-GE-nLL" customClass="LoginViewController" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="leY-GE-nLL" customClass="LoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="AMo-ov-HvI"/>
                         <viewControllerLayoutGuide type="bottom" id="LrJ-3y-bhJ"/>
@@ -530,7 +530,7 @@
         <!--Add Post Location View Controller-->
         <scene sceneID="JsF-cY-Ih0">
             <objects>
-                <viewController id="d49-kU-qE3" customClass="AddPostLocationViewController" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="d49-kU-qE3" customClass="AddPostLocationViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9j7-cZ-3as"/>
                         <viewControllerLayoutGuide type="bottom" id="Udj-u3-AzC"/>
@@ -757,7 +757,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Jif-Ng-dCe"/>
+        <segue reference="5c3-Gh-s0o"/>
         <segue reference="031-oo-hos"/>
     </inferredMetricsTieBreakers>
 </document>

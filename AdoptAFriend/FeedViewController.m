@@ -129,7 +129,6 @@
 	if ([segue.identifier isEqualToString:showPostDetailsScreenSegue]) {
 		// send post data to postDetailsVC
 		PostDetailsViewController *postDetailsVC = (PostDetailsViewController *)segue.destinationViewController;
-		postDetailsVC.hidesBottomBarWhenPushed = YES;
 
 		NSIndexPath *indexPathForSelectedRow = self.tableView.indexPathForSelectedRow;
 		Post *post = self.objects[indexPathForSelectedRow.row];
