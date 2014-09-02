@@ -488,16 +488,6 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qsv-nS-bzz">
-                                        <rect key="frame" x="137" y="361" width="46" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Post">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="onPostButtonTapped:" destination="3av-ps-d1R" eventType="touchUpInside" id="ZBC-fF-R2P"/>
-                                        </connections>
-                                    </button>
                                     <mapView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" zoomEnabled="NO" scrollEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bnj-xF-m5f">
                                         <rect key="frame" x="20" y="99" width="280" height="132"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -512,7 +502,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Add" id="JXf-Gt-fhH"/>
+                    <navigationItem key="navigationItem" title="Add" id="JXf-Gt-fhH">
+                        <barButtonItem key="rightBarButtonItem" title="Submit" id="Gw3-3M-DkD">
+                            <connections>
+                                <action selector="onPostButtonTapped:" destination="3av-ps-d1R" id="4qX-TM-jbW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="descriptionTextView" destination="sBz-VT-c0r" id="dLE-K2-Ddv"/>
                         <outlet property="firstImageButton" destination="Ocs-Oa-FAI" id="j6D-sX-aI7"/>
