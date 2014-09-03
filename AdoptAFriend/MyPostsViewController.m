@@ -33,8 +33,6 @@
 
 @interface MyPostsViewController () <UIAlertViewDelegate>
 
-//@property Post *postToDelete;
-
 @end
 
 @implementation MyPostsViewController
@@ -93,9 +91,6 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-
-//		self.postToDelete = (Post *) self.objects[indexPath.row];
-
 		UIAlertView *alertView = [Utils showAlertViewWithMessage:postDeletionConfirmationMessage
 								  title:nil
 						   buttonTitles:@[@"Cancel", @"OK"]
@@ -114,12 +109,21 @@
 		if (buttonIndex != alertView.cancelButtonIndex) {
 			[self showReasonForDeletionAlertView];
 		} else {
-			NSLog(@"cancel deletion");
-//			self.postToDelete = nil;
+			// put cell in non-editing mode
+			for (UITableViewCell *cell in self.tableView.visibleCells) {
+				if (cell.isEditing) {
+					[cell setEditing:NO animated:YES];
+					[self.tableView reloadRowsAtIndexPaths:@[[self.tableView indexPathForCell:cell]]
+										  withRowAnimation:UITableViewRowAnimationRight];
+					NSLog(@"cancel deletion");
+					break;
+				}
+			}
 		}
 	}
 	else if (alertView.tag == reasonForDeletionAlertViewTag) {
 		UITextField *reasonTextField = [alertView textFieldAtIndex:0];
+		// if no reason, show the alertView again
 		if (reasonTextField.text.length == 0 || [reasonTextField.text isEqualToString:@""]) {
 			[self showReasonForDeletionAlertView];
 		} else {
