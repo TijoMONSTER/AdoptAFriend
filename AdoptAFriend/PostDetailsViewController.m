@@ -95,10 +95,17 @@
 
 	// description
 	self.descriptionTextView.text = self.post.descriptionText;
-
-    if ([self.post.user.username isEqual:[User currentUser].username]) {
-        self.interestedButton.hidden = YES;
-    }
+    PFRelation *relation = [self.post relationForKey:@"intrested"];
+    PFQuery *query = [relation query];
+    [query whereKey:@"username" equalTo:[User currentUser].username];
+    [query countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
+        if (!error) {
+            NSLog(@"No errors count: %d", number);
+            if (number != 0) {
+                self.interestedButton.hidden = YES;
+            }
+        }
+    }];
 }
 
 #pragma mark - Actions
@@ -143,13 +150,16 @@
 
 - (IBAction)onInterestedButtonTapped:(UIButton *)sender
 {
-	NSLog(@"I'm interested! send to or show me the OP's mail");
+    [Utils showSpinnerOnView:self.view withCenter:self.view.center ignoreInteractionEvents:YES];
     PFRelation *relation = [self.post relationForKey:@"intrested"];
     [relation addObject:[User currentUser]];
     [self.post saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        [Utils hideSpinner];
         if (!error) {
-            NSLog(@"Saved successfully");
-
+            [Utils showAlertViewWithMessage:[NSString stringWithFormat:@"Get in contact with %@", self.post.user.username]];
+            [self.navigationController popViewControllerAnimated:YES];
+        } else {
+            [Utils showAlertViewWithMessage:[NSString stringWithFormat:@"There was an unknown error %@", error.userInfo]];
         }
     }];
 }
