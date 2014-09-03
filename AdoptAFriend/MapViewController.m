@@ -101,6 +101,8 @@
 			self.posts = objects;
 			if (self.posts.count > 0) {
 				[self addPostAnnotations];
+				[self.mapView becomeFirstResponder];
+				[self.mapView reloadInputViews];
 			} else {
 				[Utils showAlertViewWithMessage:errorNoPostsNearbyMessage];
 			}
