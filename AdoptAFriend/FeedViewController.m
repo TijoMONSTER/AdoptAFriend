@@ -99,6 +99,8 @@
 
 	// that are near this location
 	[query whereKey:@"location" nearGeoPoint:self.userLocation withinKilometers:kilometersRangeToSearch];
+	// that are not resolved
+	[query whereKey:@"resolved" equalTo:[NSNumber numberWithBool:NO]];
 	// order them by date
 	[query orderByDescending:@"createdAt"];
 	// include user in the query

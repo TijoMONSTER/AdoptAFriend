@@ -155,10 +155,6 @@
 //	}
 //}
 
-
-// resolved = true
-// if no adopter, ask for a reasonForResolution
-
 #pragma mark - Helper methods
 
 - (void)deletePostWithReason:(NSString *)reason
