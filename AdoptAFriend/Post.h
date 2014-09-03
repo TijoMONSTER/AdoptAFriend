@@ -16,6 +16,7 @@
 @property (retain) User *user;
 @property (retain) User *adopter;
 @property BOOL resolved;
+@property (retain) NSString *resolutionText;
 
 + (NSString *)parseClassName;
 

@@ -22,10 +22,18 @@
 #define showModifyUserDataScreenSegue @"showModifyUserDataScreenSegue"
 
 // Messages
+#define postDeletionConfirmationMessage @"Are you sure you want to delete this post?"
+#define reasonForDeletionMessage @"Please tell us why are you deleting this post."
 // Error messages
 #define errorDeletingPostMessage @"Error deleting post: %@"
 
-@interface MyPostsViewController ()
+// AlertView tags
+#define postDeletionAlertViewTag 1
+#define reasonForDeletionAlertViewTag 2
+
+@interface MyPostsViewController () <UIAlertViewDelegate>
+
+//@property Post *postToDelete;
 
 @end
 
@@ -57,12 +65,14 @@
 
 	// If no objects are loaded in memory, we look to the cache first to fill the table
     // and then subsequently do a query against the network.
-	if (self.objects.count == 0) {
-		query.cachePolicy = kPFCachePolicyCacheThenNetwork;
-	}
+//	if (self.objects.count == 0) {
+//		query.cachePolicy = kPFCachePolicyCacheThenNetwork;
+//	}
 
 	// get posts from current user
 	[query whereKey:@"user" equalTo:[User currentUser]];
+	// get the unresolved posts
+	[query whereKey:@"resolved" equalTo:[NSNumber numberWithBool:NO]];
 	// order them by date
 	[query orderByDescending:@"createdAt"];
 	// include user in the query
@@ -84,24 +94,38 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
 
-		Post *post = (Post *) self.objects[indexPath.row];
+//		self.postToDelete = (Post *) self.objects[indexPath.row];
 
-		[Utils showSpinnerOnView:self.view withCenter:self.view.center ignoreInteractionEvents:YES];
-		// Delete the row from the data source
-		[post deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-			[Utils hideSpinner];
-			if (!error) {
-				if (succeeded) {
-					NSLog(@"Deleted user post");
-					[self.queryForTable clearCachedResult];
-					[self loadObjects];
-				}
-			} else {
-				NSLog(@"Unable to delete user post %@ %@", error, error.localizedDescription);
-				[Utils showAlertViewWithMessage: [NSString stringWithFormat:errorDeletingPostMessage, error.localizedDescription]];
-			}
-		}];
+		UIAlertView *alertView = [Utils showAlertViewWithMessage:postDeletionConfirmationMessage
+								  title:nil
+						   buttonTitles:@[@"Cancel", @"OK"]
+							   delegate:self];
+		alertView.tag = postDeletionAlertViewTag;
+		alertView.cancelButtonIndex = 0;
     }
+}
+
+#pragma mark - UIAlertView delegate
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+	// first alert view (deletion confirmation)
+	if (alertView.tag == postDeletionAlertViewTag) {
+		if (buttonIndex != alertView.cancelButtonIndex) {
+			[self showReasonForDeletionAlertView];
+		} else {
+			NSLog(@"cancel deletion");
+//			self.postToDelete = nil;
+		}
+	}
+	else if (alertView.tag == reasonForDeletionAlertViewTag) {
+		UITextField *reasonTextField = [alertView textFieldAtIndex:0];
+		if (reasonTextField.text.length == 0 || [reasonTextField.text isEqualToString:@""]) {
+			[self showReasonForDeletionAlertView];
+		} else {
+			[self deletePostWithReason:reasonTextField.text];
+		}
+	}
 }
 
 #pragma mark - PFQueryTableViewController
@@ -127,5 +151,54 @@
 //	}
 //}
 
+
+// resolved = true
+// if no adopter, ask for a reasonForResolution
+
+#pragma mark - Helper methods
+
+- (void)deletePostWithReason:(NSString *)reason
+{
+	[Utils showSpinnerOnView:self.view withCenter:self.view.center ignoreInteractionEvents:YES];
+
+	NSIndexPath *indexPath;
+	for (UITableViewCell *cell in self.tableView.visibleCells) {
+		if (cell.isEditing) {
+			indexPath = [self.tableView indexPathForCell:cell];
+			break;
+		}
+	}
+
+	if (indexPath) {
+		Post *postToDelete = self.objects[indexPath.row];
+		//	logical deletion
+		postToDelete.resolved = true;
+		postToDelete.resolutionText = reason;
+		[postToDelete saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+			[Utils hideSpinner];
+			if (!error) {
+				if (succeeded) {
+					NSLog(@"Logically deleted user post");
+//					[self.queryForTable clearCachedResult];
+					[self loadObjects];
+				}
+			} else {
+				NSLog(@"Unable to delete user post %@ %@", error, error.localizedDescription);
+				[Utils showAlertViewWithMessage: [NSString stringWithFormat:errorDeletingPostMessage, error.localizedDescription]];
+			}
+		}];
+	}
+}
+
+- (void)showReasonForDeletionAlertView
+{
+	UIAlertView *reasonForDeletionAlertView = [UIAlertView new];
+	reasonForDeletionAlertView.alertViewStyle = UIAlertViewStylePlainTextInput;
+	reasonForDeletionAlertView.delegate = self;
+	reasonForDeletionAlertView.tag = reasonForDeletionAlertViewTag;
+	reasonForDeletionAlertView.message = reasonForDeletionMessage;
+	[reasonForDeletionAlertView addButtonWithTitle:@"OK"];
+	[reasonForDeletionAlertView show];
+}
 
 @end
