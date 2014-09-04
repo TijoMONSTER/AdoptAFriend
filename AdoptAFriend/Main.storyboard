@@ -16,10 +16,10 @@
                     </tabBar>
                     <connections>
                         <segue destination="5ie-2x-YL4" kind="modal" identifier="showLoginOptionScreenSegue" animates="NO" id="gaP-ib-fIY"/>
+                        <segue destination="PLR-zf-TEl" kind="relationship" relationship="viewControllers" id="eQ9-ar-Ydw"/>
                         <segue destination="I77-Ok-g3d" kind="relationship" relationship="viewControllers" id="OuD-wf-ZhO"/>
                         <segue destination="pbv-4e-NLx" kind="relationship" relationship="viewControllers" id="s02-nd-Fct"/>
                         <segue destination="ohK-ov-FgJ" kind="relationship" relationship="viewControllers" id="tG1-PH-m2d"/>
-                        <segue destination="PLR-zf-TEl" kind="relationship" relationship="viewControllers" id="eQ9-ar-Ydw"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Njl-mF-xa7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -666,82 +666,157 @@
             </objects>
             <point key="canvasLocation" x="613" y="1213"/>
         </scene>
-        <!--Navigation Controller - My posts-->
+        <!--Navigation Controller - My profile-->
         <scene sceneID="cYQ-s9-WH1">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PLR-zf-TEl" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="My posts" image="profile-75" id="ra6-iu-p0W"/>
+                    <tabBarItem key="tabBarItem" title="My profile" image="profile-75" id="ra6-iu-p0W"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="dqR-sH-Ked">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="pGJ-26-QzB">
+                        <rect key="frame" x="0.0" y="436" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
-                        <segue destination="8SA-8z-H6t" kind="relationship" relationship="rootViewController" id="pmA-Rr-dTy"/>
+                        <segue destination="ZaA-hf-ZGw" kind="relationship" relationship="rootViewController" id="WkB-kR-Xxb"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tTZ-aO-ydK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="613" y="1817"/>
         </scene>
-        <!--My Posts View Controller - My posts-->
-        <scene sceneID="LjG-bd-SXZ">
+        <!--My Profile View Controller - My Profile-->
+        <scene sceneID="4yw-1n-873">
             <objects>
-                <tableViewController id="8SA-8z-H6t" customClass="MyPostsViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="uFv-sk-GPw">
+                <viewController id="ZaA-hf-ZGw" customClass="MyProfileViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dtN-hS-Mz7"/>
+                        <viewControllerLayoutGuide type="bottom" id="JkP-Bx-dl1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iao-3w-3bj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="100" id="hqG-39-4O3" customClass="FeedTableViewCell">
-                                <rect key="frame" x="0.0" y="86" width="320" height="100"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hqG-39-4O3" id="ebV-Zk-kUX">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WjB-Yw-iFL" customClass="PFImageView">
-                                            <rect key="frame" x="5" y="5" width="90" height="90"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                        </imageView>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GbN-9K-vFs">
-                                            <rect key="frame" x="103" y="5" width="184" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Short description" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="184" translatesAutoresizingMaskIntoConstraints="NO" id="GQn-rV-VQb">
-                                            <rect key="frame" x="103" y="34" width="184" height="61"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="a9E-do-9he" userLabel="My interested posts Table View">
+                                <rect key="frame" x="0.0" y="114" width="320" height="366"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="100" id="U7M-iV-c2s" customClass="FeedTableViewCell">
+                                        <rect key="frame" x="0.0" y="86" width="320" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="U7M-iV-c2s" id="nGn-ww-X7W">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ayx-HG-Rej" customClass="PFImageView">
+                                                    <rect key="frame" x="5" y="5" width="90" height="90"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eqr-l1-q2y">
+                                                    <rect key="frame" x="103" y="5" width="184" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Short description" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="184" translatesAutoresizingMaskIntoConstraints="NO" id="NCd-SS-TOU">
+                                                    <rect key="frame" x="103" y="34" width="184" height="61"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="descriptionLabel" destination="NCd-SS-TOU" id="zAK-P0-HyP"/>
+                                            <outlet property="mainImageView" destination="ayx-HG-Rej" id="6Dw-sb-GQq"/>
+                                            <outlet property="usernameLabel" destination="Eqr-l1-q2y" id="vCp-uU-Xyr"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
-                                    <outlet property="descriptionLabel" destination="GQn-rV-VQb" id="osL-M4-lYE"/>
-                                    <outlet property="mainImageView" destination="WjB-Yw-iFL" id="1Vr-Nf-bF9"/>
-                                    <outlet property="usernameLabel" destination="GbN-9K-vFs" id="mJN-IW-c5v"/>
+                                    <outlet property="dataSource" destination="ZaA-hf-ZGw" id="0mU-1t-SDX"/>
+                                    <outlet property="delegate" destination="ZaA-hf-ZGw" id="U3K-W0-93i"/>
                                 </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="8SA-8z-H6t" id="9BQ-o8-oW6"/>
-                            <outlet property="delegate" destination="8SA-8z-H6t" id="zBm-NY-P3V"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="My posts" id="qcZ-OD-vBm">
-                        <barButtonItem key="rightBarButtonItem" title="My profile" id="rzG-v1-EMb">
+                            </tableView>
+                            <tableView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="y8n-95-2kS" userLabel="My posts Table View">
+                                <rect key="frame" x="0.0" y="114" width="320" height="366"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="100" id="KGB-Xy-5e7" customClass="FeedTableViewCell">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGB-Xy-5e7" id="VKc-BS-ani">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gaW-ug-avd" customClass="PFImageView">
+                                                    <rect key="frame" x="5" y="5" width="90" height="90"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SBW-30-ayt">
+                                                    <rect key="frame" x="103" y="5" width="184" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Short description" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="184" translatesAutoresizingMaskIntoConstraints="NO" id="DW8-fw-EKD">
+                                                    <rect key="frame" x="103" y="34" width="184" height="61"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="descriptionLabel" destination="DW8-fw-EKD" id="f42-jL-txU"/>
+                                            <outlet property="mainImageView" destination="gaW-ug-avd" id="U1U-4m-Fuh"/>
+                                            <outlet property="usernameLabel" destination="SBW-30-ayt" id="flm-ac-534"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="ZaA-hf-ZGw" id="3W6-7Q-zaG"/>
+                                    <outlet property="delegate" destination="ZaA-hf-ZGw" id="LZf-dA-AYb"/>
+                                </connections>
+                            </tableView>
+                            <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f24-Oi-lJ1">
+                                <rect key="frame" x="0.0" y="65" width="320" height="49"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <tabBarItem title="My posts" image="feed-75" id="uAu-RA-DEZ"/>
+                                    <tabBarItem title="My interested posts" image="star-75" id="vds-De-Hl6"/>
+                                </items>
+                                <connections>
+                                    <outlet property="delegate" destination="ZaA-hf-ZGw" id="ROH-9g-e2Q"/>
+                                </connections>
+                            </tabBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="My Profile" id="9bg-Af-ERG">
+                        <barButtonItem key="leftBarButtonItem" image="settings-50" id="WZ9-hq-rfv" userLabel="Bar Button Item - Settings">
                             <connections>
-                                <segue destination="0HG-Jh-lfl" kind="push" identifier="showModifyUserDataScreenSegue" id="Jif-Ng-dCe"/>
+                                <segue destination="0HG-Jh-lfl" kind="push" identifier="showModifyUserDataScreenSegue" id="jLB-Tt-RS8"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="zS6-OH-c8H"/>
                     </navigationItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZUz-8i-T3Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                    <connections>
+                        <outlet property="myInterestedPostsTableView" destination="a9E-do-9he" id="tgB-N8-IX3"/>
+                        <outlet property="myPostsTableView" destination="y8n-95-2kS" id="7lM-6z-d8e"/>
+                        <outlet property="postsTabBar" destination="f24-Oi-lJ1" id="A8Z-uk-tK4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ob7-Rt-T7R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1139" y="1817"/>
+            <point key="canvasLocation" x="1133" y="1817"/>
         </scene>
     </scenes>
     <resources>
@@ -750,6 +825,8 @@
         <image name="feed-75" width="37" height="37"/>
         <image name="map-75" width="37" height="37"/>
         <image name="profile-75" width="37" height="37"/>
+        <image name="settings-50" width="25" height="25"/>
+        <image name="star-75" width="37" height="37"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
@@ -757,7 +834,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="5c3-Gh-s0o"/>
-        <segue reference="031-oo-hos"/>
+        <segue reference="Wv6-i1-tW7"/>
+        <segue reference="jLB-Tt-RS8"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -36,7 +36,7 @@
 		2CDD5C0419ACE0E800E3B8FF /* FullscreenImagesCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDD5C0319ACE0E800E3B8FF /* FullscreenImagesCollectionViewCell.m */; };
 		2CDD5C0719ACE6B900E3B8FF /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDD5C0619ACE6B900E3B8FF /* MapViewController.m */; };
 		2CDD5C0A19ACECCA00E3B8FF /* AddPostLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDD5C0919ACECCA00E3B8FF /* AddPostLocationViewController.m */; };
-		2CDD5C0D19ACFC2A00E3B8FF /* MyPostsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDD5C0C19ACFC2A00E3B8FF /* MyPostsViewController.m */; };
+		2CDD5C0D19ACFC2A00E3B8FF /* MyProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDD5C0C19ACFC2A00E3B8FF /* MyProfileViewController.m */; };
 		2CDD5C1019AD017200E3B8FF /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDD5C0F19AD017200E3B8FF /* SignupViewController.m */; };
 		2CDD5C1319AD1E4900E3B8FF /* LoginOptionsSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDD5C1219AD1E4900E3B8FF /* LoginOptionsSelectionViewController.m */; };
 		2CDD5C1619AD20A300E3B8FF /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDD5C1519AD20A300E3B8FF /* LoginViewController.m */; };
@@ -116,8 +116,8 @@
 		2CDD5C0619ACE6B900E3B8FF /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		2CDD5C0819ACECCA00E3B8FF /* AddPostLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPostLocationViewController.h; sourceTree = "<group>"; };
 		2CDD5C0919ACECCA00E3B8FF /* AddPostLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPostLocationViewController.m; sourceTree = "<group>"; };
-		2CDD5C0B19ACFC2A00E3B8FF /* MyPostsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPostsViewController.h; sourceTree = "<group>"; };
-		2CDD5C0C19ACFC2A00E3B8FF /* MyPostsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPostsViewController.m; sourceTree = "<group>"; };
+		2CDD5C0B19ACFC2A00E3B8FF /* MyProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyProfileViewController.h; sourceTree = "<group>"; };
+		2CDD5C0C19ACFC2A00E3B8FF /* MyProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyProfileViewController.m; sourceTree = "<group>"; };
 		2CDD5C0E19AD017200E3B8FF /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
 		2CDD5C0F19AD017200E3B8FF /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
 		2CDD5C1119AD1E4900E3B8FF /* LoginOptionsSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginOptionsSelectionViewController.h; sourceTree = "<group>"; };
@@ -337,8 +337,8 @@
 		2CDD5BE419ABBCCE00E3B8FF /* My posts */ = {
 			isa = PBXGroup;
 			children = (
-				2CDD5C0B19ACFC2A00E3B8FF /* MyPostsViewController.h */,
-				2CDD5C0C19ACFC2A00E3B8FF /* MyPostsViewController.m */,
+				2CDD5C0B19ACFC2A00E3B8FF /* MyProfileViewController.h */,
+				2CDD5C0C19ACFC2A00E3B8FF /* MyProfileViewController.m */,
 			);
 			name = "My posts";
 			sourceTree = "<group>";
@@ -491,7 +491,7 @@
 				2CDD5C0A19ACECCA00E3B8FF /* AddPostLocationViewController.m in Sources */,
 				2CDD5C0119ACDE7C00E3B8FF /* FullscreenImagesViewController.m in Sources */,
 				2CDD5C1619AD20A300E3B8FF /* LoginViewController.m in Sources */,
-				2CDD5C0D19ACFC2A00E3B8FF /* MyPostsViewController.m in Sources */,
+				2CDD5C0D19ACFC2A00E3B8FF /* MyProfileViewController.m in Sources */,
 				2CDD5C4219AE787D00E3B8FF /* Post.m in Sources */,
 				2CDD5BAB19AB952900E3B8FF /* main.m in Sources */,
 				2CDD5C0719ACE6B900E3B8FF /* MapViewController.m in Sources */,
