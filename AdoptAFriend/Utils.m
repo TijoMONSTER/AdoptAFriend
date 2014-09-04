@@ -52,29 +52,33 @@ static UIActivityIndicatorView *spinner = nil;
 
 #pragma mark - AlertView
 
-+ (void)showAlertViewWithMessage:(NSString *)message
++ (UIAlertView *)showAlertViewWithMessage:(NSString *)message
 {
-	[self showAlertViewWithMessage:message title:nil buttonTitle:@"OK" delegate:nil];
+	return [self showAlertViewWithMessage:message title:nil buttonTitles:@[@"OK"] delegate:nil];
 }
 
-+ (void)showAlertViewWithMessage:(NSString *)message delegate:(id<UIAlertViewDelegate>)delegate
++ (UIAlertView *)showAlertViewWithMessage:(NSString *)message delegate:(id<UIAlertViewDelegate>)delegate
 {
-	[self showAlertViewWithMessage:message title:nil buttonTitle:@"OK" delegate:delegate];
+	return [self showAlertViewWithMessage:message title:nil buttonTitles:@[@"OK"] delegate:delegate];
 }
 
-+ (void)showAlertViewWithMessage:(NSString *)message title:(NSString *)title buttonTitle:(NSString *)buttonTitle
++ (UIAlertView *)showAlertViewWithMessage:(NSString *)message title:(NSString *)title buttonTitles:(NSArray *)buttonTitles
 {
-	[self showAlertViewWithMessage:message title:title buttonTitle:buttonTitle delegate:nil];
+	return [self showAlertViewWithMessage:message title:title buttonTitles:buttonTitles delegate:nil];
 }
 
-+ (void)showAlertViewWithMessage:(NSString *)message title:(NSString *)title buttonTitle:(NSString *)buttonTitle delegate:(id<UIAlertViewDelegate>)delegate
++ (UIAlertView *)showAlertViewWithMessage:(NSString *)message title:(NSString *)title buttonTitles:(NSArray *)buttonTitles delegate:(id<UIAlertViewDelegate>)delegate
 {
 	UIAlertView *alertView = [UIAlertView new];
 	alertView.message = message;
 	alertView.title = title;
 	alertView.delegate = delegate;
-	[alertView addButtonWithTitle:buttonTitle];
+	for (NSString *buttonTitle in buttonTitles) {
+		[alertView addButtonWithTitle:buttonTitle];
+	}
 	[alertView show];
+
+	return alertView;
 }
 
 #pragma mark - UIImage

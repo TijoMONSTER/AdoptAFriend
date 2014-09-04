@@ -19,6 +19,7 @@
 @dynamic user;
 @dynamic adopter;
 @dynamic resolved;
+@dynamic resolutionText;
 
 + (void)load {
 	[self registerSubclass];

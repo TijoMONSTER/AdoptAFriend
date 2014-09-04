@@ -84,6 +84,8 @@
 	self.query = [PFQuery queryWithClassName:[Post parseClassName]];
 	// that are near this location
 	[self.query whereKey:@"location" nearGeoPoint:self.userLocation withinKilometers:kilometersRangeToSearch];
+	// that are not resolved
+	[self.query whereKey:@"resolved" equalTo:[NSNumber numberWithBool:NO]];
 	// order them by date
 	[self.query orderByDescending:@"createdAt"];
 	// include user in the query
@@ -99,6 +101,8 @@
 			self.posts = objects;
 			if (self.posts.count > 0) {
 				[self addPostAnnotations];
+				[self.mapView becomeFirstResponder];
+				[self.mapView reloadInputViews];
 			} else {
 				[Utils showAlertViewWithMessage:errorNoPostsNearbyMessage];
 			}
