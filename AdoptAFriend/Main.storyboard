@@ -806,7 +806,11 @@
                                 <segue destination="0HG-Jh-lfl" kind="push" identifier="showModifyUserDataScreenSegue" id="jLB-Tt-RS8"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="zS6-OH-c8H"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="zS6-OH-c8H">
+                            <connections>
+                                <action selector="onReloadButtonTapped:" destination="ZaA-hf-ZGw" id="3Vn-dW-IEW"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="myInterestedPostsTableView" destination="a9E-do-9he" id="tgB-N8-IX3"/>

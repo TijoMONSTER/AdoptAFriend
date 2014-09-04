@@ -142,7 +142,6 @@
 {
 	// tapped on my posts
 	if ([item isEqual:tabBar.items[tabBarItemMyPostsIndex]]) {
-		//TODO: show my posts tableview
 		self.myPostsTableView.hidden = NO;
 		self.myInterestedPostsTableView.hidden = YES;
 
@@ -238,6 +237,22 @@
 			[self deletePostWithReason:reasonTextField.text];
 		}
 	}
+}
+
+#pragma mark - IBActions
+
+- (IBAction)onReloadButtonTapped:(UIBarButtonItem *)sender
+{
+	UITabBarItem *selectedItem = self.postsTabBar.selectedItem;
+
+	// my posts tableView is active
+	if ([selectedItem isEqual:self.postsTabBar.items[tabBarItemMyPostsIndex]]) {
+		[self queryMyPosts];
+	}
+	// my interested posts tableView is active
+	else if ([selectedItem isEqual:self.postsTabBar.items[tabBarItemMyInterestedPostsIndex]]) {
+	}
+
 }
 
 #pragma mark - Helper methods
