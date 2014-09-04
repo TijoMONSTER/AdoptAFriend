@@ -40,6 +40,8 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *interestedButton;
 
+@property (strong, nonatomic) NSArray *interestedArray;
+
 @end
 
 @implementation PostDetailsViewController
@@ -49,6 +51,8 @@
     [super viewDidLoad];
 
 	[Utils showSpinnerOnView:self.view withCenter:self.view.center ignoreInteractionEvents:YES];
+    self.interestedArray = [NSArray new];
+
 	// Images
 	UIImage *placeHolderImage = [UIImage imageNamed:FeedCellPlaceHolderImage];
 
@@ -95,10 +99,18 @@
 
 	// description
 	self.descriptionTextView.text = self.post.descriptionText;
-
-    if ([self.post.user.username isEqual:[User currentUser].username]) {
-        self.interestedButton.hidden = YES;
-    }
+    PFRelation *relation = [self.post relationForKey:@"intrested"];
+    PFQuery *query = [relation query];
+    [query whereKey:@"username" equalTo:[User currentUser].username];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            NSLog(@"No errors count: %d", objects.count);
+            if (objects.count != 0) {
+                self.interestedArray = objects;
+                self.interestedButton.titleLabel.text = @"Not interested";
+            }
+        }
+    }];
 }
 
 #pragma mark - Actions
@@ -143,7 +155,25 @@
 
 - (IBAction)onInterestedButtonTapped:(UIButton *)sender
 {
-	NSLog(@"I'm interested! send to or show me the OP's mail");
+    [Utils showSpinnerOnView:self.view withCenter:self.view.center ignoreInteractionEvents:YES];
+    NSString *message;
+    PFRelation *relation = [self.post relationForKey:@"intrested"];
+    if (self.interestedArray.count > 0) {
+        [relation removeObject:[self.interestedArray objectAtIndex:0]];
+        message = @"Reference removed";
+    } else {
+        [relation addObject:[User currentUser]];
+        message = [NSString stringWithFormat:@"Get in contact with %@", self.post.user.username];
+    }
+    [self.post saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        [Utils hideSpinner];
+        if (!error) {
+            [Utils showAlertViewWithMessage:message];
+            [self.navigationController popViewControllerAnimated:YES];
+        } else {
+            [Utils showAlertViewWithMessage:[NSString stringWithFormat:@"There was an unknown error %@", error.userInfo]];
+        }
+    }];
 }
 
 - (IBAction)onImageViewTapped:(UITapGestureRecognizer *)tapGestureRecognizer

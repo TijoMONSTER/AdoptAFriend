@@ -246,8 +246,6 @@
 
     [self.mapView removeAnnotations:self.mapView.annotations];
     [self.mapView addAnnotation:notification.object];
-
-    NSLog(@"Updated dog location %@", notification.object);
 }
 
 @end
