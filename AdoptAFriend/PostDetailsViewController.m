@@ -106,7 +106,6 @@
     [query whereKey:@"username" equalTo:[User currentUser].username];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
-            NSLog(@"No errors count: %d", objects.count);
             if (objects.count != 0) {
                 self.interestedArray = objects;
                 self.interestedButton.titleLabel.text = @"Not interested";
