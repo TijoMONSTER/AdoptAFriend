@@ -40,6 +40,8 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *interestedButton;
 
+@property (strong, nonatomic) NSArray *interestedArray;
+
 @end
 
 @implementation PostDetailsViewController
@@ -49,6 +51,8 @@
     [super viewDidLoad];
 
 	[Utils showSpinnerOnView:self.view withCenter:self.view.center ignoreInteractionEvents:YES];
+    self.interestedArray = [NSArray new];
+
 	// Images
 	UIImage *placeHolderImage = [UIImage imageNamed:FeedCellPlaceHolderImage];
 
@@ -98,11 +102,12 @@
     PFRelation *relation = [self.post relationForKey:@"intrested"];
     PFQuery *query = [relation query];
     [query whereKey:@"username" equalTo:[User currentUser].username];
-    [query countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
-            NSLog(@"No errors count: %d", number);
-            if (number != 0) {
-                self.interestedButton.hidden = YES;
+            NSLog(@"No errors count: %d", objects.count);
+            if (objects.count != 0) {
+                self.interestedArray = objects;
+                self.interestedButton.titleLabel.text = @"Not interested";
             }
         }
     }];
@@ -151,12 +156,19 @@
 - (IBAction)onInterestedButtonTapped:(UIButton *)sender
 {
     [Utils showSpinnerOnView:self.view withCenter:self.view.center ignoreInteractionEvents:YES];
+    NSString *message;
     PFRelation *relation = [self.post relationForKey:@"intrested"];
-    [relation addObject:[User currentUser]];
+    if (self.interestedArray.count > 0) {
+        [relation removeObject:[self.interestedArray objectAtIndex:0]];
+        message = @"Reference removed";
+    } else {
+        [relation addObject:[User currentUser]];
+        message = [NSString stringWithFormat:@"Get in contact with %@", self.post.user.username];
+    }
     [self.post saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         [Utils hideSpinner];
         if (!error) {
-            [Utils showAlertViewWithMessage:[NSString stringWithFormat:@"Get in contact with %@", self.post.user.username]];
+            [Utils showAlertViewWithMessage:message];
             [self.navigationController popViewControllerAnimated:YES];
         } else {
             [Utils showAlertViewWithMessage:[NSString stringWithFormat:@"There was an unknown error %@", error.userInfo]];
