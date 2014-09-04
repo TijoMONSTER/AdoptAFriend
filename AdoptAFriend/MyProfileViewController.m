@@ -256,6 +256,12 @@
 	}
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	// only myPostsTableView is editable
+	return [tableView isEqual:self.myPostsTableView];
+}
+
 
 #pragma mark - UITableView delegate
 
