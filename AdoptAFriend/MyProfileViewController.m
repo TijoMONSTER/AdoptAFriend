@@ -39,6 +39,7 @@
 // Messages
 // Error messages
 #define errorRetrievingUserPosts @"Error retrieving user posts %@"
+#define errorRetrievingUserInterestedPosts @"Error retrieving user interested posts %@"
 
 @interface MyProfileViewController () <UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate, UITabBarDelegate>
 
@@ -71,6 +72,15 @@
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+	[super viewWillAppear:animated];
+
+	if (![User currentUser]) {
+		return;
+	}
 
 	// myPosts query
 	self.myPostsQuery = [PFQuery queryWithClassName:[Post parseClassName]];
@@ -83,22 +93,40 @@
 	// include user in the query
 	[self.myPostsQuery includeKey:@"user"];
 
+	// myInterestedPosts query
+	self.myInterestedPostsQuery = [PFQuery queryWithClassName:[Post parseClassName]];
+	// get the posts that current user is interested in
+//	[self.myInterestedPostsQuery whereKey:@"intrested" equalTo:[User currentUser]];
+//	[self.myInterestedPostsQuery whereKey:@"intrested" containsAllObjectsInArray:@[[User currentUser]]];
+
+//	self.myInterestedPostsQuery
+	// get the unresolved posts
+	[self.myInterestedPostsQuery whereKey:@"resolved" equalTo:[NSNumber numberWithBool:NO]];
+	// order them by date
+	[self.myInterestedPostsQuery orderByDescending:@"createdAt"];
+	// include user in the query
+	[self.myInterestedPostsQuery includeKey:@"user"];
 
 
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-	[super viewWillAppear:animated];
 	// select my posts table view
 	self.postsTabBar.selectedItem = self.postsTabBar.items[0];
-	[self queryMyPosts];
+
+	if (self.myPosts.count == 0) {
+		[self queryMyPosts];
+	}
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
 	[super viewWillDisappear:animated];
 
+	[self cancelQueries];
+
+	self.myPosts = nil;
+	self.myInterestedPosts = nil;
+
+	[self.myPostsTableView reloadData];
+	[self.myInterestedPostsTableView reloadData];
 }
 
 - (void)queryMyPosts
@@ -121,6 +149,30 @@
 		} else {
 			NSLog(@"Unable to retrieve user posts %@ %@", error, error.localizedDescription);
 			[Utils showAlertViewWithMessage: [NSString stringWithFormat:errorRetrievingUserPosts, error.localizedDescription]];
+		}
+	}];
+}
+
+- (void)queryMyInterestedPosts
+{
+	[self cancelQueries];
+	[Utils hideSpinner];
+
+	[Utils showSpinnerOnView:self.view withCenter:self.view.center ignoreInteractionEvents:NO];
+
+	[self.myInterestedPostsQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+		[Utils hideSpinner];
+		if (!error) {
+			self.myInterestedPosts = objects;
+			if (self.myInterestedPosts.count > 0) {
+				[self.myInterestedPostsTableView reloadData];
+			}
+//			else {
+//				[Utils showAlertViewWithMessage:errorNoPostsNearbyMessage];
+//			}
+		} else {
+			NSLog(@"Unable to retrieve user interested posts %@ %@", error, error.localizedDescription);
+			[Utils showAlertViewWithMessage: [NSString stringWithFormat:errorRetrievingUserInterestedPosts, error.localizedDescription]];
 		}
 	}];
 }
@@ -155,6 +207,11 @@
 		// TODO: show my interested posts tableview
 		self.myPostsTableView.hidden = YES;
 		self.myInterestedPostsTableView.hidden = NO;
+
+		// query my interested posts only if there are no posts on self.myInterestedPosts
+		if (self.myInterestedPosts.count == 0) {
+			[self queryMyInterestedPosts];
+		}
 	}
 }
 
@@ -187,14 +244,16 @@
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-		UIAlertView *alertView = [Utils showAlertViewWithMessage:postDeletionConfirmationMessage
-														   title:nil
-													buttonTitles:@[@"Cancel", @"OK"]
-														delegate:self];
-		alertView.tag = postDeletionAlertViewTag;
-		alertView.cancelButtonIndex = 0;
-    }
+	if ([tableView isEqual: self.myPostsTableView]) {
+		if (editingStyle == UITableViewCellEditingStyleDelete) {
+			UIAlertView *alertView = [Utils showAlertViewWithMessage:postDeletionConfirmationMessage
+															   title:nil
+														buttonTitles:@[@"Cancel", @"OK"]
+															delegate:self];
+			alertView.tag = postDeletionAlertViewTag;
+			alertView.cancelButtonIndex = 0;
+		}
+	}
 }
 
 
@@ -251,8 +310,8 @@
 	}
 	// my interested posts tableView is active
 	else if ([selectedItem isEqual:self.postsTabBar.items[tabBarItemMyInterestedPostsIndex]]) {
+		[self queryMyInterestedPosts];
 	}
-
 }
 
 #pragma mark - Helper methods
