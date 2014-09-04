@@ -42,6 +42,8 @@
 
 @property (strong, nonatomic) NSArray *interestedArray;
 
+@property (weak, nonatomic) IBOutlet UILabel *ownerEmail;
+
 @end
 
 @implementation PostDetailsViewController
