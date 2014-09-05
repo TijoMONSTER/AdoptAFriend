@@ -46,7 +46,6 @@
 
 	// user location
 	self.locationManager = [CLLocationManager new];
-	self.locationManager.delegate = self;
 	// should set desired accuracy ?
 
 	// The className to query on
@@ -70,6 +69,8 @@
 {
 	[super viewWillAppear:animated];
 
+	self.locationManager.delegate = self;
+
 	if ([self checkLocationServicesTurnedOn] && [self checkApplicationHasLocationServicesPermission]) {
 		[self startUpdatingLocation];
 	}
@@ -77,6 +78,8 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
+	self.locationManager.delegate = nil;
+
 	[super viewWillDisappear:animated];
 	[self stopUpdatingLocation];
 }
