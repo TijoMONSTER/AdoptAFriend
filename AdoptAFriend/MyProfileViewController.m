@@ -96,17 +96,13 @@
 	// myInterestedPosts query
 	self.myInterestedPostsQuery = [PFQuery queryWithClassName:[Post parseClassName]];
 	// get the posts that current user is interested in
-//	[self.myInterestedPostsQuery whereKey:@"intrested" equalTo:[User currentUser]];
-//	[self.myInterestedPostsQuery whereKey:@"intrested" containsAllObjectsInArray:@[[User currentUser]]];
-
-//	self.myInterestedPostsQuery
+	[self.myInterestedPostsQuery whereKey:@"intrested" equalTo:[User currentUser]];
 	// get the unresolved posts
 	[self.myInterestedPostsQuery whereKey:@"resolved" equalTo:[NSNumber numberWithBool:NO]];
 	// order them by date
 	[self.myInterestedPostsQuery orderByDescending:@"createdAt"];
 	// include user in the query
 	[self.myInterestedPostsQuery includeKey:@"user"];
-
 
 	// select my posts table view
 	self.postsTabBar.selectedItem = self.postsTabBar.items[0];
