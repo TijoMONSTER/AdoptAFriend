@@ -103,17 +103,23 @@
 
 	// description
 	self.descriptionTextView.text = self.post.descriptionText;
-    PFRelation *relation = [self.post relationForKey:@"intrested"];
-    PFQuery *query = [relation query];
-    [query whereKey:@"username" equalTo:[User currentUser].username];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            if (objects.count != 0) {
-                self.interestedArray = objects;
-                self.interestedButton.titleLabel.text = @"Not interested";
+
+    if ([self.post.user.username isEqual:[User currentUser].username]) {
+        self.interestedButton.hidden = YES;
+    } else {
+        PFRelation *relation = [self.post relationForKey:@"intrested"];
+        PFQuery *query = [relation query];
+        [query whereKey:@"username" equalTo:[User currentUser].username];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            if (!error) {
+                if (objects.count != 0) {
+                    self.interestedArray = objects;
+                    self.ownerEmail.text = self.post.user.email;
+                    self.interestedButton.titleLabel.text = @"Not interested";
+                }
             }
-        }
-    }];
+        }];
+    }
 }
 
 - (void)viewDidLayoutSubviews
