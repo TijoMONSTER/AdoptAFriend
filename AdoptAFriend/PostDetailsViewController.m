@@ -106,6 +106,7 @@
 
     if ([self.post.user.username isEqualToString:[User currentUser].username]) {
         self.interestedButton.hidden = YES;
+		self.ownerEmailTextView.hidden = YES;
     } else {
         PFRelation *relation = [self.post relationForKey:@"intrested"];
         PFQuery *query = [relation query];
@@ -115,8 +116,11 @@
                 if (objects.count != 0) {
                     self.interestedArray = objects;
                     self.ownerEmailTextView.text = self.post.user.email;
+					self.ownerEmailTextView.hidden = NO;
                     self.interestedButton.titleLabel.text = @"Not interested";
-                }
+                } else {
+					self.ownerEmailTextView.hidden = YES;
+				}
             }
         }];
     }
