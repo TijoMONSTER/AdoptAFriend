@@ -44,6 +44,8 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *ownerEmail;
 
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+
 @end
 
 @implementation PostDetailsViewController
@@ -112,6 +114,12 @@
             }
         }
     }];
+}
+
+- (void)viewDidLayoutSubviews
+{
+	[super viewDidLayoutSubviews];
+	self.scrollView.contentSize = CGSizeMake(320, 430);
 }
 
 #pragma mark - Actions
