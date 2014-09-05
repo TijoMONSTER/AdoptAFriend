@@ -46,6 +46,8 @@
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
+@property BOOL isShowingFullscreenMap;
+
 @end
 
 @implementation PostDetailsViewController
@@ -124,6 +126,8 @@
             }
         }];
     }
+
+	self.isShowingFullscreenMap = NO;
 }
 
 - (void)viewDidLayoutSubviews
@@ -148,7 +152,9 @@
 					animations:^{
 						self.fullscreenMapView.hidden = YES;
 					}
-					completion:nil];
+					completion:^(BOOL finished) {
+						self.isShowingFullscreenMap = NO;
+					}];
 }
 
 #pragma mark - MKMapView delegate
@@ -208,31 +214,35 @@
 
 - (IBAction)onPreviewMapTapped:(UITapGestureRecognizer *)sender
 {
-	// remove back button and title
-	self.navigationItem.hidesBackButton = YES;
-	self.navigationItem.title = nil;
+	// don't let the user tap the preview map more than once
+	if (!self.isShowingFullscreenMap) {
+		self.isShowingFullscreenMap = YES;
+		// remove back button and title
+		self.navigationItem.hidesBackButton = YES;
+		self.navigationItem.title = nil;
 
-	// flip transition
-	[UIView transitionWithView:self.fullscreenMapView
-					  duration:flipAnimationDuration
-					   options:UIViewAnimationOptionTransitionFlipFromLeft
-					animations:^{
-						self.fullscreenMapView.hidden = NO;
-					}
-					completion:^(BOOL finished) {
-						// add done button
-						self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done"
-																								  style:UIBarButtonItemStyleDone
-																								 target:self
-																								 action:@selector(onMapViewDoneButtonTapped:)];
+		// flip transition
+		[UIView transitionWithView:self.fullscreenMapView
+						  duration:flipAnimationDuration
+						   options:UIViewAnimationOptionTransitionFlipFromLeft
+						animations:^{
+							self.fullscreenMapView.hidden = NO;
+						}
+						completion:^(BOOL finished) {
+							// add done button
+							self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done"
+																									  style:UIBarButtonItemStyleDone
+																									 target:self
+																									 action:@selector(onMapViewDoneButtonTapped:)];
 
-						// zoom map
-						MKCoordinateRegion mapRegion;
-						mapRegion.center = CLLocationCoordinate2DMake(self.post.location.latitude, self.post.location.longitude);
-						mapRegion.span.latitudeDelta = 0.008;
-						mapRegion.span.longitudeDelta = 0.008;
-						[self.fullscreenMapView setRegion:mapRegion animated:YES];
-					}];
+							// zoom map
+							MKCoordinateRegion mapRegion;
+							mapRegion.center = CLLocationCoordinate2DMake(self.post.location.latitude, self.post.location.longitude);
+							mapRegion.span.latitudeDelta = 0.008;
+							mapRegion.span.longitudeDelta = 0.008;
+							[self.fullscreenMapView setRegion:mapRegion animated:YES];
+						}];
+	}
 }
 
 #pragma mark - Navigation
