@@ -143,13 +143,6 @@
                                             <outletCollection property="gestureRecognizers" destination="KEe-C9-Gsb" appends="YES" id="DAQ-8g-qFq"/>
                                         </connections>
                                     </mapView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WGo-zK-oBp" userLabel="Email - Label">
-                                        <rect key="frame" x="20" y="361" width="280" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="88r-Vw-p9q">
                                         <rect key="frame" x="20" y="390" width="280" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -160,6 +153,14 @@
                                             <action selector="onInterestedButtonTapped:" destination="wux-b2-hfV" eventType="touchUpInside" id="0NT-ah-Wb8"/>
                                         </connections>
                                     </button>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="rwZ-Ek-qhb">
+                                        <rect key="frame" x="20" y="361" width="280" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <dataDetectorType key="dataDetectorTypes" link="YES" address="YES"/>
+                                    </textView>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -171,7 +172,7 @@
                         <outlet property="firstImageView" destination="Ox5-9Z-tDu" id="Y2i-VL-T4y"/>
                         <outlet property="fullscreenMapView" destination="aB9-MZ-icb" id="1No-sO-7NF"/>
                         <outlet property="interestedButton" destination="88r-Vw-p9q" id="BbX-qi-91X"/>
-                        <outlet property="ownerEmail" destination="WGo-zK-oBp" id="V2t-QH-mAX"/>
+                        <outlet property="ownerEmailTextView" destination="rwZ-Ek-qhb" id="1T6-pl-Pvr"/>
                         <outlet property="previewMapView" destination="Iyp-Eb-cp2" id="JXb-SX-FNv"/>
                         <outlet property="scrollView" destination="dSp-GT-dJE" id="kdn-7d-wNM"/>
                         <outlet property="secondImageView" destination="pJ5-Ca-8wC" id="9tU-bc-ITx"/>

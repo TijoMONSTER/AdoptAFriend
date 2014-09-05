@@ -42,7 +42,7 @@
 
 @property (strong, nonatomic) NSArray *interestedArray;
 
-@property (weak, nonatomic) IBOutlet UILabel *ownerEmail;
+@property (weak, nonatomic) IBOutlet UITextView *ownerEmailTextView;
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
@@ -114,7 +114,7 @@
             if (!error) {
                 if (objects.count != 0) {
                     self.interestedArray = objects;
-                    self.ownerEmail.text = self.post.user.email;
+                    self.ownerEmailTextView.text = self.post.user.email;
                     self.interestedButton.titleLabel.text = @"Not interested";
                 }
             }
