@@ -104,7 +104,7 @@
 	// description
 	self.descriptionTextView.text = self.post.descriptionText;
 
-    if ([self.post.user.username isEqual:[User currentUser].username]) {
+    if ([self.post.user.username isEqualToString:[User currentUser].username]) {
         self.interestedButton.hidden = YES;
     } else {
         PFRelation *relation = [self.post relationForKey:@"intrested"];
