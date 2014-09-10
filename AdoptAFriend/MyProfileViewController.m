@@ -184,6 +184,11 @@
 	}
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSLog(@"Preparing for segue %@", segue.destinationViewController);
+}
+
 #pragma mark - UITabBar delegate
 
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item

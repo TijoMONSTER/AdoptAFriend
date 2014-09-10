@@ -288,7 +288,43 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z0r-ho-hUp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1115" y="2566"/>
+            <point key="canvasLocation" x="1133" y="2678"/>
+        </scene>
+        <!--My Posts View Controller - Interested people-->
+        <scene sceneID="IDF-0L-PHI">
+            <objects>
+                <viewController id="I3K-dJ-s6D" customClass="MyPostsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Qcd-s2-FNp"/>
+                        <viewControllerLayoutGuide type="bottom" id="IFJ-9c-F55"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oAF-kg-jt2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HLl-f8-A8z">
+                                <rect key="frame" x="0.0" y="64" width="320" height="49"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <tabBarItem title="Give in adoption" image="dog_house-50" id="Tu8-i2-Nxd"/>
+                                    <tabBarItem title="Delete post" image="trash2-50" id="lOZ-Hy-B5l"/>
+                                </items>
+                                <connections>
+                                    <outlet property="delegate" destination="I3K-dJ-s6D" id="WYR-g4-dut"/>
+                                </connections>
+                            </tabBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Interested people" id="m6m-aD-wih"/>
+                    <connections>
+                        <outlet property="postOptionsTabBar" destination="HLl-f8-A8z" id="DXd-Lk-6Es"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h3w-b9-BAE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1673" y="1817"/>
         </scene>
         <!--Signup View Controller - Sign up-->
         <scene sceneID="mKi-jG-mpa">
@@ -379,7 +415,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gf8-O5-EWz" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="cFU-RO-69E" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1649" y="2256"/>
+            <point key="canvasLocation" x="1673" y="2420"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hHY-I9-QCH">
@@ -397,7 +433,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KV0-Ed-Jnt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="613" y="2580"/>
+            <point key="canvasLocation" x="613" y="2692"/>
         </scene>
         <!--Login View Controller - Log in-->
         <scene sceneID="Efd-EH-xrC">
@@ -452,7 +488,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kXf-Ca-WAv" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="rTI-9Y-xxz" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1649" y="2903"/>
+            <point key="canvasLocation" x="1673" y="3067"/>
         </scene>
         <!--Add Post View Controller - Add-->
         <scene sceneID="AzV-p3-ym5">
@@ -729,48 +765,6 @@
                                     <outlet property="delegate" destination="ZaA-hf-ZGw" id="ROH-9g-e2Q"/>
                                 </connections>
                             </tabBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="zR5-5o-TMB" userLabel="My Posts Table View">
-                                <rect key="frame" x="0.0" y="114" width="320" height="318"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="100" id="HF7-Gm-Lo9" customClass="FeedTableViewCell">
-                                        <rect key="frame" x="0.0" y="22" width="320" height="100"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HF7-Gm-Lo9" id="ijP-qR-g2w">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CVM-Sh-O88" customClass="PFImageView">
-                                                    <rect key="frame" x="5" y="5" width="90" height="90"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                </imageView>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uy7-sm-KBc">
-                                                    <rect key="frame" x="103" y="5" width="184" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Short description" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="184" translatesAutoresizingMaskIntoConstraints="NO" id="6dN-Ip-Wlz">
-                                                    <rect key="frame" x="103" y="34" width="184" height="61"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="descriptionLabel" destination="6dN-Ip-Wlz" id="IU6-vw-HJe"/>
-                                            <outlet property="mainImageView" destination="CVM-Sh-O88" id="Mtr-nU-KJp"/>
-                                            <outlet property="usernameLabel" destination="uy7-sm-KBc" id="bLN-Fq-Dci"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="ZaA-hf-ZGw" id="3Q9-Qg-Y24"/>
-                                    <outlet property="delegate" destination="ZaA-hf-ZGw" id="1HS-2H-Gqr"/>
-                                </connections>
-                            </tableView>
                             <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Sgr-oI-OAu" userLabel="My Interested Posts Table View">
                                 <rect key="frame" x="0.0" y="114" width="320" height="318"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -813,6 +807,49 @@
                                     <outlet property="delegate" destination="ZaA-hf-ZGw" id="xwW-Lj-yYa"/>
                                 </connections>
                             </tableView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="zR5-5o-TMB" userLabel="My Posts Table View">
+                                <rect key="frame" x="0.0" y="114" width="320" height="318"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="100" id="HF7-Gm-Lo9" customClass="FeedTableViewCell">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HF7-Gm-Lo9" id="ijP-qR-g2w">
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="99"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CVM-Sh-O88" customClass="PFImageView">
+                                                    <rect key="frame" x="5" y="5" width="57" height="90"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uy7-sm-KBc">
+                                                    <rect key="frame" x="103" y="5" width="184" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Short description" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="184" translatesAutoresizingMaskIntoConstraints="NO" id="6dN-Ip-Wlz">
+                                                    <rect key="frame" x="103" y="34" width="184" height="61"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="descriptionLabel" destination="6dN-Ip-Wlz" id="IU6-vw-HJe"/>
+                                            <outlet property="mainImageView" destination="CVM-Sh-O88" id="Mtr-nU-KJp"/>
+                                            <outlet property="usernameLabel" destination="uy7-sm-KBc" id="bLN-Fq-Dci"/>
+                                            <segue destination="I3K-dJ-s6D" kind="push" identifier="showPostOptionsSegue" id="lMy-XU-Zfj"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="ZaA-hf-ZGw" id="3Q9-Qg-Y24"/>
+                                    <outlet property="delegate" destination="ZaA-hf-ZGw" id="1HS-2H-Gqr"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -842,11 +879,13 @@
     <resources>
         <image name="add-75" width="37" height="37"/>
         <image name="dog-256" width="128" height="128"/>
+        <image name="dog_house-50" width="25" height="25"/>
         <image name="feed-75" width="37" height="37"/>
         <image name="map-75" width="37" height="37"/>
         <image name="profile-75" width="37" height="37"/>
         <image name="settings-50" width="25" height="25"/>
         <image name="star-75" width="37" height="37"/>
+        <image name="trash2-50" width="25" height="25"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

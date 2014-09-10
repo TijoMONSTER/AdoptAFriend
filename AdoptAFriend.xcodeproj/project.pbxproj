@@ -56,6 +56,7 @@
 		2CDD5C3B19AD395700E3B8FF /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDD5C3A19AD395700E3B8FF /* User.m */; };
 		2CDD5C3F19AE416500E3B8FF /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDD5C3E19AE416500E3B8FF /* Utils.m */; };
 		2CDD5C4219AE787D00E3B8FF /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDD5C4119AE787D00E3B8FF /* Post.m */; };
+		F90B72A519BFF5E700656729 /* MyPostsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F90B72A419BFF5E700656729 /* MyPostsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -143,6 +144,8 @@
 		2CDD5C3E19AE416500E3B8FF /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		2CDD5C4019AE787D00E3B8FF /* Post.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
 		2CDD5C4119AE787D00E3B8FF /* Post.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
+		F90B72A319BFF5E700656729 /* MyPostsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPostsViewController.h; sourceTree = "<group>"; };
+		F90B72A419BFF5E700656729 /* MyPostsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPostsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -339,6 +342,8 @@
 			children = (
 				2CDD5C0B19ACFC2A00E3B8FF /* MyProfileViewController.h */,
 				2CDD5C0C19ACFC2A00E3B8FF /* MyProfileViewController.m */,
+				F90B72A319BFF5E700656729 /* MyPostsViewController.h */,
+				F90B72A419BFF5E700656729 /* MyPostsViewController.m */,
 			);
 			name = "My posts";
 			sourceTree = "<group>";
@@ -488,6 +493,7 @@
 				2CDD5C3F19AE416500E3B8FF /* Utils.m in Sources */,
 				2CDD5BDD19AB9CE100E3B8FF /* TPKeyboardAvoidingCollectionView.m in Sources */,
 				2CDD5BF519ABE12B00E3B8FF /* FeedViewController.m in Sources */,
+				F90B72A519BFF5E700656729 /* MyPostsViewController.m in Sources */,
 				2CDD5C0A19ACECCA00E3B8FF /* AddPostLocationViewController.m in Sources */,
 				2CDD5C0119ACDE7C00E3B8FF /* FullscreenImagesViewController.m in Sources */,
 				2CDD5C1619AD20A300E3B8FF /* LoginViewController.m in Sources */,
