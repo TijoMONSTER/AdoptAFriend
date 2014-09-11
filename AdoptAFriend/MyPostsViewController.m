@@ -70,11 +70,11 @@
         [Utils showSpinnerOnView:self.view withCenter:self.view.center ignoreInteractionEvents:YES];
         self.post.resolved = YES;
         self.post.adopter = [self.interestedUsers objectAtIndex:[self.interestedUsersPicker selectedRowInComponent:0]];
-        self.post.descriptionText = self.adoptionCommentsTextView.text;
+        self.post.resolutionText = self.adoptionCommentsTextView.text;
         [self.post saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-            NSLog(@"Post saved");
             [Utils hideSpinner];
-            
+            [Utils showAlertViewWithMessage:@"Thank you so much for being part of this noble cause!!!"];
+            [self.navigationController popViewControllerAnimated:YES];
         }];
     } else {
         [Utils showAlertViewWithMessage:@"Please give us a comment"];
@@ -88,10 +88,10 @@
     if ([self.deletionCommentsTextView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length != 0) {
         [Utils showSpinnerOnView:self.view withCenter:self.view.center ignoreInteractionEvents:YES];
         self.post.resolved = YES;
-        self.post.descriptionText = self.deletionCommentsTextView.text;
+        self.post.resolutionText = self.deletionCommentsTextView.text;
         [self.post saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-            NSLog(@"Post deleted");
             [Utils hideSpinner];
+            [self.navigationController popViewControllerAnimated:YES];
         }];
     } else {
         [Utils showAlertViewWithMessage:@"Please give us a comment"];
