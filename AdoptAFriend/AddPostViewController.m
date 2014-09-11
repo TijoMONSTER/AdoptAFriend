@@ -215,15 +215,6 @@
 	[self performSegueWithIdentifier:showMapScreenSegue sender:nil];
 }
 
-#pragma mark - Navigation
-
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-//{
-//	if ([segue.identifier isEqualToString:showMapScreenSegue]) {
-//		AddPostLocationViewController *addPostLocationVC = (AddPostLocationViewController *)segue.destinationViewController;
-//	}
-//}
-
 #pragma mark - MKMapViewDelegate
 
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {

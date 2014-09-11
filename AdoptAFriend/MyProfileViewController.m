@@ -187,9 +187,10 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSLog(@"Preparing for segue %@", segue.destinationViewController);
-    MyPostsViewController *pvc = segue.destinationViewController;
-    pvc.post = [self.myPosts objectAtIndex:[self.myPostsTableView indexPathForSelectedRow].row];
+    if ([segue.identifier isEqualToString:@"showPostOptionsSegue"]) {
+        MyPostsViewController *pvc = segue.destinationViewController;
+        pvc.post = [self.myPosts objectAtIndex:[self.myPostsTableView indexPathForSelectedRow].row];
+    }
 }
 
 #pragma mark - UITabBar delegate
