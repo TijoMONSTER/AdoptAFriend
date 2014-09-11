@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface MyPostsViewController : UIViewController
-
+@property Post *post;
 @end

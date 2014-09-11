@@ -8,31 +8,35 @@
 
 #import "MyPostsViewController.h"
 
-@interface MyPostsViewController ()
+//Tab bar item indexes
+#define tabBarItemGiveInAdoption 0
+#define tabBarItemDeletePost 1
+
+@interface MyPostsViewController () <UITabBarDelegate>
 @property (weak, nonatomic) IBOutlet UITabBar *postOptionsTabBar;
+@property (weak, nonatomic) IBOutlet UIScrollView *giveInAdoptionScrollView;
+@property (weak, nonatomic) IBOutlet UIScrollView *deletePostScrollView;
+@property (weak, nonatomic) IBOutlet UITextView *textView;
 
 @end
 
 @implementation MyPostsViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
+    self = [super initWithCoder:aDecoder];
     return self;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.deletePostScrollView.hidden = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    self.postOptionsTabBar.selectedItem = self.postOptionsTabBar.items[0];
+    self.postOptionsTabBar.selectedItem = self.postOptionsTabBar.items[tabBarItemGiveInAdoption];
 }
 
 - (void)didReceiveMemoryWarning
@@ -41,15 +45,27 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+#pragma mark - Actions
+- (IBAction)onSubmitButtonPressed:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    NSLog(@"Submit pressed");
 }
-*/
+
+- (IBAction)onDeleteButtonPressed:(id)sender
+{
+    NSLog(@"Delete pressed");
+}
+
+#pragma mark - Navigation
+- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
+{
+    if ([item isEqual:self.postOptionsTabBar.items[tabBarItemDeletePost]]) {
+        self.giveInAdoptionScrollView.hidden = YES;
+        self.deletePostScrollView.hidden = NO;
+    } else {
+        self.deletePostScrollView.hidden = YES;
+        self.giveInAdoptionScrollView.hidden = NO;
+    }
+}
 
 @end
