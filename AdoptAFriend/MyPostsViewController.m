@@ -7,6 +7,7 @@
 //
 
 #import "MyPostsViewController.h"
+#import "Utils.h"
 
 //Tab bar item indexes
 #define tabBarItemGiveInAdoption 0
@@ -64,23 +65,37 @@
 - (IBAction)onSubmitButtonPressed:(id)sender
 {
     NSLog(@"Submit pressed");
-    self.post.resolved = YES;
-    self.post.adopter = [self.interestedUsers objectAtIndex:[self.interestedUsersPicker selectedRowInComponent:1]];
-    self.post.descriptionText = self.adoptionCommentsTextView.text;
-    [self.post saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        NSLog(@"Post saved");
-        
-    }];
+    [self.adoptionCommentsTextView resignFirstResponder];
+    if ([self.adoptionCommentsTextView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length != 0) {
+        [Utils showSpinnerOnView:self.view withCenter:self.view.center ignoreInteractionEvents:YES];
+        self.post.resolved = YES;
+        self.post.adopter = [self.interestedUsers objectAtIndex:[self.interestedUsersPicker selectedRowInComponent:0]];
+        self.post.descriptionText = self.adoptionCommentsTextView.text;
+        [self.post saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            NSLog(@"Post saved");
+            [Utils hideSpinner];
+            
+        }];
+    } else {
+        [Utils showAlertViewWithMessage:@"Please give us a comment"];
+    }
 }
 
 - (IBAction)onDeleteButtonPressed:(id)sender
 {
     NSLog(@"Delete pressed");
-    self.post.resolved = YES;
-    self.post.descriptionText = self.deletionCommentsTextView.text;
-    [self.post saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        NSLog(@"Post deleted");
-    }];
+    [self.deletionCommentsTextView resignFirstResponder];
+    if ([self.deletionCommentsTextView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length != 0) {
+        [Utils showSpinnerOnView:self.view withCenter:self.view.center ignoreInteractionEvents:YES];
+        self.post.resolved = YES;
+        self.post.descriptionText = self.deletionCommentsTextView.text;
+        [self.post saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            NSLog(@"Post deleted");
+            [Utils hideSpinner];
+        }];
+    } else {
+        [Utils showAlertViewWithMessage:@"Please give us a comment"];
+    }
 }
 
 //#pragma mark - UIPickerViewDataSource
