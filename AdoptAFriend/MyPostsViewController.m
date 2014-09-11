@@ -16,9 +16,11 @@
 @property (weak, nonatomic) IBOutlet UITabBar *postOptionsTabBar;
 @property (weak, nonatomic) IBOutlet UIScrollView *giveInAdoptionScrollView;
 @property (weak, nonatomic) IBOutlet UIScrollView *deletePostScrollView;
-@property (weak, nonatomic) IBOutlet UITextView *textView;
+@property (weak, nonatomic) IBOutlet UITextView *deletionCommentsTextView;
+@property (weak, nonatomic) IBOutlet UITextView *adoptionCommentsTextView;
 @property (weak, nonatomic) IBOutlet UIPickerView *interestedUsersPicker;
 @property NSArray *interestedUsers;
+@property (weak, nonatomic) IBOutlet UIButton *submitButton;
 
 @end
 
@@ -35,6 +37,7 @@
     [super viewDidLoad];
     self.interestedUsers = [NSArray array];
     self.deletePostScrollView.hidden = YES;
+    self.submitButton.hidden = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -43,8 +46,9 @@
     PFRelation *relation = [self.post relationForKey:@"intrested"];
     PFQuery *query = [relation query];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
+        if (!error && objects.count > 0) {
             self.interestedUsers = objects;
+            self.submitButton.hidden = NO;
             [self.interestedUsersPicker reloadAllComponents];
         }
     }];
@@ -60,11 +64,23 @@
 - (IBAction)onSubmitButtonPressed:(id)sender
 {
     NSLog(@"Submit pressed");
+    self.post.resolved = YES;
+    self.post.adopter = [self.interestedUsers objectAtIndex:[self.interestedUsersPicker selectedRowInComponent:1]];
+    self.post.descriptionText = self.adoptionCommentsTextView.text;
+    [self.post saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        NSLog(@"Post saved");
+        
+    }];
 }
 
 - (IBAction)onDeleteButtonPressed:(id)sender
 {
     NSLog(@"Delete pressed");
+    self.post.resolved = YES;
+    self.post.descriptionText = self.deletionCommentsTextView.text;
+    [self.post saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        NSLog(@"Post deleted");
+    }];
 }
 
 //#pragma mark - UIPickerViewDataSource
