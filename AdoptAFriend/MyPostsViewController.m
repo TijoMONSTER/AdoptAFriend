@@ -39,6 +39,13 @@
     self.interestedUsers = [NSArray array];
     self.deletePostScrollView.hidden = YES;
     self.submitButton.hidden = YES;
+    self.giveInAdoptionScrollView.scrollEnabled = YES;
+    CGFloat scrollViewHeight = 0.0f;
+    for (UIView* view in self.giveInAdoptionScrollView.subviews)
+    {
+        scrollViewHeight += view.frame.size.height;
+    }
+    [self.giveInAdoptionScrollView setContentSize:(CGSizeMake(320, 390))];
 }
 
 - (void)viewWillAppear:(BOOL)animated
