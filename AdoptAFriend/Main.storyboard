@@ -354,7 +354,7 @@
                                 <rect key="frame" x="-20" y="113" width="360" height="317"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HzD-5d-DGq">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HzD-5d-DGq">
                                         <rect key="frame" x="20" y="0.0" width="320" height="380"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
@@ -392,8 +392,18 @@
                                             </textView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="320" id="03K-Eu-4xp"/>
+                                            <constraint firstAttribute="height" constant="380" id="moX-W8-c3J"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="HzD-5d-DGq" firstAttribute="top" secondItem="9Ft-GQ-gZz" secondAttribute="top" id="59e-NX-IAJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="HzD-5d-DGq" secondAttribute="trailing" constant="20" id="FIQ-Ck-Wq2"/>
+                                    <constraint firstAttribute="bottom" secondItem="HzD-5d-DGq" secondAttribute="bottom" id="ozk-As-Bbx"/>
+                                    <constraint firstItem="HzD-5d-DGq" firstAttribute="leading" secondItem="9Ft-GQ-gZz" secondAttribute="leading" constant="20" id="zRl-IM-dTl"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="delegate" destination="I3K-dJ-s6D" id="74A-7e-Isb"/>
                                 </connections>
